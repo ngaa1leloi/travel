@@ -30,15 +30,15 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="components-blog-posts.html">
+        <a class="nav-link " href="{{ route('index_tour') }}">
           <i class="material-icons">vertical_split</i>
-          <span>Blog Posts</span>
+          <span>Tours</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="add-new-post.html">
+        <a class="nav-link " href="{{ route('index_news') }}">
           <i class="material-icons">note_add</i>
-          <span>Add New Post</span>
+          <span>News</span>
         </a>
       </li>
       <li class="nav-item">

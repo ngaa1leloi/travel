@@ -41,4 +41,37 @@ class TourController extends Controller
         
         return redirect('admin/tour/create')->with('message', __('message.add'));
     }
+
+    public function edit($id) {
+        $tour = Tour::findOrFail($id);
+        $categories = Category::all();
+
+        return view('page_admin.tour.edit', compact('tour', 'categories'));
+    }
+
+    public function update(Request $request, $id) {
+        $tour = Tour::findOrFail($id);
+
+        $tour->name_vi = $request->name_vi;
+        $tour->name_en = $request->name_en;
+        $tour->process_en = $request->process_en;
+        $tour->process_vi = $request->process_vi;
+        $tour->departure_vi = $request->departure_vi;
+        $tour->departure_en = $request->departure_en;
+        $tour->price = $request->price;
+        $tour->quantity_person = $request->quantity_person;
+        $tour->time = $request->time;
+        $tour->date = $request->date;
+        $tour->category_id = $request->category;
+
+        if ($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $file->move(config('image.ssource'), $file->getClientOriginalName());
+            $tour->image = $file->getClientOriginalName();
+        }
+        $tour->update();
+
+        return redirect('admin/tour/index')->with('message', __('message.edit'));
+    }
 }

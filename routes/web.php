@@ -28,7 +28,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('edit/{id}', 'TourController@edit')->name('edit_tour');
         Route::post('update/{id}', 'TourController@update')->name('update_tour');
 
-        Route::get('delete/{id}', 'TourController@getDelete')->name('delete_tour');
+        Route::get('delete/{id}', 'TourController@delete')->name('delete_tour');
+    });
+
+    Route::prefix('news')->group(function() {
+        Route::get('index', 'NewsController@index')->name('index_news');
+
+        Route::get('create', 'NewsController@create')->name('create_news');
+        Route::post('store', 'NewsController@store')->name('store_news');
+
+        Route::get('edit/{id}', 'NewsController@edit')->name('edit_news');
+        Route::post('update/{id}', 'NewsController@update')->name('update_news');
+
+        Route::get('delete/{id}', 'NewsController@delete')->name('delete_news');
     });
 
     Route::prefix('category')->group(function() {
