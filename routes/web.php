@@ -43,6 +43,30 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('delete/{id}', 'NewsController@delete')->name('delete_news');
     });
 
+    Route::prefix('place')->group(function() {
+        Route::get('index', 'PlaceController@index')->name('index_place');
+
+        Route::get('create', 'PlaceController@create')->name('create_place');
+        Route::post('store', 'PlaceController@store')->name('store_place');
+
+        Route::get('edit/{id}', 'PlaceController@edit')->name('edit_place');
+        Route::post('update/{id}', 'PlaceController@update')->name('update_place');
+
+        Route::get('delete/{id}', 'PlaceController@delete')->name('delete_place');
+    });
+
+    Route::prefix('scenic')->group(function() {
+        Route::get('index', 'ScenicController@index')->name('index_scenic');
+
+        Route::get('create', 'ScenicController@create')->name('create_scenic');
+        Route::post('store', 'ScenicController@store')->name('store_scenic');
+
+        Route::get('edit/{id}', 'ScenicController@edit')->name('edit_scenic');
+        Route::post('update/{id}', 'ScenicController@update')->name('update_scenic');
+
+        Route::get('delete/{id}', 'ScenicController@delete')->name('delete_scenic');
+    });
+
     Route::prefix('category')->group(function() {
         Route::get('list', 'CategoryController@getList')->name('getListCategory');
 

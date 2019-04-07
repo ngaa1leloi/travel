@@ -38,19 +38,19 @@
       <li class="nav-item">
         <a class="nav-link " href="{{ route('index_news') }}">
           <i class="material-icons">note_add</i>
-          <span>News</span>
+          <span>News &amp; Posts</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="form-components.html">
+        <a class="nav-link " href="{{ route('index_place') }}">
           <i class="material-icons">view_module</i>
-          <span>Forms &amp; Components</span>
+          <span>Places</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="tables.html">
+        <a class="nav-link " href="{{ route('index_scenic') }}">
           <i class="material-icons">table_chart</i>
-          <span>Tables</span>
+          <span>Scenics</span>
         </a>
       </li>
       <li class="nav-item">

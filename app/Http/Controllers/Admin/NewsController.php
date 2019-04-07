@@ -44,7 +44,7 @@ class NewsController extends Controller
         	]);
 		}
 
-		return redirect('admin/news/create')->with('message', __('message.add'));
+		return redirect('admin/news/index')->with('message', __('message.add'));
     }
 
     public function edit($id) {

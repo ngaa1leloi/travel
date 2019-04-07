@@ -13,5 +13,11 @@ class Scenic extends Model
     	'description_en',
     	'place_id',
     	'image',
+    	'slug',
     ];
+
+    public function place()
+    {
+        return $this->belongsTo(Place::class);
+    }
 }
