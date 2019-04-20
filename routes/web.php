@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'AdminController@index');
@@ -66,6 +64,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
         Route::get('delete/{id}', 'ScenicController@delete')->name('delete_scenic');
     });
+
+    Route::prefix('hotel')->group(function() {
+        Route::get('index', 'HotelController@index')->name('index_hotel');
+
+        Route::get('create', 'HotelController@create')->name('create_hotel');
+        Route::post('store', 'HotelController@store')->name('store_hotel');
+
+        Route::get('edit/{id}', 'HotelController@edit')->name('edit_hotel');
+        Route::post('update/{id}', 'HotelController@update')->name('update_hotel');
+
+        Route::get('delete/{id}', 'HotelController@delete')->name('delete_hotel');
+    });
+
 
     Route::prefix('category')->group(function() {
         Route::get('list', 'CategoryController@getList')->name('getListCategory');

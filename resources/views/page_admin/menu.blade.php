@@ -54,6 +54,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link " href="{{ route('index_hotel') }}">
+          <i class="material-icons">table_chart</i>
+          <span>Hotels</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link " href="user-profile-lite.html">
           <i class="material-icons">person</i>
           <span>User Profile</span>
