@@ -99,7 +99,7 @@
                 @foreach($tours as $tour)
                     <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(resource/images/destination-3.jpg);">
+                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $tour->image }});">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-link"></span>
                                 </div>

@@ -11,7 +11,7 @@
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="{{ route('tours') }}" class="nav-link">Places</a></li>
                 <li class="nav-item"><a href="{{ route('hotels') }}" class="nav-link">Hotels</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="{{ route('news') }}" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
