@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tour;
+use App\Models\Hotel;
+use App\Models\Place;
+use App\Models\Scenic;
+use App\Models\News;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('page_user.home');
+        $tours = Tour::take(4)->get();
+        $hotels = Hotel::take(5)->get();
+        $news = News::take(3)->get();
+
+        //dd($tour);
+        return view('page_user.home', compact('tours', 'hotels', 'news'));
     }
 }

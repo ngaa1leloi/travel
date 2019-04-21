@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('tours', 'TourController@index')->name('tours');
+Route::get('hotels', 'HotelController@index')->name('hotels');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'AdminController@index');

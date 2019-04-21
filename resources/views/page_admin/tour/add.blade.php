@@ -1,7 +1,7 @@
 @extends('page_admin.index')
 @section('content')
 <div class="main-content-container container-fluid px-4">
-    <form action="store" method="POST" enctype="multipart/form-data">
+    <form action="admin/tour/store" method="POST" enctype="multipart/form-data">
         @csrf
     <div class="row">
       <div class="col-sm-12 col-md-6">

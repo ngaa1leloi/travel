@@ -1,30 +1,30 @@
 @extends('page_admin.index')
 @section('content')
 <div class="main-content-container container-fluid px-4">
-    <form action="admin/tour/update/{{ $tour->id }}" method="POST" enctype="multipart/form-data">
+    <form action="admin/hotel/update/{{ $hotel->id }}" method="POST" enctype="multipart/form-data">
         @csrf
-    <div class="row">
+    <div class="row" style="margin-top: 5px">
       <div class="col-sm-12 col-md-6">
-        <strong class="text-muted d-block mb-2">Forms</strong>
+        <strong class="text-muted d-block mb-2" style="font-size: 18px">Hotels</strong>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Tên tua</span>
+                <span class="input-group-text" id="basic-addon1">Tên khách sạn</span>
               </div>
-              <input type="text" class="form-control" value="{{ $tour->name_vi }}" placeholder="Tên tua" aria-label="Username" aria-describedby="basic-addon1" name="name_vi"> </div>
+              <input type="text" class="form-control" placeholder="Tên khách sạn" aria-label="Username" aria-describedby="basic-addon1" value="{{ $hotel->name_vi }}" name="name_vi"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Xuất phát</span>
+                <span class="input-group-text" id="basic-addon1">Địa chỉ</span>
               </div>
-              <input type="text" class="form-control" value="{{ $tour->departure_vi }}" placeholder="Địa điểm xuất phát" aria-label="Username" aria-describedby="basic-addon1" name="departure_vi"> </div>
+              <input type="text" class="form-control" placeholder="Địa chỉ" aria-label="Username" aria-describedby="basic-addon1" name="address_vi" value="{{ $hotel->address_vi }}"> </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
-              <select id="inputState" name="category" class="form-control">
-                @foreach($categories as $cate)
-                    <option value="{{ $cate->id }}" @if ($cate->id == $tour->category_id) selected="selected" @endif>{{ $cate->name }}</option>
+              <select id="inputState" name="scenic" class="form-control">
+                @foreach($scenics as $scenic)
+                    <option value="{{ $scenic->id }}" @if ($scenic->id == $hotel->scenic_id) selected="selected" @endif>{{ $scenic->name_vi }}</option>
                 @endforeach
               </select>
             </div>
@@ -32,65 +32,65 @@
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Giá vé</span>
+                <span class="input-group-text" id="basic-addon1">Số điện thoại</span>
               </div>
-              <input type="text" class="form-control" value="{{ $tour->price }}" placeholder="" name="price"> </div>
+              <input type="text" class="form-control" value="{{ $hotel->phone }}" placeholder="" name="phone"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Hình ảnh</span>
               </div>
-              <input type="file" class="form-control" placeholder="" name="image"></div>
-              <img style="width: 200px" src="{{ config('image.source') }}/{{ $tour->image }}">
+              <input type="file" class="form-control" placeholder="" name="image"> </div>
+              <img style="width: 200px" src="{{ config('image.source') }}/{{ $hotel->image }}">
           </div>
       </div>
       <div class="col-sm-12 col-md-6">
-        <strong class="text-muted d-block mb-2">Forms</strong>
+        <strong class="text-muted d-block mb-2" style="margin-top: 32px"></strong>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Tour name: </span>
+                <span class="input-group-text" id="basic-addon1">Hotel name: </span>
               </div>
-              <input type="text" class="form-control" value="{{ $tour->name_en }}" placeholder="Tên tua" aria-label="Username" aria-describedby="basic-addon1" name="name_en"> </div>
+              <input type="text" class="form-control" placeholder="Hotel name" aria-label="Username" aria-describedby="basic-addon1" name="name_en" value="{{ $hotel->name_en }}"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Departure: </span>
+                <span class="input-group-text" id="basic-addon1">Address: </span>
               </div>
-              <input type="text" class="form-control" value="{{ $tour->departure_en }}" placeholder="Địa điểm xuất phát" aria-label="Username" aria-describedby="basic-addon1" name="departure_en"> </div>
+              <input type="text" class="form-control" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1" name="address_en" value="{{ $hotel->address_en }}"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Date: </span>
+                <span class="input-group-text" id="basic-addon1">Standard: </span>
               </div>
-              <input type="date" class="form-control" value="{{ $tour->date }}" name="date"> </div>
+              <input type="text" class="form-control" name="standard" value="{{ $hotel->standard }}"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Time: </span>
+                <span class="input-group-text" id="basic-addon1">Website: </span>
               </div>
-              <input type="time" class="form-control" value="{{ $tour->time }}" name="time"> </div>
+              <input type="text" class="form-control" name="website" value="{{ $hotel->website }}"> </div>
           </div>
-          <div class="form-group">
+          {{-- <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Số người</span>
               </div>
-              <input type="text" class="form-control" value="{{ $tour->quantity_person }}" placeholder="" name="quantity_person"> </div>
-          </div>
+              <input type="text" class="form-control" placeholder="" name="quantity_person"> </div>
+          </div> --}}
       </div>
     </div>
     <div class="form-group">
-        <label>Lịch trình</label>
-        <textarea name="process_vi" class="form-control" placeholder="lịch trình">{{ $tour->process_vi }}</textarea>
+        <label>Ghi chú</label>
+        <textarea name="note_vi" class="form-control" placeholder="ghi chú">{{ $hotel->note_vi }}</textarea>
     </div>
     <div class="form-group">
-        <label>Process</label>
-        <textarea name="process_en" class="form-control" placeholder="Process">{{ $tour->process_en }}</textarea>
+        <label>Note</label>
+        <textarea name="note_en" class="form-control" placeholder="note">{{ $hotel->note_en }}</textarea>
     </div>
     <button type="submit" class="mb-2 btn btn-primary mr-2">Edit</button>
     </form>

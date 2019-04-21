@@ -67,7 +67,7 @@ class TourController extends Controller
         if ($request->hasFile('image'))
         {
             $file = $request->file('image');
-            $file->move(config('image.ssource'), $file->getClientOriginalName());
+            $file->move(config('image.source'), $file->getClientOriginalName());
             $tour->image = $file->getClientOriginalName();
         }
         $tour->update();

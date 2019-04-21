@@ -7,10 +7,10 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="places.html" class="nav-link">Places</a></li>
-                <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
+                <li class="nav-item"><a href="{{ route('tours') }}" class="nav-link">Places</a></li>
+                <li class="nav-item"><a href="{{ route('hotels') }}" class="nav-link">Hotels</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>

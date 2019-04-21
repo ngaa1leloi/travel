@@ -65,7 +65,7 @@ class HotelController extends Controller
         if ($request->hasFile('image'))
         {
             $file = $request->file('image');
-            $file->move(config('image.ssource'), $file->getClientOriginalName());
+            $file->move(config('image.source'), $file->getClientOriginalName());
             $hotel->image = $file->getClientOriginalName();
         }
         $hotel->update();
