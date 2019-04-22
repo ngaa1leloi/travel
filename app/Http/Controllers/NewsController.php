@@ -14,8 +14,9 @@ class NewsController extends Controller
     }
 
     public function getNewsDetail($id) {
-    	$news = News::find($id);
+    	$news = News::findOrFail($id);
+    	$news_recent = News::orderBy('id', 'ASC')->take(5)->get();
 
-    	return view('page_user.news_detail', compact('news'));
+    	return view('page_user.news_detail', compact('news', 'news_recent'));
     }
 }

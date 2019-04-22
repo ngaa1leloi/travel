@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tour;
+use App\Http\Requests\TourRequest;
 
 class TourController extends Controller
 {
@@ -21,7 +22,7 @@ class TourController extends Controller
     	return view('page_admin.tour.add', compact('categories'));
     }
 
-    public function store(Request $request) {
+    public function store(TourRequest $request) {
     	$file = $request->file('image');
         $file->move('source_admin/images', $file->getClientOriginalName());
         $tour = Tour::create([
