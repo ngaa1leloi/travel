@@ -44,13 +44,13 @@
                       <div class="form-group">
                         <div class="range-slider">
                             <span>
-                                            <input type="number" value="25000" min="0" max="120000"/>   -
-                                            <input type="number" value="50000" min="0" max="120000"/>
-                                          </span>
-                                          <input value="1000" min="0" max="120000" step="500" type="range"/>
-                                          <input value="50000" min="0" max="120000" step="500" type="range"/>
-                                          </svg>
-                                        </div>
+                                <input type="number" value="25000" min="0" max="120000"/>   -
+                                <input type="number" value="50000" min="0" max="120000"/>
+                            </span>
+                            <input value="1000" min="0" max="120000" step="500" type="range"/>
+                            <input value="50000" min="0" max="120000" step="500" type="range"/>
+                            </svg>
+                        </div>
                       </div>
                       <div class="form-group">
                         <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
@@ -91,7 +91,7 @@
                                 <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
                                 </label>
                               </div>
-                            </form>
+                    </form>
                 </div>
           </div><!-- END-->
           <div class="col-lg-9">
@@ -129,7 +129,7 @@
                                 <hr>
                                 <p class="bottom-area d-flex">
                                     <span><i class="icon-map-o"></i> {{ __('departure') }}:{{ $tour->departure_vi }}</span> 
-                                    <span class="ml-auto"><a href="#">Discover</a></span>
+                                    <span class="ml-auto"><a href="{{ route('booking_tour', $tour->id) }}">{{ __('book_now') }}</a></span>
                                 </p>
                             </div>
                         </div>

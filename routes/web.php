@@ -17,6 +17,9 @@ Route::get('hotels', 'HotelController@index')->name('hotels');
 Route::get('news', 'NewsController@index')->name('news');
 Route::get('news/{id}', 'NewsController@getNewsDetail')->name('news_detail');
 
+Route::get('booking/{id}', 'TourController@getBookingTour')->name('booking_tour');
+Route::post('book-tour', 'TourController@storeBookingTour')->name('store_booking_tour');
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'AdminController@index');
     //Route::any('/{any}', 'AdminController@index')->where('any', '.*');

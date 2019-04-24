@@ -327,7 +327,7 @@
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="icon-map-o"></i> {{ __('departure') }}: {{ $value->departure_vi }}</span> 
-                                <span class="ml-auto"><a href="#">Discover</a></span>
+                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('book_now') }}</a></span>
                             </p>
                         </div>
                     </div>
@@ -362,7 +362,7 @@
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="icon-map-o"></i> {{ __('departure') }}: {{ $value->departure_vi }}</span> 
-                                <span class="ml-auto"><a href="#">Discover</a></span>
+                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('book_now') }}</a></span>
                             </p>
                         </div>
                     </div>
