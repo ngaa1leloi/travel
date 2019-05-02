@@ -16,5 +16,25 @@
             </ul>
         </div>
     </div>
+    <div id="user-info-top" class="user-info pull-right">
+                @if (Auth::check())
+                <div class="dropdown">
+
+                    <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="home">
+
+                        <span>{{ Auth::user()->name }}</span></a>
+                        <ul class="dropdown-menu mega_dropdown" role="menu">
+                            <li><a href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
+                            <li><a href="order_history">{{ __('Tour Booked') }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                @else
+                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a href="{{ route('register') }}">Register</a>
+            </div>
+            @endif
+        </div>
 </nav>
+
     <!-- END nav -->

@@ -140,7 +140,7 @@
                 <div class="col text-center">
                     <div class="block-27">
                       <ul>
-                        <li>{{ $tours->links() }}</li>
+                        {{-- <li>{{ $tours->links() }}</li> --}}
                       </ul>
                     </div>
                   </div>

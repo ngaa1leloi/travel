@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-
+    <a class="btn py-3 px-4 btn-primary" href="">Post</a>
     <section class="ftco-section bg-light">
       <div class="container">
         <div class="row d-flex">

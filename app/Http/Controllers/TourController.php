@@ -32,8 +32,34 @@ class TourController extends Controller
         	'quantity_child' => $request['quantity_child'],
         	'quantity_baby' => $request['quantity_baby'],
         	'note' => $request['note'],
+            'payment' => $request['payment'],
         ]);
+        $tour = Tour::findOrFail($request['tour_id']);
+        $tour->quantity_person -= 1;
+        $tour->save();
         
-        return redirect('home')->with('message', __('message.add'));
+        return view('page_user.checkout');
     }
+
+    public function filter(Request $request)
+    {
+        $tours = Tour::orderBy('date', 'desc');
+        if($request['departure']) {
+            $tours = $tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
+        }
+        if($request['name']) {
+            $tours = $tours->where('name_vi', 'like', '%' . $request['name'] . '%');
+        }
+        if($request['date']) {
+            $tours = $tours->where('date', $request['date']);
+        }
+        if($request['quantity_person']) {
+            $tours = $tours->where('quantity_person', '>=', $request['quantity_person']);
+        }
+        $tours = $tours->get();
+        //dd($tours);
+
+        return view('page_user.filter', compact('tours'));
+    }
+    
 }

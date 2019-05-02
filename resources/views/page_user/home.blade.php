@@ -29,14 +29,14 @@
             <div class="tab-content p-4 px-5" id="v-pills-tabContent">
 
               <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
-                <form action="#" class="search-destination">
+                <form action="{{ route('filter') }}" method="GET" class="search-destination">
                     <div class="row">
                         <div class="col-md align-items-end">
                             <div class="form-group">
                                 <label for="#">From</label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-my_location"></span></div>
-                                    <input type="text" class="form-control" placeholder="From">
+                                    <input type="text" name="departure" class="form-control" placeholder="From">
                                   </div>
                               </div>
                         </div>
@@ -45,7 +45,7 @@
                                 <label for="#">Where</label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-map-marker"></span></div>
-                                    <input type="text" class="form-control" placeholder="Where">
+                                    <input type="text" name="name" class="form-control" placeholder="Where">
                                   </div>
                               </div>
                         </div>
@@ -54,7 +54,7 @@
                                 <label for="#">Check In</label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-map-marker"></span></div>
-                                    <input type="text" class="form-control checkin_date" placeholder="Check In">
+                                    <input type="date" name="date" class="form-control" placeholder="Check In">
                                   </div>
                               </div>
                         </div>
@@ -71,16 +71,8 @@
                             <div class="form-group">
                                 <label for="#">Travelers</label>
                                 <div class="form-field">
-                                    <div class="select-wrap">
-                                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                  <select name="" id="" class="form-control">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                  </select>
-                                </div>
+                                    <div class="icon"><span class="icon-map-marker"></span></div>
+                                    <input type="text" name="quantity_person" class="form-control" placeholder="travelers">
                                   </div>
                               </div>
                         </div>
@@ -441,11 +433,9 @@
                             <div class="d-flex">
                                 <div class="one">{{ $value->name_vi }}</a></h3>
                                     <p class="rate">
+                                        @for ( $i = 0; $i < $value->standard; $i++)
                                         <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
+                                        @endfor
                                         <span>{{ $value->standard }}</span>
                                     </p>
                                 </div>
@@ -475,11 +465,9 @@
                                 <div class="one">
                                     <h3><a href="#">{{ $value->name_vi }}</a></h3>
                                     <p class="rate">
+                                        @for ( $i = 0; $i < $value->standard; $i++)
                                         <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
+                                        @endfor
                                         <span>{{ $value->standard }}</span>
                                     </p>
                                 </div>

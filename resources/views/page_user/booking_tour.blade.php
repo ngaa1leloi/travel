@@ -39,66 +39,6 @@
         <p>Luu y gia ve cua tre em tu 5 den 12 tuoi bang 70% gia ve nguoi lon, tre em tu 2 den 5 tuoi bang 30%, duoi 2 tuoi duoc di kem nguoi lon</p>
         <form action="book-tour" method="POST">
             @csrf
-        {{-- <div class="row block-9">
-            
-          <div class="col-md-6 order-md-last pr-md-5">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your phone">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="{{ __('address') }}"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="{{ __('book_now') }}" class="btn btn-primary py-3 px-5">
-              </div>
-          
-          </div>
-
-          <div class="col-md-6 order-md-last pr-md-5">
-              <div class="form-group">
-                <span>Nguoi lon: </span>
-                <input type="text" class="form-control" placeholder="Your Name">
-                <div class="row">
-                                        <div class="col-md-3 col-sm-2 mg-bot15">
-                                            <label>Người lớn</label>
-                                            <div>
-                                                <input class="form-control input-lg" id="adult" name="adult" type="text" value="1">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 col-sm-2 mg-bot15">
-                                            <label>Trẻ em</label>
-                                            <div>
-                                                <input class="form-control input-lg" id="children11" name="children11" type="text" value="0">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 col-sm-3 mg-bot15">
-                                            <label>Trẻ nhỏ</label>
-                                            <div>
-                                                <input class="form-control input-lg" id="children" name="children" type="text" value="0">
-                                            </div>
-                                        </div>
-                                      
-                                    </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="{{ __('Note') }}"></textarea>
-              </div>
-              
-          </div>
-         
-        </div> --}}
             <input type="hidden" name="tour_id" value="{{ $tour->id }}">
             <div class="col-xs-12 book-thongtinlienlac">
                 <div class="row">
@@ -134,19 +74,25 @@
                                 <div class="col-md-3 col-sm-2 mg-bot15">
                                     <label>Người lớn</label>
                                     <div>
-                                        <input class="form-control input-lg" id="quantity_adult" name="quantity_adult" type="text" value="1">
+                                        <input class="form-control input-lg" id="quantity_adult" name="quantity_adult" type="text" value="1" onkeyup="getPrice({{ $tour->price }})">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-2 mg-bot15">
                                     <label>Trẻ em</label>
                                     <div>
-                                        <input class="form-control input-lg" id="children11" name="quantity_child" type="text" value="0">
+                                        <input class="form-control input-lg" id="quantity_child" name="quantity_child" type="text" value="0" onkeyup="getPrice({{ $tour->price }})">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 mg-bot15">
                                     <label>Trẻ nhỏ</label>
                                     <div>
-                                        <input class="form-control input-lg" id="children" name="quantity_baby" type="text" value="0">
+                                        <input class="form-control input-lg" id="quantity_baby" name="quantity_baby" type="text" value="0" onkeyup="getPrice({{ $tour->price }})">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 mg-bot15">
+                                    <label>TỔNG CỘNG:</label>
+                                    <div>
+                                        <input class="form-control input-lg" id="result" name="quantity_baby" type="text" value="{{ number_format($tour->price) }}đ" disabled="disabled">
                                     </div>
                                 </div>
                             </div>
@@ -172,6 +118,66 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <h3 style="text-align: center;">XIN QUÝ KHÁCH VUI LÒNG CHỌN HÌNH THỨC THANH TOÁN</h3>
+            <div class="col-xs-12 book-hinhthucthanhtoan" style="margin-bottom: 30px">
+                <div style="border:1px solid #ccc;padding: 20px 30px 20px 30px">
+                    <div class="radio">
+                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="1" checked="checked"><label class="lb_r"> Tiền mặt</label></label>
+                    </div>
+                    <div class="radio">
+                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="2"><label class="lb_r"> Chuyển khoản</label></label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" class="chkPayment" name="payment" value="9"><label class="lb_r"> ATM / Internet Banking</label></label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" class="chkPayment" name="payment" value="15"><label class="lb_r"> Thẻ tín dụng </label> </label>
+                    </div>
+                    {{-- <div class="row " style="padding-bottom: 10px; display: none;" id="divCard">
+                        <div style="margin-top: 5px; margin-left: 35px; font-weight: bold; color: #d57575;">
+                            Quý khách vui lòng chọn loại thẻ
+                            
+                        </div>
+                        <div style="padding:15px; margin:0px 15px;">
+                            <input id="cardType" name="cardType" type="hidden" value="visa">
+                            <div card="visa" onclick="ChonLoaiThe('visa')" class="card_type f-left" style="margin-left:5px; cursor:pointer;height: 32px;">
+                                <img src="/Content/themeOrange/img/thevisa.png" alt="visa">
+                            </div>
+                            <div card="mastercard" onclick="ChonLoaiThe('mastercard')" class="card_type f-left mg-left" style="margin-left:5px; cursor:pointer;height: 32px;">
+                                <img src="/Content/themeOrange/img/master.png" alt="master">
+                            </div>
+                            <div card="jcb" onclick="ChonLoaiThe('jcb')" class="card_type f-left mg-left" style="margin-left:5px; cursor:pointer;height: 32px;">
+                                <img src="/Content/themeOrange/img/jcb.png" alt="jcb">
+                            </div>
+                            <div card="amex" onclick="ChonLoaiThe('amex')" class="card_type f-left mg-left" style="margin-left:5px; cursor:pointer;height: 32px;">
+                                <img src="/Content/themeOrange/img/amex.png" alt="amex">
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="radio">
+                        <label><input type="radio" class="chkPayment" name="payment" value="16"><label class="lb_r"> Thanh toán bằng quét QRCode</label></label>
+                    </div>
+                  {{--   <div class="row " style="padding-bottom:10px;display:none;" id="divVNPay">
+                        <div style="margin-top: 5px; margin-left: 35px; font-weight: bold; color: #d57575;">
+                            Thẻ tín dụng (VISA/MASTER/JCB) / Thẻ ATM - Dịch vụ của VNPay
+                        </div>
+                    </div>
+                    
+                    <div style="border:1px solid #ccc;padding: 20px 30px 20px 30px;text-align: justify;word-wrap: break-word;height: 150px;overflow-y: scroll;line-height: 22px">
+                        <div id="conditionPayment">
+                
+                    <title></title>
+                
+                
+                    <p>
+                        Quý khách vui lòng thanh toán tại bất kỳ đại lý nào của Vietravel trong và ngoài nước. <a href="https://travel.com.vn/lien-he.aspx" target="_blank">Chi tiết</a></p>
+                
+             
+                </div>
+                    </div>
+                    --}}
                 </div>
             </div>
             <div class="form-group">
@@ -203,4 +209,24 @@
         </div>
       </div>
     </section>
+    <script language="javascript">
+        function formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + 'đ'
+        }
+
+      function getPrice(x)
+      {
+        let a = document.getElementById("quantity_adult");
+        let b = document.getElementById("quantity_child");
+        let c = document.getElementById("quantity_baby");
+
+        let result = document.getElementById("result");
+         
+        let tong = parseInt(a.value) * x + parseInt(b.value) * x * 0.7 + parseInt(c.value) * x * 0.3;
+         
+        if (!isNaN(tong)){
+          result.value = formatNumber(tong);
+        }
+      }
+    </script>
     @endsection

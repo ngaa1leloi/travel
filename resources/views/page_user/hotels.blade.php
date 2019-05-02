@@ -108,11 +108,9 @@
                                             <div class="one">
                                                 <h3 style="height: 80px; overflow: hidden;"><a href="#">{{ $hotel->name_vi }}</a></h3>
                                                 <p class="rate">
+                                                    @for ($i = 0; $i < $hotel->standard; $i++)
                                                     <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star-o"></i>
+                                                    @endfor
                                                     <span>{{ $hotel->standard }}</span>
                                                 </p>
                                             </div>
