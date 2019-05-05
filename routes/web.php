@@ -14,6 +14,7 @@ Route::get('logout', ['as' => 'logout', 'uses'=>'UserController@logout']);
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('tours', 'TourController@index')->name('tours');
+Route::get('tour/{id}', 'TourController@tourDetail')->name('tour_detail');
 Route::get('place/{slug}', 'HomeController@getScenic')->name('scenic');
 Route::get('filter', 'TourController@filter')->name('filter');
 Route::get('hotels', 'HotelController@index')->name('hotels');

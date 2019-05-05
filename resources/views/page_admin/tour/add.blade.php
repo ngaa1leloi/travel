@@ -34,7 +34,16 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Giá vé</span>
               </div>
-              <input type="text" class="form-control" placeholder="" name="price"> </div>
+              <input type="text" class="form-control" placeholder="" value="0" name="price"> </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <select id="inputState" name="hotel" class="form-control">
+                @foreach($hotels as $cate)
+                    <option value="{{ $cate->id }}">{{ $cate->name_vi }}</option>
+                @endforeach
+              </select>
+            </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
@@ -79,7 +88,16 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Số người</span>
               </div>
-              <input type="text" class="form-control" placeholder="" name="quantity_person"> </div>
+              <input type="text" class="form-control" placeholder="" value="0" name="quantity_person"> </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <div class="input-group-prepend">
+                <label>Trạng thái</label>
+              </div>
+              <input type="radio" name="status"  value="1"/><span>Tua tự chọn</span>
+              <input type="radio" name="status"  value="0"/> <span>Tua đã có lịch</span>
+            </div>
           </div>
       </div>
     </div>
@@ -92,18 +110,18 @@
         <textarea name="process_en" class="form-control" placeholder="Process"></textarea>
     </div>
     @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    @foreach ($errors->all() as $err)
-                    {{ $err }}<br>
-                    @endforeach
-                </div>
-                @endif
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $err)
+            {{ $err }}<br>
+            @endforeach
+        </div>
+        @endif
 
-                @if (session('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-                @endif
+        @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+        @endif
     <button type="submit" class="mb-2 btn btn-primary mr-2">Add</button>
     </form>
 @endsection

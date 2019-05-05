@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tour;
+use App\Models\Hotel;
 use App\Http\Requests\TourRequest;
 use App\Http\Requests\EditTourRequest;
 
@@ -19,8 +20,9 @@ class TourController extends Controller
 	
     public function create() {
     	$categories = Category::all();
+        $hotels = Hotel::all();
 
-    	return view('page_admin.tour.add', compact('categories'));
+    	return view('page_admin.tour.add', compact('categories', 'hotels'));
     }
 
     public function store(TourRequest $request) {
@@ -38,10 +40,12 @@ class TourController extends Controller
         	'time' => $request['time'],
         	'date' => $request['date'],
         	'category_id' => $request['category'],
+            'hotel_id' => $request['hotel'],
+            'status' => $request['status'],
         	'image' => $file->getClientOriginalName(),
         ]);
         
-        return redirect('admin/tour/create')->with('message', __('message.add'));
+        return redirect('admin/tour/index')->with('message', __('message.add'));
     }
 
     public function edit($id) {

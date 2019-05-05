@@ -28,13 +28,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tours = Tour::take(4)->get();
+        $tours = Tour::where('status', 0)->orderBy('date', 'desc')->take(4)->get();
+        $buffet_tours = Tour::where('status', 1)->take(4)->get();
         $hotels = Hotel::take(5)->get();
         $news = News::take(3)->get();
         $places = Place::take(6)->get();
 
         //dd($tour);
-        return view('page_user.home', compact('tours', 'hotels', 'news', 'places'));
+        return view('page_user.home', compact('tours', 'buffet_tours', 'hotels', 'news', 'places'));
     }
 
     public function getScenic($slug){

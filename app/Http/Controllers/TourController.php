@@ -14,6 +14,12 @@ class TourController extends Controller
     	return view('page_user.tours', compact('tours'));
     }
 
+    public function tourDetail($id) {
+        $tour = Tour::findOrFail($id);
+
+        return view('page_user.tour_detail', compact('tour'));
+    }
+
     public function getBookingTour($id) {
     	$tour = Tour::findOrFail($id);
 

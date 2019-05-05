@@ -16,10 +16,12 @@
                             <th scope="col" class="border-0">Lịch trình</th>
                             <th scope="col" class="border-0">Thể loại</th>
                             <th scope="col" class="border-0">Hình ảnh</th>
+                            <th>Khách sạn</th>
                             <th scope="col" class="border-0">Ngày</th>
                             <th scope="col" class="border-0">Thời gian</th>
                             <th scope="col" class="border-0">Số chỗ</th>
                             <th scope="col" class="border-0">Giá vé</th>
+                            <th>Trạng thái</th>
                             <th scope="col" class="border-0">Edit</th>
                             <th scope="col" class="border-0">Delete</th>
                         </tr>
@@ -29,13 +31,15 @@
                         <tr>
                             <td>{{ $tour->name_vi }}</td>
                             <td>{{ $tour->departure_vi }}</td>
-                            <td>{{ $tour->process_vi }}</td>
+                            <td><p style="height: 160px; overflow: hidden;">{{ $tour->process_vi }}</p></td>
                             <td>{{ $tour->category->name }}</td>
                             <td><img style="width: 200px; height: 150px" src="source_admin/images/{{ $tour->image }}"></td>
+                            <td>{{ $tour->hotel->name_vi }}</td>
                             <td>{{ $tour->date }}</td>
                             <td>{{ $tour->time }}</td>
                             <td>{{ $tour->quantity_person }}</td>
                             <td>{{ $tour->price }}</td>
+                            <td>{{ ($tour->status == 0) ? 'đã có lịch' : 'tự chọn' }}</td>
                             <td><span class="text-danger">
                                 <a href="{{ route('edit_tour', $tour->id) }}"><i class="material-icons">more_vert</i></a>
                               </span></td>

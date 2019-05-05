@@ -30,12 +30,11 @@ class TourRequest extends FormRequest
             'process_en' => 'required',
             'departure_vi' => 'required',
             'departure_en' => 'required',
-            'price' => 'required|integer',
-            'quantity_person' => 'required|integer',
-            'time' => 'required',
-            'date' => 'required',
+            'price' => 'integer',
+            'quantity_person' => 'integer',
             'category' => 'required',
             'image' => 'required|image',
+            'hotel' => 'required',
         ];
     }
 
@@ -49,14 +48,11 @@ class TourRequest extends FormRequest
             'departure_vi.required' => 'Bạn chưa nhập điểm xuất phát tiếng việt.',
             'departure_en.required' => 'Bạn chưa nhập điểm xuất phát tiếng anh.',
             'price.integer' => 'Bạn chưa nhập giá tua.',
-            'price.required' => 'Giá tua phải là số nguyên.',
-            'quantity_person.required' => 'Bạn chưa nhập số người.',
             'quantity_person.integer' => 'Số người phải là số nguyên.',
-            'time.required' => 'Bạn chưa nhập thời gian.',
-            'date.required' => 'Bạn chưa nhập ngày xuất phát.',
             'category.required' => 'Bạn chưa chọn thể loại.',
             'image.required' => 'Bạn chưa chọn hình ảnh.',
             'image.image' => 'Tệp được chọn phải là tệp hình ảnh.',
+            'hotel.required' => 'Bạn chưa chọn khách sạn.'
 
         ];
     }

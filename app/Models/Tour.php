@@ -19,11 +19,17 @@ class Tour extends Model
     	'time',
     	'date',
     	'category_id',
+        'hotel_id',
+        'status',
     ];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function hotel() {
+        return $this->belongsTo(Hotel::class);
     }
 
 }
