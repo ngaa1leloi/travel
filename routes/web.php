@@ -14,10 +14,11 @@ Route::get('logout', ['as' => 'logout', 'uses'=>'UserController@logout']);
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('tours', 'TourController@index')->name('tours');
+Route::get('place/{slug}', 'HomeController@getScenic')->name('scenic');
 Route::get('filter', 'TourController@filter')->name('filter');
 Route::get('hotels', 'HotelController@index')->name('hotels');
 Route::get('news', 'NewsController@index')->name('news');
-Route::get('news/{id}', 'NewsController@getNewsDetail')->name('news_detail');
+Route::get('news/{slug}', 'NewsController@getNewsDetail')->name('news_detail');
 Route::post('news/{id}', 'NewsController@comment')->name('comment');
 
 Route::get('booking/{id}', 'TourController@getBookingTour')->name('booking_tour');

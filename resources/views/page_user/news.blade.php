@@ -18,7 +18,7 @@
           @foreach($news as $new)
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="{{ route('news_detail', $new->id) }}" class="block-20" style="background-image: url('{{ config('image.source') }}/{{ $new->image }}');">
+              <a href="{{ route('news_detail', $new->slug) }}" class="block-20" style="background-image: url('{{ config('image.source') }}/{{ $new->image }}');">
               </a>
               <div class="text">
               	<span class="tag">Tips, Travel</span>

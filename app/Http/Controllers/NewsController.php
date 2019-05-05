@@ -15,10 +15,10 @@ class NewsController extends Controller
     	return view('page_user.news', compact('news'));
     }
 
-    public function getNewsDetail($id) {
-    	$news = News::findOrFail($id);
+    public function getNewsDetail($slug) {
+    	$news = News::where('slug', $slug)->firstOrFail();
     	$news_recent = News::orderBy('id', 'ASC')->take(5)->get();
-    	$comments = Comment::where('news_id', $id)->get();
+    	$comments = Comment::where('news_id', $news->id)->get();
 
     	return view('page_user.news_detail', compact('news', 'news_recent', 'comments'));
     }

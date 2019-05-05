@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TourRequest extends FormRequest
+class EditTourRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -35,7 +35,7 @@ class TourRequest extends FormRequest
             'time' => 'required',
             'date' => 'required',
             'category' => 'required',
-            'image' => 'required|image',
+            'image' => 'image',
         ];
     }
 
@@ -55,7 +55,6 @@ class TourRequest extends FormRequest
             'time.required' => 'Bạn chưa nhập thời gian.',
             'date.required' => 'Bạn chưa nhập ngày xuất phát.',
             'category.required' => 'Bạn chưa chọn thể loại.',
-            'image.required' => 'Bạn chưa chọn hình ảnh.',
             'image.image' => 'Tệp được chọn phải là tệp hình ảnh.',
 
         ];

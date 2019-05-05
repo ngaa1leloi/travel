@@ -365,6 +365,94 @@
         </div>
     </section>
 
+     <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Most Popular Places</h2>
+                </div>
+            </div>          
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                {{-- 4 tours --}}
+                @foreach($places as $place => $value)
+                @if($key % 2 == 0)
+                <div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->scenics()->firstOrFail()->image }});">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-link"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="#">{{ $value->name_vi }}</a></h3>
+                                    <p class="rate">
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star-o"></i>
+                                        <span>8 Rating</span>
+                                    </p>
+                                </div>
+                                <div class="two">
+                                    <span class="price"></span>
+                                </div>
+                            </div>
+                            <p>{{ $value->description_vi }}</p>
+                            <p class="days"><span></span></p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> </span> 
+                                <span class="ml-auto"><a href="{{ route('scenic', $value->slug) }}">{{ __('detail') }}</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @else
+                <div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="destination d-md-flex flex-column-reverse">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-link"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="#">{{ $value->name_vi }}</a></h3>
+                                    <p class="rate">
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star-o"></i>
+                                        <span>8 Rating</span>
+                                    </p>
+                                </div>
+                                <div class="two">
+                                    <span class="price">{{ number_format($value->price) }}đ</span>
+                                </div>
+                            </div>
+                            <p>{{ $value->quantity_person }}</p>
+                            <p class="days"><span>{{ $value->date }}</span></p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> {{ __('departure') }}: {{ $value->departure_vi }}</span> 
+                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('book_now') }}</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(resource/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row justify-content-center">

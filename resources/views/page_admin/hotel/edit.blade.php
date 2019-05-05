@@ -92,6 +92,19 @@
         <label>Note</label>
         <textarea name="note_en" class="form-control" placeholder="note">{{ $hotel->note_en }}</textarea>
     </div>
+     @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $err)
+            {{ $err }}<br>
+            @endforeach
+        </div>
+        @endif
+
+        @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+        @endif
     <button type="submit" class="mb-2 btn btn-primary mr-2">Edit</button>
     </form>
 @endsection

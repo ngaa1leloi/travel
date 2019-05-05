@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Http\Requests\NewsRequest;
+use App\Http\Requests\EditNewsRequest;
 
 class NewsController extends Controller
 {
@@ -18,7 +20,7 @@ class NewsController extends Controller
     	return view('page_admin.news.add');
     }
 
-    public function store(Request $request) {
+    public function store(NewsRequest $request) {
     	$file = $request->file('image');
         $file->move('source_admin/images', $file->getClientOriginalName());
     	if(isset($_POST['save'])) {
@@ -53,7 +55,7 @@ class NewsController extends Controller
         return view('page_admin.news.edit', compact('news'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(EditNewsRequest $request, $id) {
         $news = News::findOrFail($id);
 
         $news->title_vi = $request->title_vi;

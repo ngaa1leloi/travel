@@ -14,7 +14,7 @@ class Place extends Model
         'description_en',
     ];
 
-    public function places()
+    public function scenics()
     {
         return $this->hasMany(Scenic::class);
     }

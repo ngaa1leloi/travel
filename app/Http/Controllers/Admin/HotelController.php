@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Scenic;
 use App\Models\Hotel;
+use App\Http\Requests\HotelRequest;
+use App\Http\Requests\EditHotelRequest;
 
 class HotelController extends Controller
 {
@@ -21,7 +23,7 @@ class HotelController extends Controller
     	return view('page_admin.hotel.add', compact('scenics'));
     }
 
-    public function store(Request $request) {
+    public function store(HotelRequest $request) {
     	$file = $request->file('image');
         $file->move('source_admin/images', $file->getClientOriginalName());
         $hotel = Hotel::create([
@@ -48,7 +50,7 @@ class HotelController extends Controller
         return view('page_admin.hotel.edit', compact('hotel', 'scenics'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(EditHotelRequest $request, $id) {
         $hotel = Hotel::findOrFail($id);
 
         $hotel->name_vi = $request->name_vi;

@@ -31,8 +31,17 @@ class HomeController extends Controller
         $tours = Tour::take(4)->get();
         $hotels = Hotel::take(5)->get();
         $news = News::take(3)->get();
+        $places = Place::take(6)->get();
 
         //dd($tour);
-        return view('page_user.home', compact('tours', 'hotels', 'news'));
+        return view('page_user.home', compact('tours', 'hotels', 'news', 'places'));
+    }
+
+    public function getScenic($slug){
+        $place = Place::where('slug', $slug)->firstOrFail();
+        $scenics = $place->scenics()->get();
+       // dd($scenics);
+
+        return view('page_user.scenic', compact('scenics', 'place'));
     }
 }

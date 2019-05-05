@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tour;
 use App\Http\Requests\TourRequest;
+use App\Http\Requests\EditTourRequest;
 
 class TourController extends Controller
 {
@@ -50,7 +51,7 @@ class TourController extends Controller
         return view('page_admin.tour.edit', compact('tour', 'categories'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(EditTourRequest $request, $id) {
         $tour = Tour::findOrFail($id);
 
         $tour->name_vi = $request->name_vi;

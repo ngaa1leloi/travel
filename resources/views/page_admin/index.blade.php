@@ -115,6 +115,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="{{ asset('source_admin/scripts/extras.1.1.0.min.js') }}"></script>
     <script src="{{ asset('js/simplemde.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-validate.min.js') }}"></script>
     <script src="{{ asset('source_admin/scripts/shards-dashboards.1.1.0.min.js') }}"></script>
     <script src="{{ asset('source_admin/scripts/app/app-blog-overview.1.1.0.js') }}"></script>
     <script type="text/javascript">
