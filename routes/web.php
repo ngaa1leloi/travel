@@ -11,6 +11,9 @@
 |
 */
 Route::get('logout', ['as' => 'logout', 'uses'=>'UserController@logout']);
+Route::get('admin/login', 'UserController@getLoginAdmin')->name('getLogin');
+Route::get('admin/logout', 'UserController@getLogout')->name('getlogout');
+Route::post('admin/login', 'UserController@postLoginAdmin')->name('postlogin');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('tours', 'TourController@index')->name('tours');
@@ -25,7 +28,8 @@ Route::post('news/{id}', 'NewsController@comment')->name('comment');
 Route::get('booking/{id}', 'TourController@getBookingTour')->name('booking_tour');
 Route::post('book-tour', 'TourController@storeBookingTour')->name('store_booking_tour');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+
+Route::group(['middleware' => 'adminLogin', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'AdminController@index');
     //Route::any('/{any}', 'AdminController@index')->where('any', '.*');
     
@@ -101,6 +105,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
         Route::get('delete/{id}', 'CategoryController@getDelete')->name('getDeleteCategory');
     });
+
+
+    Route::prefix('user')->group(function() {
+        Route::get('index', 'UserController@index')->name('index_user');
+
+        Route::get('create', 'UserController@create')->name('create_user');
+        Route::post('store', 'UserController@store')->name('store_user');
+
+        Route::get('edit/{id}', 'UserController@edit')->name('edit_user');
+        Route::post('update/{id}', 'UserController@update')->name('update_user');
+
+        Route::get('delete/{id}', 'UserController@delete')->name('delete_user');
+    });
+
 });
 
 Auth::routes();

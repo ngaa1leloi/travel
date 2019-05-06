@@ -26,7 +26,7 @@
       <li class="nav-item">
         <a class="nav-link active" href="index.html">
           <i class="material-icons">edit</i>
-          <span>Blog Dashboard</span>
+          <span>Admin Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
@@ -60,7 +60,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="user-profile-lite.html">
+        <a class="nav-link " href="{{ route('index_user') }}">
           <i class="material-icons">person</i>
           <span>User Profile</span>
         </a>

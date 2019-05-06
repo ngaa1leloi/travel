@@ -11,260 +11,445 @@
             </div>
         </div>
     </div>
-
-<div id="thongtinchitiettour" class="newlayout">
-    <div class="container">
-        <div class="row thongtincoban" style="margin-bottom: 30px">
-            <div class="col-lg-7 col-md-12 col-sm-12 hidden-xs" style="overflow:hidden">
-                <div id="slider" class="flexslider">
-                    
-                <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 400%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-                            <li class="flex-active-slide" data-thumb-alt="" style="width: 940px; margin-right: 0px; float: left; display: block;">
-                                <img src="/FileUploads/TourImage/11012018_mocchau-doichemocsuong.jpg" alt="_1" draggable="false">
-                            </li>
-                            <li data-thumb-alt="" style="width: 940px; margin-right: 0px; float: left; display: block;">
-                                <img src="/FileUploads/TourImage/11012018_sonla_thacdaiyem.jpg" alt="_2" draggable="false">
-                            </li>
-                    </ul></div><ol class="flex-control-nav flex-control-paging"><li><a href="#" class="flex-active">1</a></li><li><a href="#">2</a></li></ol><ul class="flex-direction-nav"><li class="flex-nav-prev"><a class="flex-prev flex-disabled" href="#" tabindex="-1">Previous</a></li><li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li></ul></div>
-                <div id="carousel" class="flexslider" style="margin-top: -70px">
-                    
-                <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 400%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-                            <li class="flex-active-slide" style="width: 70px; margin-right: 0px; float: left; display: block;">
-                                <img src="/FileUploads/TourImage/11012018_mocchau-doichemocsuong.jpg" alt="_1" draggable="false">
-                            </li>
-                            <li style="width: 70px; margin-right: 0px; float: left; display: block;">
-                                <img src="/FileUploads/TourImage/11012018_sonla_thacdaiyem.jpg" alt="_2" draggable="false">
-                            </li>
-                    </ul></div><ol class="flex-control-nav flex-control-paging"></ol><ul class="flex-direction-nav"><li class="flex-nav-prev"><a class="flex-prev flex-disabled" href="#" tabindex="-1">Previous</a></li><li class="flex-nav-next"><a class="flex-next flex-disabled" href="#" tabindex="-1">Next</a></li></ul></div>
-            </div>
-            <div class="col-lg-5 col-md-12 col-sm-12 thongtinchung">
-                <div class="thongtin">
-                    <div class="row tour-info-right-frame1">
-                        <div class="col-xs-12">
-                            <div style="font-weight: bold;font-size:17.5px;line-height: 22px;">
-                                MỘC CHÂU - SƠN LA 3N2Đ
-                            </div>
+    <section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-3 sidebar">
+               {{--  <div class="sidebar-wrap ftco-animate">
+                    <h3 class="heading mb-4">Find City</h3>
+                    <form action="#">
+                        <div class="fields">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Destination, City">
+                      </div>
+                      <div class="form-group">
+                        <div class="select-wrap one-third">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="" id="" class="form-control" placeholder="Keyword search">
+                          <option value="">Select Location</option>
+                          <option value="">San Francisco USA</option>
+                          <option value="">Berlin Germany</option>
+                          <option value="">Lodon United Kingdom</option>
+                          <option value="">Paris Italy</option>
+                        </select>
+                      </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" id="checkin_date" class="form-control" placeholder="Date from">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" id="checkin_date" class="form-control" placeholder="Date to">
+                      </div>
+                      <div class="form-group">
+                        <div class="range-slider">
+                            <span>
+                                            <input type="number" value="25000" min="0" max="120000"/>   -
+                                            <input type="number" value="50000" min="0" max="120000"/>
+                                          </span>
+                                          <input value="1000" min="0" max="120000" step="500" type="range"/>
+                                          <input value="50000" min="0" max="120000" step="500" type="range"/>
+                                          </svg>
+                                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                      </div>
+                    </div>
+                </form>
+                </div> --}}
+               {{--  <div class="sidebar-wrap ftco-animate">
+                    <h3 class="heading mb-4">Star Rating</h3>
+                    <form method="post" class="star-rating">
+                              <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">
+                                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+                                    </label>
+                              </div>
+                              <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">
+                                   <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
+                              </label>
+                              </div>
+                              <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                             </label>
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                              </label>
+                              </div>
+                              <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                                </label>
+                              </div>
+                            </form>
+                </div> --}}
+          </div>
+          <div class="col-lg-12">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="single-slider owl-carousel">
+                        <div class="item">
+                            <div class="hotel-img" style="background-image: url(resource/images/hotel-2.jpg);"></div>
+                        </div>
+                        <div class="item">
+                            <div class="hotel-img" style="background-image: url(resource/images/hotel-3.jpg);"></div>
+                        </div>
+                        <div class="item">
+                            <div class="hotel-img" style="background-image: url(resource/images/hotel-4.jpg);"></div>
                         </div>
                     </div>
-                    <div class="row tour-info-right-frame2">
-                        <div class="col-xs-12">
-                                                                                    <div class="row" style="margin-bottom: 16px;margin-top: 15px">
-                                <div class="col-md-4 col-sm-4 col-xs-4">Ngày khởi hành:</div>
-                                <div class="col-md-4 col-sm-4 col-xs-4">Liên hệ</div>
+                </div>
+                <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
+                    <span>Our Best hotels &amp; Rooms</span>
+                    <h2>Luxury Hotel in Paris</h2>
+                    <p class="rate mb-5">
+                        <span class="loc"><a href="#"><i class="icon-map"></i> 291 South 21th Street, Suite 721 New York NY 10016</a></span>
+                        <span class="star">
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star-o"></i>
+                                8 Rating</span>
+                            </p>
+                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                            <div class="d-md-flex mt-5 mb-5">
+                                <ul>
+                                    <li>The Big Oxmox advised her not to do so</li>
+                                    <li>When she reached the first hills of the Italic Mountains</li>
+                                    <li>She had a last view back on the skyline of her hometown </li>
+                                    <li>Bookmarksgrove, the headline of Alphabet </li>
+                                </ul>
+                                <ul class="ml-md-5">
+                                    <li>Question ran over her cheek, then she continued</li>
+                                    <li>Pityful a rethoric question ran</li>
+                                    <li>Mountains, she had a last view back on the skyline</li>
+                                    <li>Headline of Alphabet Village and the subline</li>
+                                </ul>
                             </div>
-                                                        <div class="row" style="margin-bottom: 16px;margin-top: 15px">
-                                <div class="col-md-4 col-sm-4 col-xs-5">Thời gian:</div>
-                                <div class="col-md-8 col-sm-8 col-xs-7">Liên hệ</div>
-                            </div>
-                            <div class="row" style="margin-bottom: 16px;margin-top: 15px">
-                                <div class="col-md-4 col-sm-4 col-xs-5">Nơi khởi hành:</div>
-                                <div class="col-md-8 col-sm-8 col-xs-7">Hà Nội</div>
-                            </div>
-                            <div class="row" style="margin-bottom: 16px;margin-top: 15px">
-                                <div class="col-md-4 col-sm-4 col-xs-5">Tần suất:</div>
-                                <div class="col-md-8 col-sm-8 col-xs-7">Hàng tuần</div>
-                            </div>
-                                                        <div class="row" style="margin-bottom: 16px;margin-top: 15px">
-                                <div class="col-md-4 col-sm-4 col-xs-5">Nơi tập trung:</div>
-                                <div class="col-md-8 col-sm-8 col-xs-7">03 Hai Bà Trưng - Hà Nội</div>
-                            </div>
-                                                                                </div>
-                    </div>
-                    <div class="row tour-info-right-frame3">
-                        <div class="col-xs-12 text-center">
-                            <div class="f-left" style="margin-bottom: 10px;width:100%">
-                                <div class="f-left olt1">
-                                    <div style="font-size: 18px;margin-bottom: 5px;color:#fc7700;border-bottom: 1px solid #ccc;padding-bottom: 5px;margin-top: 3px">
-Giá                                    </div>
-                                    <div style="font-size: 12px;">
-                                        <span>
-                                            Liên hệ
-                                        </span>
+                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                </div>
+               
+                <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+                    <h4 class="mb-4">Our Rooms</h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                                    <div class="destination">
+                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(images/room-4.jpg);"></a>
+                                        <div class="text p-3">
+                                            <div class="d-flex">
+                                                <div class="one">
+                                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </div>
+                                                <div class="two">
+                                                    <span class="price per-price">$40<br><small>/night</small></span>
+                                                </div>
+                                            </div>
+                                            <p>Far far away, behind the word mountains, far from the countries</p>
+                                            <hr>
+                                            <p class="bottom-area d-flex">
+                                                <span><i class="icon-map-o"></i> Miami, Fl</span> 
+                                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                    <a href="/dat-tour/moc-chau-son-la-3n2d" class="f-left ort1 dattour">
-                                        Liên hệ ngay
-                                    </a>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row thongtinchitiet" style="margin-bottom: 30px;">
-            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 border-right noidungchuongtrinh">
-                
-
-	<title></title>
-
-<br>
-<span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"><strong>Chương trình tour:</strong><br>
-<br>
-<strong>Ngày 1: HÀ NỘI – CAO NGUYÊN MỘC CHÂU (ĂN TRƯA, TỐI)</strong><br>
-Sáng 06h30<br>
-Xe ô tô và hướng dẫn viên của Vietravel đón Quý khách tại số 3 Hai Bà Trưng - Hà Nội khởi hành đi Sơn La. Trên đường dừng chân ăn sáng tại Lương Sơn, Hòa Bình (chi phí tự túc).<br>
-Trên đường đến <strong><em>thị trấn Mộc Châu</em></strong> tại Km 64, 2 bên đường có đào, mận, mơ trĩu cây… đoàn dừng chân chụp khung cảnh lãng mạn. Tới Cao nguyên Mộc Châu, Quý khách ăn trưa sau đó về khách sạn làm thủ tục nhận phòng.<br>
-Chiều<br>
-Quý khách tham quan <strong><em>Hang Dơi</em></strong>, rừng thông, <strong><em>khu du lịch bản Áng</em></strong>, động Mộc Xuân Hương. Sau đó, Quý khách theo sự hướng dẫn của nhân viên Nông trường chè Mộc Sương Quý khách sẽ có cơ hội tham quan, chụp ảnh những đồi chè xanh mướt một màu, trải dài ngút tầm mắt, cung cấp cho thị trường những loại chè ngon nổi tiếng. Đây là điểm du lịch mà du khách không thể không ghé thăm khi đến với Cao nguyên Mộc Châu. Sau một ngày khám phá và trải nghiệm, Quý khách dùng bữa tối với các món ăn mang hương sắc của vùng Cao nguyên. Nghỉ đêm tại Mộc Châu.<br>
-<img alt="" src="https://travel.com.vn/Images/tour/tfd_140909_Doi%20che%20Moc%20Suong.jpg" style="height:435px; width:650px"><br>
-<strong>Ngày 2: MỘC CHÂU – SƠN LA ( ĂN SÁNG, TRƯA, TỐI)</strong><br>
-Sáng<br>
-Quý khách dậy sớm, đón chào ánh nắng bình minh trên cao nguyên xinh đẹp để có một ngày mới bắt đầu thật sảng khoái. Sau bữa sáng tại khách sạn, Quý khách làm thủ tục trả phòng lên xe đi Sơn La. Đoàn đến Sơn La, ăn trưa, nhận phòng khách sạn nghỉ ngơi.<br>
-Chiều<br>
-Đoàn khởi hành thăm <strong><em>Thủy điện Sơn La</em></strong> – công trình thủy điện lớn nhất Đông Nam Á, trên đường ghé thăm và thắp hương <strong><em>Đền vua Lê Thái Tông</em></strong>.<br>
-Quý khách thăm quan và tắm khoáng nóng tại <strong><em>Bản Mòng</em></strong>, sau khi ngâm mình trong nước nóng để xua tan mệt mỏi, Quý khách thưởng thức các đặc sản như cơm lam, gà nướng, cá pỉnh tộp, thịt bò khô... thực đơn mang đậm bản sắc Tây Bắc. Quý khách trở về khách sạn nghỉ ngơi và ăn tối. Nghỉ đêm tại Sơn La.<br>
-<br>
-<strong>Ngày 3: SƠN LA – HÀ NỘI (ĂN SÁNG, TRƯA)</strong><br>
-Sáng<br>
-Sau khi ăn sáng, trả phòng khách sạn.<br>
-Đoàn tham quan <strong><em>di tích nhà tù Sơn La</em></strong> - Nơi đã từng giam giữ những chiến sỹ cách mạng, thăm bảo tàng dân tộc, chụp hình lưu niệm tại Cây Đào Tô Hiệu. Đoàn lên xe trở về Hà Nội, trên đường về đoàn dừng thăm và chụp ảnh kỷ niệm các di tích lịch sử đi qua như: Ngã Ba Cò Nòi...<br>
-Trưa<br>
-Về đến thị trấn Mộc Châu, đoàn dừng nghỉ ăn trưa ở Mộc Châu, thăm quan <strong><em>Thác Dải Yếm</em></strong>. Quý khách mua sắm các đặc sản như: sữa tươi, bánh sữa, chè Mộc Châu... Đoàn lên xe tiếp tục khởi hành về Hà Nội.<br>
-Về tới Hà Nội, chia tay và hẹn gặp lại Quý khách!<br>
-&nbsp;<img alt="" src="https://travel.com.vn/Images/tour/tfd_140909_Thac%20Dai%20Yem.jpg" style="height:365px; width:650px"><br>
-<em>Chương trình và điểm tham quan có thể linh động thay đổi theo điều kiện thời tiết thực tế nhưng vẫn đảm bảo các điểm tham quan theo chương trình.</em><br>
-<br>
-<strong><u>Giá tour tham khảo:</u></strong></span></span>
-<table border="1" cellpadding="0" cellspacing="0">
-	<tbody>
-		<tr>
-			<td style="width:202px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"><strong>Loại khách</strong></span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"><strong>Việt Nam</strong></span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"><strong>Việt kiều</strong></span></span></td>
-			<td style="width:101px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"><strong>Nước ngoài</strong></span></span></td>
-			<td style="width:92px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"><strong>Land tour</strong></span></span></td>
-		</tr>
-		<tr>
-			<td style="width:202px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Giá người lớn<br>
-			(Từ 12 tuổi trở lên)</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">2,450,000 đ</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">2,450,000 đ</span></span></td>
-			<td style="width:101px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">2,450,000 đ</span></span></td>
-			<td style="width:92px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-		</tr>
-		<tr>
-			<td style="width:202px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Giá trẻ em<br>
-			(Từ 5 tuổi đến dưới 12 tuổi)</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">1,225,000 đ</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">1,225,000 đ</span></span></td>
-			<td style="width:101px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">1,225,000 đ</span></span></td>
-			<td style="width:92px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-		</tr>
-		<tr>
-			<td style="width:202px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Giá trẻ nhỏ<br>
-			(Từ 2 tuổi đến dưới 5 tuổi)</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-			<td style="width:101px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-			<td style="width:92px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-		</tr>
-		<tr>
-			<td style="width:202px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Em bé<br>
-			(Dưới 2 tuổi)</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-			<td style="width:101px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-			<td style="width:92px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-		</tr>
-		<tr>
-			<td style="width:202px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Phụ thu phòng đơn</span></span><br>
-			&nbsp;</td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">700,000 đ</span></span></td>
-			<td style="width:98px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">700,000 đ</span></span></td>
-			<td style="width:101px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">700,000 đ</span></span></td>
-			<td style="width:92px"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">0 đ</span></span></td>
-		</tr>
-	</tbody>
-</table>
-<span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"> &nbsp;<br>
-<br>
-<strong><u>Giá bao gồm</u></strong><strong><u>: (Giá tour có thể thay đổi)</u></strong></span></span>
-
-<ul>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Xe vận chuyển chỗ đời mới theo suốt chương trình.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Khách sạn tiêu chuẩn tại địa phương.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Ăn 05 bữa chính, 02 bữa sáng tại khách sạn.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Hướng dẫn viên chuyên nghiệp, tận tình.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Vé thắng cảnh vào cửa một lần tại các điểm thăm quan.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Quà tặng mũ Vietravel.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Nước suối trên xe 01 chai 0,5l/khách/ngày.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Khăn lạnh trên xe 01 khăn/khách/ngày.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Bảo hiểm du lịch mức chi trả tối đa 50.000.000đ/vụ.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Thuế VAT theo quy định của nhà nước.</span></span></li>
-</ul>
-<span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"> <strong><u>Giá không bao gồm:</u></strong></span></span>
-
-<ul>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Chi phí đồ uống &amp; các chi phí cá nhân phát sinh khác trong chương trình.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Phụ thu phòng đơn.</span></span></li>
-</ul>
-<span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"> <strong><u>Phụ thu:</u></strong><br>
-• Trẻ em dưới 5 tuổi: không thu phí dịch vụ, bố mẹ tự lo cho bé và thanh toán các chi phí phát sinh (đối với các dịch vụ tính phí theo chiều cao…). Hai người lớn chỉ được kèm 1 trẻ em dưới 5 tuổi, trẻ em thứ 2 sẽ đóng phí theo qui định dành cho độ tuổi từ 5 đến dưới 11 tuổi và phụ thu phòng đơn.<br>
-• Trẻ em từ 5 - dưới 11 tuổi: phải mua 50% vé tour trọn gói bao gồm phương tiện vận chuyển, ăn uống theo chương trình, vé tham quan đối với các điểm tính phí theo độ tuổi/chiều cao (lưu ý bé ngủ chung với cha mẹ). Hai người lớn chỉ được kèm 1 trẻ em từ 5 - dưới 11 tuổi, em thứ hai trở lên phải mua 1 suất giường đơn.&nbsp;<br>
-• Trẻ em 11 tuổi trở lên: phải mua vé tour trọn gói như người lớn bao gồm phương tiện vận chuyển, khách sạn, ăn uống theo chương trình, vé tham quan theo qui định các điểm tham quan.<br>
-• Lưu ý: trong trường hợp Quý khách có nhu cầu tự mua vé tham quan, chúng tôi sẵn sàng tư vấn để Quý khách chọn mua tour F&amp;E hoặc tour theo nhóm riêng, theo dạng tour này Quý khách có thể tự chọn các dịch vụ theo nhu cầu.<br>
-<br>
-<strong><em><u>Điều kiện: </u></em></strong></span></span>
-
-<ul>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Thanh toán 100% không hoàn, không hủy, không đổi.</span></span></li>
-	<li><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Đăng ký trước 5 ngày</span></span></li>
-</ul>
-<span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"> <strong><em><u>Các điều kiện khi đăng ký tour:</u></em></strong><br>
-<br>
-- Qúy khách có thể gọi điện, gửi email hoặc đến văn phòng trực tiếp để đăng ký tour với chúng tôi. Sau khi đăng ký, quý khách vui lòng đến văn phòng để thanh toán tổng giá trị tour. Nếu sau 1 ngày quý khách không đến, chúng tôi sẽ không cam đoan giữ được chỗ cho Qúy khách.<br>
-CÁC LƯU Ý KHÁC<br>
-- Khi đăng ký tour du lịch, Quý khách vui lòng đọc kỹ chương trình, giá tour, các khoản bao gồm cũng như không bao gồm trong chương trình, các điều kiện hủy tour trên biên nhận đóng tiền. Trong trường hợp Quý khách không trực tiếp đến đăng ký tour mà do người khác đến đăng ký thì Quý khách vui lòng tìm hiểu kỹ chương trình từ người đăng ký cho mình.<br>
-- Quý khách từ 70 tuổi yêu cầu ký cam kết sức khỏe với Công ty.&nbsp;<br>
-- Quý khách đi tour cần&nbsp;đem theo CMND (còn hạn 12 năm)/ Passport (Hộ chiếu)/ Giấy khai sinh bản chính (trẻ em). Trẻ em không đi cùng cha mẹ phải có giấy cam kết (hoặc giấy chứng thuận) của cha hoặc mẹ có xác nhận của chính quyền địa phương cho người dẫn trẻ em đi. Riêng khách Việt Kiều phải mang theo đầy đủ Passport (Hộ Chiếu) hoặc thẻ xanh kèm theo Visa và giấy tái xuất nhập Việt Nam.&nbsp;<br>
-- Giá vé, giờ bay có thể thay đổi theo Hãng Hàng Không. Trong trường hợp Quý khách cung cấp tên sai vui lòng chịu phí hoàn vé và phải mua lại vé mới theo quy định của Hãng Hàng Không (nếu chuyến bay còn chỗ).&nbsp;<br>
-- &nbsp;Giờ nhận phòng khách sạn: sau 14:00 giờ và trả phòng trước 12:00 giờ.&nbsp;<br>
-- Quý khách vui lòng tập trung tại điểm hẹn trước giờ bay 02 tiếng và tại sân bay trước 1h30.&nbsp;<br>
-- Khách có nhu cầu cần xuất hóa đơn vui lòng cung cấp thông tin xuất hóa đơn cho nhân viên bán tour ngay lúc đăng ký hoặc trễ nhất trong vòng một tuần sau khi kết thúc chương trình du lịch.&nbsp;<br>
-- Quý khách mang thai xin vui lòng báo cho nhân viên bán tour ngay tại thời điểm đăng ký để được tư vấn thêm thông tin.<br>
-&nbsp;- Do các chuyến bay phụ thuộc vào các hãng Hàng Không nên trong một số trường hợp giờ bay có thể thay đổi mà không được báo trước.<br>
-- Tùy vào tình hình thực tế, thứ tự các điểm tham quan trong chương trình có thể thay đổi nhưng vẫn đảm bảo đầy đủ các điểm tham quan như lúc đầu.</span></span><br>
-&nbsp;
-<div><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif"><strong>Mọi chi tiết vui lòng liên hệ:</strong><br>
-<strong>KHỐI KHÁCH LẺ - DU LỊCH TỰ CHỌN</strong><br>
-CÔNG TY DU LỊCH VIETRAVEL<br>
-190 Pasteur, Phường 6, Q.3, Tp. Hồ Chí Minh<br>
-Tel: (028) 38228898 Ext: </span></span>542, 626, 637, 259, 593, 511, 535, 530, 161, 529<br>
-<span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Hoặc liên hệ hotline 0938 301 279<br>
-Website: fe.travel.com.vn<br>
-Và các trung tâm, chi nhánh, văn phòng đăng ký du lịch trên toàn quốc.<br>
-<strong>VIETRAVEL KÍNH CHÚC QUÝ KHÁCH MỘT CHUYẾN DU LỊCH VUI VẺ</strong></span></span></div>
-
-
-
-            </div>
-            <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
-                <div style="margin-right: 15px; margin-top: 15px; margin-bottom: 20px">
-                    <img src="/Content/themeOrange/img/support.jpg" class="img-responsive" alt="support">
-                    <div style="position: absolute; top: 30px; left: 30px">
-                        <p style="font-weight: bold; color: #fc7700; font-size: 23px; padding-bottom: 10px; border-bottom: 1px solid #fc7700">1900 1839</p>
-                        <p style="color: #000; margin-top: 10px; font-weight: bold; font-size: 12.5px">cước 1000đ/phút</p>
-                    </div>
-                </div>
-                <div style="margin-bottom: 20px; margin-right: 15px;" class="tourlienquan">
-                    <div style="font-weight: bold; text-transform: uppercase; font-size: 18px; color: #333; padding-bottom: 10px;">Các tour tương tự</div>
-                    <div id="theogia" style="margin-bottom:15px;">
-                        <div class="row">
-                                <div class="col-xs-12 mg-bot20">
-                                    <a href="/du-lich/ho-ba-be-chua-phat-tich-truc-lam-thac-ban-gioc" title="HỒ BA BỂ - CHÙA PHẬT TÍCH TRÚC LÂM THÁC BẢN GIỐC 4N3Đ" class="hvr-rectangle-out">
-                                        <img src="/FileUploads/Tour/sl_171208_tfd_20160218_thac-ban-gioc.jpg" class="img-responsive pic" alt="HỒ BA BỂ - CHÙA PHẬT TÍCH TRÚC LÂM THÁC BẢN GIỐC 4N3Đ">
-                                    </a>
-                                    <div class="dottable-2line loai-tourname is-truncated" style="padding-top: 10px; overflow-wrap: break-word;">
-... </div>
+                                <div class="col-md-4">
+                                    <div class="destination">
+                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(images/room-5.jpg);"></a>
+                                        <div class="text p-3">
+                                            <div class="d-flex">
+                                                <div class="one">
+                                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </div>
+                                                <div class="two">
+                                                    <span class="price per-price">$40<br><small>/night</small></span>
+                                                </div>
+                                            </div>
+                                            <p>Far far away, behind the word mountains, far from the countries</p>
+                                            <hr>
+                                            <p class="bottom-area d-flex">
+                                                <span><i class="icon-map-o"></i> Miami, Fl</span> 
+                                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                              
+                                <div class="col-md-4">
+                                    <div class="destination">
+                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(images/room-6.jpg);"></a>
+                                        <div class="text p-3">
+                                            <div class="d-flex">
+                                                <div class="one">
+                                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </div>
+                                                <div class="two">
+                                                    <span class="price per-price">$40<br><small>/night</small></span>
+                                                </div>
+                                            </div>
+                                            <p>Far far away, behind the word mountains, far from the countries</p>
+                                            <hr>
+                                            <p class="bottom-area d-flex">
+                                                <span><i class="icon-map-o"></i> Miami, Fl</span> 
+                                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+                    <h4 class="mb-5">Check Availability &amp; Booking</h4>
+                    <div class="fields">
+                        <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Name">
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Email">
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <input type="text" class="form-control checkin_date" placeholder="Date from">
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <input type="text" class="form-control checkout_date" placeholder="Date to">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                <div class="select-wrap one-third">
+                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                <select name="" id="" class="form-control" placeholder="Guest">
+                                  <option value="0">Guest</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                </select>
+                              </div>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                                <div class="form-group">
+                                <div class="select-wrap one-third">
+                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                <select name="" id="" class="form-control" placeholder="Children">
+                                  <option value="0">Children</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                </select>
+                              </div>
+                              </div>
+                          </div>
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <input type="submit" value="Check Availability" class="btn btn-primary py-3">
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+                    <h4 class="mb-4">Review &amp; Ratings</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form method="post" class="star-rating">
+                                          <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1">
+                                                    <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> 100 Ratings</span></p>
+                                                </label>
+                                          </div>
+                                          <div class="form-check">
+                                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                          <label class="form-check-label" for="exampleCheck1">
+                                               <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i> 30 Ratings</span></p>
+                                          </label>
+                                          </div>
+                                          <div class="form-check">
+                                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                          <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 5 Ratings</span></p>
+                                         </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                          <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
+                                          </label>
+                                          </div>
+                                          <div class="form-check">
+                                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                          <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
+                                            </label>
+                                          </div>
+                                        </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
+                    <h4 class="mb-4">Related Hotels</h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                                    <div class="destination">
+                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(images/hotel-1.jpg);"></a>
+                                        <div class="text p-3">
+                                            <div class="d-flex">
+                                                <div class="one">
+                                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </div>
+                                                <div class="two">
+                                                    <span class="price per-price">$40<br><small>/night</small></span>
+                                                </div>
+                                            </div>
+                                            <p>Far far away, behind the word mountains, far from the countries</p>
+                                            <hr>
+                                            <p class="bottom-area d-flex">
+                                                <span><i class="icon-map-o"></i> Miami, Fl</span> 
+                                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="destination">
+                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(images/hotel-2.jpg);"></a>
+                                        <div class="text p-3">
+                                            <div class="d-flex">
+                                                <div class="one">
+                                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </div>
+                                                <div class="two">
+                                                    <span class="price per-price">$40<br><small>/night</small></span>
+                                                </div>
+                                            </div>
+                                            <p>Far far away, behind the word mountains, far from the countries</p>
+                                            <hr>
+                                            <p class="bottom-area d-flex">
+                                                <span><i class="icon-map-o"></i> Miami, Fl</span> 
+                                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="destination">
+                                        <a href="hotel-single.html" class="img img-2" style="background-image: url(images/hotel-3.jpg);"></a>
+                                        <div class="text p-3">
+                                            <div class="d-flex">
+                                                <div class="one">
+                                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
+                                                    <p class="rate">
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star-o"></i>
+                                                        <span>8 Rating</span>
+                                                    </p>
+                                                </div>
+                                                <div class="two">
+                                                    <span class="price per-price">$40<br><small>/night</small></span>
+                                                </div>
+                                            </div>
+                                            <p>Far far away, behind the word mountains, far from the countries</p>
+                                            <hr>
+                                            <p class="bottom-area d-flex">
+                                                <span><i class="icon-map-o"></i> Miami, Fl</span> 
+                                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
 
-</div>
+            </div>
+          </div> <!-- .col-md-8 -->
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+        <section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+              <h2>Subcribe to our Newsletter</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+              <div class="row d-flex justify-content-center mt-5">
+                <div class="col-md-8">
+                  <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control" placeholder="Enter email address">
+                      <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 @endsection
