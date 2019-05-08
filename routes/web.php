@@ -10,23 +10,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'locale'], function () {
+    Route::get('change-language/{language}', 'ChangeLanguageController@changeLanguage')
+    ->name('change_language');
+
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('tours', 'TourController@index')->name('tours');
+    Route::get('tour/{id}', 'TourController@tourDetail')->name('tour_detail');
+    Route::get('place/{slug}', 'HomeController@getScenic')->name('scenic');
+    Route::get('filter', 'TourController@filter')->name('filter');
+    Route::get('hotels', 'HotelController@index')->name('hotels');
+    Route::get('hotel/{id}', 'HotelController@hotelDetail')->name('hotel_detail');
+    Route::get('news', 'NewsController@index')->name('news');
+    Route::get('news/{slug}', 'NewsController@getNewsDetail')->name('news_detail');
+    Route::post('news/{id}', 'NewsController@comment')->name('comment');
+
+    Route::get('booking/{id}', 'TourController@getBookingTour')->name('booking_tour');
+    Route::post('book-tour', 'TourController@storeBookingTour')->name('store_booking_tour');
+});
+
 Route::get('logout', ['as' => 'logout', 'uses'=>'UserController@logout']);
 Route::get('admin/login', 'UserController@getLoginAdmin')->name('getLogin');
 Route::get('admin/logout', 'UserController@getLogout')->name('getlogout');
 Route::post('admin/login', 'UserController@postLoginAdmin')->name('postlogin');
-
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('tours', 'TourController@index')->name('tours');
-Route::get('tour/{id}', 'TourController@tourDetail')->name('tour_detail');
-Route::get('place/{slug}', 'HomeController@getScenic')->name('scenic');
-Route::get('filter', 'TourController@filter')->name('filter');
-Route::get('hotels', 'HotelController@index')->name('hotels');
-Route::get('news', 'NewsController@index')->name('news');
-Route::get('news/{slug}', 'NewsController@getNewsDetail')->name('news_detail');
-Route::post('news/{id}', 'NewsController@comment')->name('comment');
-
-Route::get('booking/{id}', 'TourController@getBookingTour')->name('booking_tour');
-Route::post('book-tour', 'TourController@storeBookingTour')->name('store_booking_tour');
 
 
 Route::group(['middleware' => 'adminLogin', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {

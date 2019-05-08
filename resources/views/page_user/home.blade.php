@@ -1,6 +1,6 @@
 @extends('page_user.index')
 @section('content')
-<div class="hero-wrap js-fullheight" style="background-image: url('resource/images/nha.jpg');">
+<div class="hero-wrap js-fullheight" style="background-image: url('resource/images/logo.jpg');">
     <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
@@ -17,11 +17,10 @@
             <div class="row no-gutters">
           <div class="col-md-12 nav-link-wrap">
             <div class="nav nav-pills justify-content-center text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Flight</a>
+              <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">{{ __('text.Tours') }}</a>
 
-              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Hotel</a>
+              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">{{ __('text.Hotels') }}</a>
 
-              <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Car Rent</a>
             </div>
           </div>
           <div class="col-md-12 tab-wrap">
@@ -33,7 +32,7 @@
                     <div class="row">
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">From</label>
+                                <label for="#">{{ __('text.departure') }}</label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-my_location"></span></div>
                                     <input type="text" name="departure" class="form-control" placeholder="From">
@@ -42,7 +41,7 @@
                         </div>
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Where</label>
+                                <label for="#">{{ __('text.destination') }}</label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-map-marker"></span></div>
                                     <input type="text" name="name" class="form-control" placeholder="Where">
@@ -51,28 +50,36 @@
                         </div>
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Check In</label>
+                                <label for="#">{{ __('text.date_from') }}</label>
                                 <div class="form-field">
                                     <div class="icon"><span class="icon-map-marker"></span></div>
-                                    <input type="date" name="date" class="form-control" placeholder="Check In">
+                                    <input type="date" name="date-from" class="form-control" placeholder="{{ __('text.date_from') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md align-items-end">
+                            <div class="form-group">
+                                <label for="#">{{ __('text.date_to') }}</label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="icon-map-marker"></span></div>
+                                    <input type="date" class="form-control" placeholder="{{ __('text.date_to') }}" name="date-to">
                                   </div>
                               </div>
                         </div>
                         <div class="col-md align-items-end">
                             <div class="form-group">
-                                <label for="#">Check Out</label>
+                                <label for="#">{{ __('text.Price') }}</label>
                                 <div class="form-field">
-                                    <div class="icon"><span class="icon-map-marker"></span></div>
-                                    <input type="text" class="form-control checkout_date" placeholder="From">
-                                  </div>
-                              </div>
-                        </div>
-                        <div class="col-md align-items-end">
-                            <div class="form-group">
-                                <label for="#">Travelers</label>
-                                <div class="form-field">
-                                    <div class="icon"><span class="icon-map-marker"></span></div>
-                                    <input type="text" name="quantity_person" class="form-control" placeholder="travelers">
+                                    <div class="select-wrap">
+                                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                  <select name="price" id="" class="form-control">
+                                    <option value="1">{{ __('text.under_1') }}</option>
+                                    <option value="2">{{ __('text.from_1_to_2') }}</option>
+                                    <option value="3">{{ __('text.from_2_to_4') }}</option>
+                                    <option value="4">{{ __('text.from_4_to_7') }}</option>
+                                    <option value="5">{{ __('text.over_7') }}</option>
+                                  </select>
+                                </div>
                                   </div>
                               </div>
                         </div>
@@ -300,15 +307,8 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="#">{{ $value->name_vi }}</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
+                                    <h3><a href="{{ route('tour_detail', $value->id) }}">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
+                                    
                                 </div>
                                 <div class="two">
                                     <span class="price">{{ number_format($value->price) }}đ</span>
@@ -318,8 +318,8 @@
                             <p class="days"><span>{{ $value->date }}</span></p>
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> {{ __('departure') }}: {{ $value->departure_vi }}</span> 
-                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('book_now') }}</a></span>
+                                <span><i class="icon-map-o"></i> {{ __('text.departure') }}: @if (session('lang') == 'vi'){{ $value->departure_vi }} @else {{ $value->departure_en }} @endif</span> 
+                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('text.book_now') }}</a></span>
                             </p>
                         </div>
                     </div>
@@ -335,15 +335,8 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="#">{{ $value->name_vi }}</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
+                                    <h3><a href="{{ route('tour_detail', $value->id) }}">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
+                                    
                                 </div>
                                 <div class="two">
                                     <span class="price">{{ number_format($value->price) }}đ</span>
@@ -353,8 +346,8 @@
                             <p class="days"><span>{{ $value->date }}</span></p>
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> {{ __('departure') }}: {{ $value->departure_vi }}</span> 
-                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('book_now') }}</a></span>
+                                <span><i class="icon-map-o"></i> {{ __('text.departure') }}: @if (session('lang') == 'vi'){{ $value->departure_vi }} @else {{ $value->departure_en }} @endif</span> 
+                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('text.book_now') }}</a></span>
                             </p>
                         </div>
                     </div>
@@ -369,7 +362,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2 class="mb-4">{{ __('TOUR FREE & EASY') }}</h2>
+                    <h2 class="mb-4">{{ __('text.TOUR_FREE_EASY') }}</h2>
                 </div>
             </div>          
         </div>
@@ -388,15 +381,8 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="{{ route('tour_detail', $value->id) }}">{{ $value->name_vi }}</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
+                                    <h3><a href="{{ route('tour_detail', $value->id) }}">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
+                                    
                                 </div>
                                 <div class="two">
                                     @if ($value->price != 0)
@@ -431,7 +417,7 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="{{ route('tour_detail', $value->id) }}">{{ $value->name_vi }}</a></h3>
+                                    <h3><a href="{{ route('tour_detail', $value->id) }}">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
                                     <p class="rate">
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
@@ -484,7 +470,7 @@
                 @if($key % 2 == 0)
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination">
-                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->scenics()->firstOrFail()->image }});">
+                        <a href="{{ route('scenic', $value->slug) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->scenics()->firstOrFail()->image }});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-link"></span>
                             </div>
@@ -492,26 +478,19 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="#">{{ $value->name_vi }}</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
+                                    <h3><a href="{{ route('scenic', $value->slug) }}">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
+                                    
                                 </div>
                                 <div class="two">
                                     <span class="price"></span>
                                 </div>
                             </div>
-                            <p>{{ $value->description_vi }}</p>
+                            <p>@if (session('lang') == 'vi'){{ $value->description_vi }} @else {{ $value->description_en }} @endif</p>
                             <p class="days"><span></span></p>
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="icon-map-o"></i> </span> 
-                                <span class="ml-auto"><a href="{{ route('scenic', $value->slug) }}">{{ __('detail') }}</a></span>
+                                <span class="ml-auto"><a href="{{ route('scenic', $value->slug) }}">{{ __('text.detail') }}</a></span>
                             </p>
                         </div>
                     </div>
@@ -519,7 +498,7 @@
                 @else
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination d-md-flex flex-column-reverse">
-                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
+                        <a href="{{ route('scenic', $value->slug) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-link"></span>
                             </div>
@@ -527,26 +506,19 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="#">{{ $value->name_vi }}</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
+                                    <h3><a href="{{ route('scenic', $value->slug) }}">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
+                                    
                                 </div>
                                 <div class="two">
-                                    <span class="price">{{ number_format($value->price) }}đ</span>
+                                    
                                 </div>
                             </div>
-                            <p>{{ $value->quantity_person }}</p>
-                            <p class="days"><span>{{ $value->date }}</span></p>
+                            <p>@if (session('lang') == 'vi'){{ $value->description_vi }} @else {{ $value->description_en }} @endif</p>
+                            <p class="days"></p>
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> {{ __('departure') }}: {{ $value->departure_vi }}</span> 
-                                <span class="ml-auto"><a href="{{ route('scenic', $value->slug) }}">{{ __('detail') }}</a></span>
+                                <span><i class="icon-map-o"></i></span> 
+                                <span class="ml-auto"><a href="{{ route('scenic', $value->slug) }}">{{ __('text.detail') }}</a></span>
                             </p>
                         </div>
                     </div>
@@ -616,14 +588,14 @@
                 @if($key % 2 == 0)
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination">
-                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
+                        <a href="{{ route('hotel_detail', $value->id) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-link"></span>
                             </div>
                         </a>
                         <div class="text p-3">
                             <div class="d-flex">
-                                <div class="one">{{ $value->name_vi }}</a></h3>
+                                <div class="one">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
                                     <p class="rate">
                                         @for ( $i = 0; $i < $value->standard; $i++)
                                         <i class="icon-star"></i>
@@ -632,14 +604,15 @@
                                     </p>
                                 </div>
                                 <div class="two">
-                                    <span class="price per-price">$40<br><small>/night</small></span>
+                                    <span class="price per-price"><br><small></small></span>
                                 </div>
                             </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
+                             <p>@if (session('lang') == 'vi'){{ $value->address_vi }} @else {{ $value->address_en }} @endif</p>
+                            
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> Miami, Fl</span> 
-                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                                <span><i class="icon-map-o"></i></span> 
+                                <span class="ml-auto"><a href="{{ route('hotel_detail', $value->id) }}">{{ __('text.detail') }}</a></span>
                             </p>
                         </div>
                     </div>
@@ -647,7 +620,7 @@
                 @else
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination d-md-flex flex-column-reverse">
-                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
+                        <a href="{{ route('hotel_detail', $value->id) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-link"></span>
                             </div>
@@ -655,7 +628,7 @@
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
-                                    <h3><a href="#">{{ $value->name_vi }}</a></h3>
+                                    <h3><a href="{{ route('hotel_detail', $value->id) }}">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
                                     <p class="rate">
                                         @for ( $i = 0; $i < $value->standard; $i++)
                                         <i class="icon-star"></i>
@@ -664,14 +637,14 @@
                                     </p>
                                 </div>
                                 <div class="two">
-                                    <span class="price per-price">$40<br><small>/night</small></span>
+                                    <span class="price per-price"><br><small></small></span>
                                 </div>
                             </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <p>@if (session('lang') == 'vi'){{ $value->address_vi }} @else {{ $value->address_en }} @endif</p>
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> Miami, Fl</span> 
-                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                                <span><i class="icon-map-o"></i> </span> 
+                                <span class="ml-auto"><a href="{{ route('hotel_detail', $value->id) }}">{{ __('text.detail') }}</a></span>
                             </p>
                         </div>
                     </div>
@@ -682,7 +655,7 @@
         </div>
     </section>
 
-    <section class="ftco-section testimony-section">
+   {{--  <section class="ftco-section testimony-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
@@ -767,13 +740,13 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2><strong>Tips</strong> &amp; Articles</h2>
+                    <h2>{{ __('text.news_and_tips') }}</h2>
                 </div>
             </div>
             <div class="row d-flex">
@@ -781,15 +754,15 @@
                 @foreach($news as $new)
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="blog-single.html" class="block-20" style="background-image: url({{ config('image.source') }}/{{ $new->image }});">
+                        <a href="{{ route('news_detail', $new->slug) }}" class="block-20" style="background-image: url({{ config('image.source') }}/{{ $new->image }});">
                         </a>
                         <div class="text">
-                            <span class="tag">Tips, News</span>
-                            <h3 class="heading mt-3"><a href="#">{{ $new->title_vi }}</a></h3>
+                            <span class="tag"></span>
+                            <h3 class="heading mt-3"><a href="{{ route('news_detail', $new->slug) }}">@if (session('lang') == 'vi'){{ $new->title_vi }} @else {{ $new->title_en }} @endif</a></h3>
                             <div class="meta mb-3">
-                                <div><a href="#">{{ $new->updated_at }}</a></div>
+                                <div><a>{{ $new->updated_at }}</a></div>
                                 <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                <div><a href="{{ route('news_detail', $new->slug) }}" class="meta-chat"><span class="icon-chat"></span>{{ count($new->comments) }}</a></div>
                             </div>
                         </div>
                     </div>

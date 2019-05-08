@@ -16,4 +16,8 @@ class News extends Model
     	'user_id',
     	'slug',
     ];
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }

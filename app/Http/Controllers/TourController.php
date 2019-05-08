@@ -16,8 +16,9 @@ class TourController extends Controller
 
     public function tourDetail($id) {
         $tour = Tour::findOrFail($id);
+        $relate_tours = Tour::where('status', $tour->status)->take(6);
 
-        return view('page_user.tour_detail', compact('tour'));
+        return view('page_user.tour_detail', compact('tour', 'relate_tours'));
     }
 
     public function getBookingTour($id) {
@@ -50,22 +51,49 @@ class TourController extends Controller
     public function filter(Request $request)
     {
         $tours = Tour::orderBy('date', 'desc');
+        $relate_tours = Tour::where('status', '1');
+
         if($request['departure']) {
             $tours = $tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
+            $relate_tours = $relate_tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
         }
+
         if($request['name']) {
             $tours = $tours->where('name_vi', 'like', '%' . $request['name'] . '%');
+            $relate_tours = $relate_tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
         }
-        if($request['date']) {
-            $tours = $tours->where('date', $request['date']);
+
+        if($request['date-from']) {
+            $tours = $tours->where('date', '>=', $request['date-from']);
         }
-        if($request['quantity_person']) {
-            $tours = $tours->where('quantity_person', '>=', $request['quantity_person']);
+
+        if($request['date-to']) {
+            $tours = $tours->where('date', '<=', $request['date-to']);
+        }
+
+        if($request['price']) {
+            if ($request['price'] == 1) {
+                $tours = $tours->where('price', '<', 1000000);
+            }
+            if ($request['price'] == 2) {
+                $tours = $tours->where('price', '>=', 1000000)->where('price', '<=', 2000000);
+            }
+            if ($request['price'] == 3) {
+                $tours = $tours->where('price', '>=', 2000000)->where('price', '<=', 4000000);
+            }
+            if ($request['price'] == 4) {
+                $tours = $tours->where('price', '>=', 4000000)->where('price', '<=', 7000000);
+            }
+            if ($request['price'] == 5) {
+                $tours = $tours->where('price', '>=', 1000000);
+            }
         }
         $tours = $tours->get();
+        $relate_tours = $relate_tours->get();
         //dd($tours);
 
-        return view('page_user.filter', compact('tours'));
+
+        return view('page_user.filter', compact('tours', 'relate_tours'));
     }
     
 }

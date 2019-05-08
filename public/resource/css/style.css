@@ -7272,8 +7272,8 @@ body {
   background: #fff;
   font-size: 16px;
   line-height: 1.8;
-  font-weight: 300;
-  color: #666666; }
+  font-weight: 350;
+  }
   body.menu-show {
     overflow: hidden;
     position: fixed;

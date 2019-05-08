@@ -5,8 +5,8 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Places</span></p>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Destinations</h1>
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">{{ __('text.Home') }}</a></span> <span>{{ __('text.Tours') }}</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{ __('text.Places') }}</h1>
           </div>
         </div>
       </div>
@@ -17,13 +17,16 @@
         <div class="row">
             <div class="col-lg-3 sidebar order-md-last ftco-animate">
                 <div class="sidebar-wrap ftco-animate">
-                    <h3 class="heading mb-4">Find City</h3>
-                    <form action="#">
+                    <h3 class="heading mb-4">Find Tour</h3>
+                    <form action="{{ route('filter') }}" method="GET">
                         <div class="fields">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Destination, City">
+                        <input type="text" class="form-control" placeholder="{{ __('text.departure') }}" name="departure">
                       </div>
                       <div class="form-group">
+                        <input type="text" class="form-control" placeholder="{{ __('text.destination') }}" name="name">
+                      </div>
+                      {{-- <div class="form-group">
                         <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select name="" id="" class="form-control" placeholder="Keyword search">
@@ -34,12 +37,12 @@
                           <option value="">Paris Italy</option>
                         </select>
                       </div>
+                      </div> --}}
+                      <div class="form-group">
+                        <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="{{ __('text.date_from') }}">
                       </div>
                       <div class="form-group">
-                        <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Date from">
-                      </div>
-                      <div class="form-group">
-                        <input type="text" id="checkout_date" class="form-control checkout_date" placeholder="Date to">
+                        <input type="text" id="checkout_date" class="form-control checkout_date" placeholder="{{ __('text.date_to') }}">
                       </div>
                       <div class="form-group">
                         <div class="range-slider">
@@ -58,7 +61,7 @@
                     </div>
                 </form>
                 </div>
-                <div class="sidebar-wrap ftco-animate">
+                {{-- <div class="sidebar-wrap ftco-animate">
                     <h3 class="heading mb-4">Star Rating</h3>
                     <form method="post" class="star-rating">
                               <div class="form-check">
@@ -92,7 +95,7 @@
                                 </label>
                               </div>
                     </form>
-                </div>
+                </div> --}}
           </div><!-- END-->
           <div class="col-lg-9">
             <div class="row">
