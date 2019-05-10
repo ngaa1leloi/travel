@@ -24,6 +24,20 @@ return [
     'from_2_to_4' => '2-4 Triệu',
     'from_4_to_7' => '4-7 Triệu',
     'over_7' => '> 7 Triệu',
-    
+    'destination' => 'Nơi đến',
+    'Tour_Information' => 'Thông tin tua',
+    'name_tour' => 'Tên tua',
+    'date_from' => 'Từ ngày',
+    'date_to' => 'Đến ngày',
+    'name' => 'Họ tên ',
+    'phone' => 'Di động ',
+    'address' => 'Địa chỉ',
+    'email' => 'Email',
+    'adult' => 'Người lớn',
+    'child' => 'Trẻ em',
+    'baby' => 'Trẻ nhỏ',
+    'total' => 'TỔNG CỘNG',
+    'note' => 'Ghi chú',
+    'Customer_Information' => 'Thông tin khách hàng',
 
 ];

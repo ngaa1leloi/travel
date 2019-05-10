@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BookingTour extends Model
+class BookingCustomTour extends Model
 {
-    protected $table = 'booking_tour';
+    protected $table = 'booking_custom_tour';
 
     protected $fillable = [
     	'tour_id',
@@ -19,6 +19,8 @@ class BookingTour extends Model
     	'quantity_baby',
     	'note',
     	'payment',
+        'start_date',
+        'end_date',
     ];
 
     public function tour()

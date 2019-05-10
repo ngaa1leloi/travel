@@ -80,4 +80,12 @@ class NewsController extends Controller
 
         return redirect('admin/news/index')->with('message', __('message.edit'));
     }
+
+    public function delete($id)
+    {
+        $news = News::findOrFail($id);
+        $news->delete();
+
+        return redirect('admin/news/index')->with('message', __('message.delete'));
+    }
 }

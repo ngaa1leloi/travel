@@ -11,6 +11,7 @@
 |
 */
 Route::group(['middleware' => 'locale'], function () {
+    Route::view('/welcome', 'page_user.confirm_booking_tour');
     Route::get('change-language/{language}', 'ChangeLanguageController@changeLanguage')
     ->name('change_language');
 
@@ -26,7 +27,10 @@ Route::group(['middleware' => 'locale'], function () {
     Route::post('news/{id}', 'NewsController@comment')->name('comment');
 
     Route::get('booking/{id}', 'TourController@getBookingTour')->name('booking_tour');
+    Route::get('booking-buffet/{id}', 'TourController@getBookingBuffetTour')->name('booking_buffet_tour');
     Route::post('book-tour', 'TourController@storeBookingTour')->name('store_booking_tour');
+    Route::post('book-custom-tour', 'TourController@storeBookingCustomTour')->name('store_booking_custom_tour');
+
 });
 
 Route::get('logout', ['as' => 'logout', 'uses'=>'UserController@logout']);
@@ -99,6 +103,22 @@ Route::group(['middleware' => 'adminLogin', 'prefix' => 'admin', 'namespace' => 
         Route::get('delete/{id}', 'HotelController@delete')->name('delete_hotel');
     });
 
+    Route::prefix('booking')->group(function() {
+        Route::get('booking-tour', 'BookingController@getBookingTours')->name('index_booking');
+        Route::get('edit-booking-tour/{id}', 'BookingController@editBookingTour')->name('edit_booking');
+        Route::post('update-booking-tour/{id}', 'BookingController@updateBookingTour')->name('update_booking');
+        Route::get('delete-booking-tour/{id}', 'BookingController@deleteBookingTour')->name('delete_booking');
+
+        Route::get('booking-custom-tour', 'BookingController@getBookingCustomTours')->name('index_booking_custom');
+        Route::get('edit-booking-custom-tour/{id}', 'BookingController@editBookingCustom')->name('edit_booking_custom');
+        Route::post('update-booking-custom-tour/{id}', 'BookingController@updateBookingCustom')->name('update_booking_custom');
+
+        Route::get('delete-booking-custom-tour/{id}', 'BookingController@deleteBookingCustom')->name('delete_booking_custom');
+
+        Route::get('search-booking', 'BookingController@filterBooking')->name('filter_booking');
+
+        Route::get('search-booking-custom', 'BookingController@filterBookingCustom')->name('filter_booking_custom');
+    });
 
     Route::prefix('category')->group(function() {
         Route::get('list', 'CategoryController@getList')->name('getListCategory');

@@ -30,7 +30,7 @@
                                 <a href="{{ route('edit_scenic', $scenic->id) }}"><i class="material-icons">more_vert</i></a>
                               </span></td>
                             <td><span class="text-danger">
-                                <a href="{{ route('delete_scenic', $scenic->id) }}"><i style="color: red" class="material-icons">clear</i></a></span></td>
+                                <a href="{{ route('delete_scenic', $scenic->id) }}" onclick="return myFunction();"><i style="color: red" class="material-icons">clear</i></a></span></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -40,3 +40,9 @@
     </div>
 </div>
 @endsection
+<script>
+  function myFunction() {
+      if(!confirm("Are You Sure to delete this"))
+      event.preventDefault();
+  }
+ </script>

@@ -10,6 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
+        $this->authorize('user');
         $users = User::where('role', '<>', 0)->get();
 
         return view('page_admin.user.index', compact('users'));
@@ -60,8 +61,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        $users = User::all();
 
-        return view('admin.user.list', ['users' => $users])->with('message', __('delete'));
+       return redirect('admin/user/index')->with('message', __('message.delete'));
     }
 }

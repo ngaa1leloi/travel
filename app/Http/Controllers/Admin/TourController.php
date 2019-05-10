@@ -80,4 +80,13 @@ class TourController extends Controller
 
         return redirect('admin/tour/index')->with('message', __('message.edit'));
     }
+
+    public function delete($id)
+    {
+        $tour = Tour::findOrFail($id);
+        $tour->delete();
+
+        return redirect('admin/tour/index')->with('message', __('message.delete'));    
+    }
+
 }

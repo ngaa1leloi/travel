@@ -74,4 +74,12 @@ class HotelController extends Controller
 
         return redirect('admin/hotel/index')->with('message', __('message.edit'));
     }
+
+    public function delete($id)
+    {
+        $hotel = Hotel::findOrFail($id);
+        $hotel->delete();
+
+        return redirect('admin/hotel/index')->with('message', __('message.delete'));
+    }
 }

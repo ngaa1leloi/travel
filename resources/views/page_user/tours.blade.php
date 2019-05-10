@@ -110,29 +110,39 @@
                             <div class="text p-3">
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="#">{{ $tour->name_vi }}</a></h3>
-                                        <p class="rate">
+                                        <h3><a href="{{ route('tour_detail', $tour->id) }}">@if (session('lang') == 'vi'){{ $tour->name_vi }} @else {{ $tour->name_en }} @endif</a></h3>
+                                        {{-- <p class="rate">
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
                                             <i class="icon-star-o"></i>
                                             <span>8 Rating</span>
-                                        </p>
+                                        </p> --}}
                                     </div>
                                     <div class="two">
+                                        @if($tour->price != 0)
                                         <span class="price">{{ number_format($tour->price) }}đ</span>
+                                        @else
+                                        <span style="font-size: 14px;">{{ __('text.Price') }}:<a href="{{ route('tour_detail', $tour->id) }}">{{ __('text.Contact') }}</a></span>
+                                        @endif
                                     </div>
                                 </div>
                                 <p>Còn trống: {{ $tour->quantity_person }}</p>
                                 <p class="days">
-                                    <span>{{ $tour->date }}</span>
+                                    @if($tour->date != null)
+                                        <span class="price">{{ __('text.Date') }}: {{ $tour->date }}</span>
+                                    @else
+                                        <span class="price">{{ __('text.Date') }}:<a href="{{ route('tour_detail', $tour->id) }}">{{ __('text.Contact') }}</a></span>
+                                    @endif
+                                    @if($tour->time != null)
                                     <span>{{ $tour->time }}</span>
+                                    @endif
                                 </p>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> {{ __('departure') }}:{{ $tour->departure_vi }}</span> 
-                                    <span class="ml-auto"><a href="{{ route('booking_tour', $tour->id) }}">{{ __('book_now') }}</a></span>
+                                    <span><i class="icon-map-o"></i> {{ __('text.departure') }}: @if (session('lang') == 'vi') {{ $tour->departure_vi }} @else {{ $tour->departure_en }} @endif</span> 
+                                    <p class="ml-auto"><a style="    background: #08c299;color: #fff;-webkit-border-radius: 4px;-moz-border-radius: 4px;-ms-border-radius: 4px;border-radius: 4px;padding: 3px 5px;" href="{{ route('booking_tour', $tour->id) }}">{{ __('text.book_now') }}</a></p>
                                 </p>
                             </div>
                         </div>

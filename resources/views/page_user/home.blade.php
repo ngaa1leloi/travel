@@ -254,8 +254,8 @@
           <h2 class="mb-4">The Best Travel Agency</h2>
         </div>
         <div>
-                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-            </div>
+            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+        </div>
         </div>
     </section>
 
@@ -388,7 +388,7 @@
                                     @if ($value->price != 0)
                                     <span class="price">{{ number_format($value->price) }}đ</span>
                                     @else 
-                                    <span class="price">Giá:Liên hệ</span>
+                                    <span class="price">{{ __('text.Price') }}:<a href="{{ route('tour_detail', $value->id) }}">{{ __('text.Contact') }}</a></span>
                                     @endif
                                 </div>
                             </div>
@@ -396,11 +396,11 @@
                             @if ($value->date != null)
                             <p class="days"><span>{{ $value->date }}</span></p>
                             @else
-                            <p class="days"><span>Ngày đi: Liên hệ</span></p>
+                            <p class="days"><span>{{ __('text.Date') }}:<a href="{{ route('tour_detail', $value->id) }}">{{ __('text.Contact') }}</a></span></p>
                             @endif
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> {{ __('departure') }}: {{ $value->departure_vi }}</span> 
+                                <span><i class="icon-map-o"></i> {{ __('text.departure') }}: @if (session('lang') == 'vi') {{ $value->departure_vi }} @else {{ $value->departure_en }} @endif</span> 
                                 <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('book_now') }}</a></span>
                             </p>
                         </div>
@@ -418,20 +418,20 @@
                             <div class="d-flex">
                                 <div class="one">
                                     <h3><a href="{{ route('tour_detail', $value->id) }}">@if (session('lang') == 'vi'){{ $value->name_vi }} @else {{ $value->name_en }} @endif</a></h3>
-                                    <p class="rate">
+                                    {{-- <p class="rate">
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
                                         <i class="icon-star-o"></i>
                                         <span>8 Rating</span>
-                                    </p>
+                                    </p> --}}
                                 </div>
                                 <div class="two">
                                     @if ($value->price != 0)
                                     <span class="price">{{ number_format($value->price) }}đ</span>
                                     @else 
-                                    <span class="price">Giá:Liên hệ</span>
+                                    <span class="price">{{ __('text.Price') }}:<a href="{{ route('tour_detail', $value->id) }}">{{ __('text.Contact') }}</a></span>
                                     @endif
                                 </div>
                             </div>
@@ -439,12 +439,12 @@
                             @if ($value->date != null)
                             <p class="days"><span>{{ $value->date }}</span></p>
                             @else
-                            <p class="days"><span>Ngày đi: Liên hệ</span></p>
+                            <p class="days"><span>{{ __('text.Date') }}:<a href="{{ route('tour_detail', $value->id) }}">{{ __('text.Contact') }}</a></span></p>
                             @endif
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> {{ __('departure') }}: {{ $value->departure_vi }}</span> 
-                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('book_now') }}</a></span>
+                                <span><i class="icon-map-o"></i> {{ __('text.departure') }}: @if (session('lang') == 'vi') {{ $value->departure_vi }} @else {{ $value->departure_en }} @endif</span> 
+                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('text.book_now') }}</a></span>
                             </p>
                         </div>
                     </div>

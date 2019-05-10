@@ -63,4 +63,12 @@ class ScenicController extends Controller
 
         return redirect('admin/scenic/index')->with('message', __('message.edit'));
     }
+
+    public function delete($id)
+    {
+        $scenic = Scenic::findOrFail($id);
+        $scenic->delete();
+
+        return redirect('admin/scenic/index')->with('message', __('message.delete'));
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tour;
 use App\Models\BookingTour;
+use App\Models\BookingCustomTour;
 
 class TourController extends Controller
 {
@@ -16,7 +17,8 @@ class TourController extends Controller
 
     public function tourDetail($id) {
         $tour = Tour::findOrFail($id);
-        $relate_tours = Tour::where('status', $tour->status)->take(6);
+        $relate_tours = Tour::where('status', $tour->status)->take(6)->get();
+        //dd($relate_tours);
 
         return view('page_user.tour_detail', compact('tour', 'relate_tours'));
     }
@@ -25,6 +27,12 @@ class TourController extends Controller
     	$tour = Tour::findOrFail($id);
 
     	return view('page_user.booking_tour', compact('tour'));
+    }
+
+    public function getBookingBuffetTour($id) {
+        $tour = Tour::findOrFail($id);
+
+        return view('page_user.booking_buffet_tour', compact('tour'));
     }
 
     public function storeBookingTour(Request $request) {
@@ -39,14 +47,37 @@ class TourController extends Controller
         	'quantity_child' => $request['quantity_child'],
         	'quantity_baby' => $request['quantity_baby'],
         	'note' => $request['note'],
-            'payment' => $request['payment'],
+            
         ]);
         $tour = Tour::findOrFail($request['tour_id']);
-        $tour->quantity_person -= 1;
+        $total_person = $request['quantity_child'] + $request['quantity_adult'] + $request['quantity_baby'];
+        $tour->quantity_person -= $total_person;
         $tour->save();
+        //dd($booking_tour);
+        
+        return view('page_user.confirm_booking_tour', compact('booking_tour'));
+    }
+
+    public function storeBookingCustomTour(Request $request) {
+        //dd($request['tour_id']);
+        $booking_tour = BookingCustomTour::create([
+            'tour_id' => $request['tour_id'],
+            'name' => $request['name'],
+            'phone' => $request['phone'],
+            'email' => $request['email'],
+            'address' => $request['address'],
+            'quantity_adult' => $request['quantity_adult'],
+            'quantity_child' => $request['quantity_child'],
+            'quantity_baby' => $request['quantity_baby'],
+            'note' => $request['note'],
+            'payment' => $request['payment'],
+            'start_date' => $request['date_from'],
+            'end_date' => $request['date_to'],
+        ]);
         
         return view('page_user.checkout');
     }
+
 
     public function filter(Request $request)
     {

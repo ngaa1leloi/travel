@@ -25,6 +25,20 @@ return [
     'from_4_to_7' => '4-7 Milion',
     'over_7' => '> 7 Milion',
     'destination' => 'Destination',
+    'Tour_Information' => 'Tour Information',
+    'name_tour' => 'Tour name',
+    'date_from' => 'Date from',
+    'date_to' => 'To date',
+    'name' => 'Name',
+    'phone' => 'Phone ',
+    'address' => 'Address',
+    'email' => 'Email',
+    'adult' => 'Adult',
+    'child' => 'Child',
+    'baby' => 'Baby',
+    'total' => 'TOTAL',
+    'note' => 'Note',
+    'Customer_Information' => 'Customer Information',
 
 
 ];

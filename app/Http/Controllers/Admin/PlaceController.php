@@ -47,4 +47,12 @@ class PlaceController extends Controller
 
         return redirect('admin/place/index')->with('message', __('message.edit'));
     }
+
+    public function delete($id)
+    {
+        $place = Place::findOrFail($id);
+        $place->delete();
+
+        return redirect('admin/place/index')->with('message', __('message.delete'));
+    }
 }

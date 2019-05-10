@@ -181,7 +181,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="{{ __('book_now') }}" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="{{ __('text.book_now') }}" class="btn btn-primary py-3 px-5">
             </div>
          </form>
       </div>

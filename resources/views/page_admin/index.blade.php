@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Shards Dashboard Lite - Free Bootstrap Admin Template – DesignRevision</title>
+        <title>Travel</title>
         <base href="{{ asset('') }}">
         <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -75,11 +75,15 @@
                       </div>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                      <a class="" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                         <img class="user-avatar rounded-circle mr-2" src="{{ asset('source_admin/images/avatars/0.jpg') }}" alt="User Avatar">
-                        <span class="d-none d-md-inline-block">Sierra Brooks</span>
+                        <span class="d-none d-md-inline-block">{{ Auth::user()->name }}</span>
+                        <ul class="dropdown-menu mega_dropdown" role="menu">
+                          <li><a href="{{ route('logout') }}">{{ __('text.Logout') }}</a></li>
+                        
+                        </ul>
                       </a>
-                      <div class="dropdown-menu dropdown-menu-small">
+                      {{-- <div class="dropdown-menu dropdown-menu-small">
                         <a class="dropdown-item" href="user-profile-lite.html">
                           <i class="material-icons">&#xE7FD;</i> Profile</a>
                         <a class="dropdown-item" href="components-blog-posts.html">
@@ -87,9 +91,9 @@
                         <a class="dropdown-item" href="add-new-post.html">
                           <i class="material-icons">note_add</i> Add New Post</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#">
+                        <a class="dropdown-item text-danger" href="">
                           <i class="material-icons text-danger">&#xE879;</i> Logout </a>
-                      </div>
+                      </div> --}}
                     </li>
                   </ul>
                   <nav class="nav">
