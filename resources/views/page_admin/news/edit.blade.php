@@ -16,7 +16,7 @@
                         <label>Tiêu đề</label>
                         <input name="title_vi" value="{{ $news->title_vi }}" class="form-control form-control-lg mb-3" type="text" placeholder="Your Post Title">
                         <label>Nội dung</label>
-                        <textarea id="content_vi" name="content_vi">{{ $news->content_en }}</textarea>
+                        <textarea id="content_vi" name="content_vi">{{ $news->content_vi }}</textarea>
                         <label>Title</label>
                         <input name="title_en" value="{{ $news->title_en }}" class="form-control form-control-lg mb-3" type="text" placeholder="Your Post Title">
                         <label>Content</label>

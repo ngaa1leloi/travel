@@ -9,7 +9,8 @@ class HotelController extends Controller
 {
     public function index() {
     	$hotels = Hotel::paginate(6);
+    	$current = 'hotel';
 
-    	return view('page_user.hotels', compact('hotels'));
+    	return view('page_user.hotels', compact('hotels', 'current'));
     }
 }

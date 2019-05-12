@@ -39,6 +39,18 @@ return [
     'total' => 'TOTAL',
     'note' => 'Note',
     'Customer_Information' => 'Customer Information',
-
-
+    'Website' => 'Website',
+    'Your_Name' => 'Your Name',
+    'Your_Email' => 'Your Email',
+    'Subject' => 'Subject',
+    'Message' => 'Message',
+    'Your_Phone' => 'Your Phone',
+    'Leave_a_comment' => 'Leave a comment',
+    'Post_Comment' => 'Post Comment',
+    'Recent_News' => 'Recent News',
+    'Password' => 'Password',
+    'Contact_Information' => 'Contact Information',
+    'title' => 'Title',
+    'image' => 'Image',
+    'Content' => 'Content',
 ];

@@ -126,5 +126,6 @@
         var simplemde_vi = new SimpleMDE({ element: document.getElementById("content_vi") });
         var simplemde_en = new SimpleMDE({ element: document.getElementById("content_en") });
     </script>
+    
   </body>
 </html>

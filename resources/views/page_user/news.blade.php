@@ -11,9 +11,13 @@
         </div>
       </div>
     </div>
-    <a class="btn py-3 px-4 btn-primary" href="">Post</a>
+    
     <section class="ftco-section bg-light">
+      
       <div class="container">
+          @if(Auth::check())
+            <a class="btn py-3 px-4 btn-primary" style="margin-bottom: 10px;" href="{{ route('post') }}">Post</a>
+          @endif
         <div class="row d-flex">
           @foreach($news as $new)
           <div class="col-md-4 d-flex ftco-animate">
@@ -24,9 +28,9 @@
               	<span class="tag">Tips, Travel</span>
                 <h3 class="heading mt-3" style=""><a href="{{ route('news_detail', $new->id) }}">{{ $new->title_vi }}</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">{{ $new->updated_at }}</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a>{{ $new->updated_at }}</a></div>
+                  <div><a>@if($new->user_id != null){{ $new->user->name }} @else Admin @endif</a></div>
+                  <div><a href="{{ route('news_detail', $new->id) }}" class="meta-chat"><span class="icon-chat"></span> {{ count($new->comments) }}</a></div>
                 </div>
               </div>
             </div>
@@ -45,7 +49,7 @@
       </div>
     </section>
 
-		<section class="ftco-section-parallax">
+	<section class="ftco-section-parallax">
       <div class="parallax-img d-flex align-items-center">
         <div class="container">
           <div class="row d-flex justify-content-center">
@@ -68,3 +72,12 @@
       </div>
     </section>
     @endsection
+@section('script')
+
+
+<script type="text/javascript">
+    @if(session('message'))       
+        $.notify("{{ session('message') }}", "success");
+    @endif
+</script>
+@endsection

@@ -11,32 +11,56 @@ class TourController extends Controller
 {
     public function index() {
     	$tours = Tour::paginate(6);
+        $current = 'tour';
 
-    	return view('page_user.tours', compact('tours'));
+    	return view('page_user.tours', compact('tours', 'tour'));
     }
 
     public function tourDetail($id) {
         $tour = Tour::findOrFail($id);
         $relate_tours = Tour::where('status', $tour->status)->take(6)->get();
         //dd($relate_tours);
+        $current = 'tour';
 
-        return view('page_user.tour_detail', compact('tour', 'relate_tours'));
+        return view('page_user.tour_detail', compact('tour', 'relate_tours', 'current'));
     }
 
     public function getBookingTour($id) {
     	$tour = Tour::findOrFail($id);
+        $current = 'tour';
 
-    	return view('page_user.booking_tour', compact('tour'));
+    	return view('page_user.booking_tour', compact('tour', 'current'));
     }
 
     public function getBookingBuffetTour($id) {
         $tour = Tour::findOrFail($id);
+        $current = 'tour';
 
-        return view('page_user.booking_buffet_tour', compact('tour'));
+        return view('page_user.booking_buffet_tour', compact('tour', 'current'));
     }
 
     public function storeBookingTour(Request $request) {
     	//dd($request['tour_id']);
+        $this->validate($request,
+            [
+                'name' => 'required|min:3',
+                'phone' => 'required|regex:/(0)[0-9]{9}$/',
+                'email' => 'required|email',
+                'address' => 'required|min:3',
+
+            ],
+            [
+                'name.required' => __('message.name_required'),
+                'name.min' => __('message.name_min'),
+                'phone.required' => __('message.phone'),
+                'phone.regex' => __('message.phone_regex'),
+                'email.required' => __('message.email'),
+                'email.email' => __('message.email_format'),
+                'address.required' => __('message.address'),
+                'address.min' => __('message.address_min'),
+
+            ]);
+
         $booking_tour = BookingTour::create([
         	'tour_id' => $request['tour_id'],
         	'name' => $request['name'],
@@ -46,6 +70,7 @@ class TourController extends Controller
         	'quantity_adult' => $request['quantity_adult'],
         	'quantity_child' => $request['quantity_child'],
         	'quantity_baby' => $request['quantity_baby'],
+            'payment' => $request['payment'],
         	'note' => $request['note'],
             
         ]);
@@ -60,6 +85,29 @@ class TourController extends Controller
 
     public function storeBookingCustomTour(Request $request) {
         //dd($request['tour_id']);
+        $this->validate($request,
+            [
+                'name' => 'required|min:3',
+                'phone' => 'required|regex:/(0)[0-9]{9}$/',
+                'email' => 'required|email',
+                'address' => 'required|min:3',
+                'start_date' => 'required',
+                'end_date' => 'required',
+            ],
+            [
+                'name.required' => __('message.name_required'),
+                'name.min' => __('message.name_min'),
+                'phone.required' => __('message.phone'),
+                'phone.regex' => __('message.phone_regex'),
+                'email.required' => __('message.email'),
+                'email.email' => __('message.email_format'),
+                'address.required' => __('message.address'),
+                'address.min' => __('message.address_min'),
+                'start_date.required' => __('message.start_date'),
+                'end_date.required' => __('message.end_date'),
+
+            ]);
+
         $booking_tour = BookingCustomTour::create([
             'tour_id' => $request['tour_id'],
             'name' => $request['name'],
@@ -122,9 +170,9 @@ class TourController extends Controller
         $tours = $tours->get();
         $relate_tours = $relate_tours->get();
         //dd($tours);
+        $current = 'tour';
 
-
-        return view('page_user.filter', compact('tours', 'relate_tours'));
+        return view('page_user.filter', compact('tours', 'relate_tours', 'current'));
     }
     
 }

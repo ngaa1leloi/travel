@@ -11,6 +11,7 @@
 |
 */
 Route::group(['middleware' => 'locale'], function () {
+    Auth::routes();
     Route::view('/welcome', 'page_user.confirm_booking_tour');
     Route::get('change-language/{language}', 'ChangeLanguageController@changeLanguage')
     ->name('change_language');
@@ -25,15 +26,21 @@ Route::group(['middleware' => 'locale'], function () {
     Route::get('news', 'NewsController@index')->name('news');
     Route::get('news/{slug}', 'NewsController@getNewsDetail')->name('news_detail');
     Route::post('news/{id}', 'NewsController@comment')->name('comment');
+    Route::get('post', 'NewsController@getPost')->name('post');
+    Route::post('post', 'NewsController@postNews')->name('post_news');
 
     Route::get('booking/{id}', 'TourController@getBookingTour')->name('booking_tour');
     Route::get('booking-buffet/{id}', 'TourController@getBookingBuffetTour')->name('booking_buffet_tour');
     Route::post('book-tour', 'TourController@storeBookingTour')->name('store_booking_tour');
     Route::post('book-custom-tour', 'TourController@storeBookingCustomTour')->name('store_booking_custom_tour');
 
+    Route::get('contact', 'HomeController@getContact')->name('contact');
+    Route::post('contact', 'HomeController@storeContact')->name('store_contact');
+    Route::get('logout', ['as' => 'logout', 'uses'=>'UserController@logout']);
+
 });
 
-Route::get('logout', ['as' => 'logout', 'uses'=>'UserController@logout']);
+
 Route::get('admin/login', 'UserController@getLoginAdmin')->name('getLogin');
 Route::get('admin/logout', 'UserController@getLogout')->name('getlogout');
 Route::post('admin/login', 'UserController@postLoginAdmin')->name('postlogin');
@@ -121,15 +128,15 @@ Route::group(['middleware' => 'adminLogin', 'prefix' => 'admin', 'namespace' => 
     });
 
     Route::prefix('category')->group(function() {
-        Route::get('list', 'CategoryController@getList')->name('getListCategory');
+        Route::get('index', 'CategoryController@index')->name('index_category');
 
-        Route::get('add', 'CategoryController@getAdd')->name('getAddCategory');
-        Route::post('add', 'CategoryController@postAdd')->name('postAddCategory');
+        Route::get('create', 'CategoryController@create')->name('create_category');
+        Route::post('store', 'CategoryController@store')->name('store_category');
 
-        Route::get('edit/{id}', 'CategoryController@getEdit')->name('getEditCategory');
-        Route::post('edit/{id}', 'CategoryController@postEdit')->name('postEditCategory');
+        Route::get('edit/{id}', 'CategoryController@edit')->name('edit_category');
+        Route::post('update/{id}', 'CategoryController@update')->name('update_category');
 
-        Route::get('delete/{id}', 'CategoryController@getDelete')->name('getDeleteCategory');
+        Route::get('delete/{id}', 'CategoryController@delete')->name('delete_category');
     });
 
 
@@ -145,8 +152,12 @@ Route::group(['middleware' => 'adminLogin', 'prefix' => 'admin', 'namespace' => 
         Route::get('delete/{id}', 'UserController@delete')->name('delete_user');
     });
 
-});
+    Route::prefix('contact')->group(function() {
+        Route::get('index', 'AdminController@getContact')->name('index_contact');
 
-Auth::routes();
+        Route::get('delete/{id}', 'AdminController@delete')->name('delete_contact');
+    });
+
+});
 
 Route::get('/home', 'HomeController@index')->name('home');

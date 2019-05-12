@@ -44,53 +44,57 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">
-                            <label>Họ tên <span style="color: #cd2c24">*</span></label>
+                            <label>{{ __('text.name') }} <span style="color: #cd2c24">*</span></label>
                             <div>
                                 <input class="form-control input-lg" id="contact_name" name="name" required="required" type="text" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('name') }}</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Di động <span style="color: #cd2c24">*</span></label>
+                            <label>{{ __('text.phone') }} <span style="color: #cd2c24">*</span></label>
                             <div>
-                                <input class="form-control input-lg" id="mobilephone" name="phone" onchange="CheckMobile();" onkeypress="return funCheckInt(event)" required="required" type="text" value="">
+                                <input class="form-control input-lg" id="mobilephone" name="phone" required="required" type="text" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('phone') }}</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Địa chỉ</label>
+                            <label>{{ __('text.address') }}</label>
                             <div>
                                 <textarea class="form-control input-lg" cols="20" id="address" name="address" rows="4"></textarea>
+                                <p class="help is-danger" style="color: red">{{ $errors->first('address') }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">
-                            <label>Email <span style="color: #cd2c24">*</span></label>
+                            <label>{{ __('text.email') }} <span style="color: #cd2c24">*</span></label>
                             <div>
                                 <input class="form-control input-lg" id="email" name="email" required="required" type="email" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('email') }}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3 col-sm-2 mg-bot15">
-                                    <label>Người lớn</label>
+                                    <label>{{ __('text.adult') }}</label>
                                     <div>
                                         <input class="form-control input-lg" id="quantity_adult" name="quantity_adult" type="text" value="1" onkeyup="getPrice({{ $tour->price }})">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-2 mg-bot15">
-                                    <label>Trẻ em</label>
+                                    <label>{{ __('text.child') }}</label>
                                     <div>
                                         <input class="form-control input-lg" id="quantity_child" name="quantity_child" type="text" value="0" onkeyup="getPrice({{ $tour->price }})">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 mg-bot15">
-                                    <label>Trẻ nhỏ</label>
+                                    <label>{{ __('text.baby') }}</label>
                                     <div>
                                         <input class="form-control input-lg" id="quantity_baby" name="quantity_baby" type="text" value="0" onkeyup="getPrice({{ $tour->price }})">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 mg-bot15">
-                                    <label>TỔNG CỘNG:</label>
+                                    <label>{{ __('text.total') }}:</label>
                                     <div>
                                         <input class="form-control input-lg" id="result" name="quantity_baby" type="text" value="{{ number_format($tour->price) }}đ" disabled="disabled">
                                     </div>
@@ -98,7 +102,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Ghi chú</label>
+                            <label>{{ __('text.note') }}</label>
                             <div>
                                 <textarea class="form-control input-lg" cols="20" id="note" name="note" rows="4"></textarea>
                             </div>
@@ -106,7 +110,7 @@
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
-                            <label><span style="color: #cd2c24">Ghi chú:</span> </label>
+                            <label><span style="color: #cd2c24">{{ __('text.note') }}:</span> </label>
                             <div style="line-height: 22px">
                                 <span class="bold">Người lớn sinh từ :</span> 29/04/1949 đến 29/04/2007
                                 - 
@@ -124,17 +128,15 @@
             <div class="col-xs-12 book-hinhthucthanhtoan" style="margin-bottom: 30px">
                 <div style="border:1px solid #ccc;padding: 20px 30px 20px 30px">
                     <div class="radio">
-                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="1" checked="checked"><label class="lb_r"> Tiền mặt</label></label>
+                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="0" checked="checked"><label class="lb_r"> Tiền mặt</label></label>
                     </div>
                     <div class="radio">
-                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="2"><label class="lb_r"> Chuyển khoản</label></label>
+                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="1"><label class="lb_r"> Chuyển khoản</label></label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" class="chkPayment" name="payment" value="9"><label class="lb_r"> ATM / Internet Banking</label></label>
+                        <label><input type="radio" class="chkPayment" name="payment" value="2"><label class="lb_r"> ATM / Internet Banking</label></label>
                     </div>
-                    <div class="radio">
-                        <label><input type="radio" class="chkPayment" name="payment" value="15"><label class="lb_r"> Thẻ tín dụng </label> </label>
-                    </div>
+                    
                     {{-- <div class="row " style="padding-bottom: 10px; display: none;" id="divCard">
                         <div style="margin-top: 5px; margin-left: 35px; font-weight: bold; color: #d57575;">
                             Quý khách vui lòng chọn loại thẻ
@@ -157,7 +159,7 @@
                         </div>
                     </div> --}}
                     <div class="radio">
-                        <label><input type="radio" class="chkPayment" name="payment" value="16"><label class="lb_r"> Thanh toán bằng quét QRCode</label></label>
+                        <label><input type="radio" class="chkPayment" name="payment" value="3"><label class="lb_r"> Thanh toán bằng quét QRCode</label></label>
                     </div>
                   {{--   <div class="row " style="padding-bottom:10px;display:none;" id="divVNPay">
                         <div style="margin-top: 5px; margin-left: 35px; font-weight: bold; color: #d57575;">

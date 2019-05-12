@@ -401,7 +401,7 @@
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="icon-map-o"></i> {{ __('text.departure') }}: @if (session('lang') == 'vi') {{ $value->departure_vi }} @else {{ $value->departure_en }} @endif</span> 
-                                <span class="ml-auto"><a href="{{ route('booking_tour', $value->id) }}">{{ __('book_now') }}</a></span>
+                                <span class="ml-auto"><a href="{{ route('booking_buffet_tour', $value->id) }}">{{ __('text.book_now') }}</a></span>
                             </p>
                         </div>
                     </div>
@@ -794,4 +794,12 @@
         </div>
       </div>
     </section>
+@endsection
+@section('script')
+
+<script type="text/javascript">
+    @if(session('message'))       
+        $.notify("{{ session('message') }}", "success");
+    @endif
+</script>
 @endsection

@@ -66,9 +66,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="errors.html">
+        <a class="nav-link " href="{{ route('index_contact') }}">
           <i class="material-icons">error</i>
-          <span>Errors</span>
+          <span>Contacts</span>
         </a>
       </li>
     </ul>

@@ -47,40 +47,15 @@
                             <label>{{ __('text.date_from') }} <span style="color: #cd2c24">*</span></label>
                             <div>
                                 <input class="form-control input-lg" name="date_from" required="required" type="date" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('date_from') }}</p>
                             </div>
                         </div>
-                        {{-- <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-2 mg-bot15">
-                                    <label>Người lớn</label>
-                                    <div>
-                                        <input class="form-control input-lg" id="quantity_adult" name="quantity_adult" type="text" value="1" onkeyup="getPrice({{ $tour->price }})">
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-2 mg-bot15">
-                                    <label>Trẻ em</label>
-                                    <div>
-                                        <input class="form-control input-lg" id="quantity_child" name="quantity_child" type="text" value="0" onkeyup="getPrice({{ $tour->price }})">
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 mg-bot15">
-                                    <label>Trẻ nhỏ</label>
-                                    <div>
-                                        <input class="form-control input-lg" id="quantity_baby" name="quantity_baby" type="text" value="0" onkeyup="getPrice({{ $tour->price }})">
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 mg-bot15">
-                                    <label>TỔNG CỘNG:</label>
-                                    <div>
-                                        <input class="form-control input-lg" id="result" name="quantity_baby" type="text" value="{{ number_format($tour->price) }}đ" disabled="disabled">
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
+                        
                         <div class="form-group">
                             <label>{{ __('text.date_to') }} <span style="color: #cd2c24">*</span></label>
                             <div>
                                 <input class="form-control input-lg" name="date_to" required="required" type="date" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('date_to') }}</p>
                             </div>
                         </div>
                     </div>
@@ -97,18 +72,21 @@
                             <label>{{ __('text.name') }}<span style="color: #cd2c24">*</span></label>
                             <div>
                                 <input class="form-control input-lg" id="contact_name" name="name" required="required" type="text" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('name') }}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>{{ __('text.phone') }}<span style="color: #cd2c24">*</span></label>
                             <div>
-                                <input class="form-control input-lg" id="mobilephone" name="phone" onchange="CheckMobile();" onkeypress="return funCheckInt(event)" required="required" type="text" value="">
+                                <input class="form-control input-lg" id="mobilephone" name="phone" required="required" type="text" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('phone') }}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>{{ __('text.address') }}</label>
                             <div>
                                 <textarea class="form-control input-lg" cols="20" id="address" name="address" rows="4"></textarea>
+                                <p class="help is-danger" style="color: red">{{ $errors->first('address') }}</p>
                             </div>
                         </div>
                     </div>
@@ -117,6 +95,7 @@
                             <label>{{ __('text.email') }} <span style="color: #cd2c24">*</span></label>
                             <div>
                                 <input class="form-control input-lg" id="email" name="email" required="required" type="email" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('email') }}</p>
                             </div>
                         </div>
                         <div class="form-group">

@@ -13,76 +13,64 @@
     </div>
 
     <section class="ftco-section ftco-degree-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ftco-animate">
-            <h2 class="mb-3">{{ $news->title_vi }}</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
-            <p>
-              <img src="{{ config('image.source') }}/{{ $news->image }}" alt="" class="img-fluid">
-            </p>
-            <div class="content">
-                @markdown($news->content_vi)
-            </div>
-            <div class="tag-widget post-tag-container mb-5 mt-5">
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
-              </div>
-            </div>
-            
-           {{--  <div class="about-author d-flex p-4 bg-light">
-              <div class="bio mr-5">
-                <img src="resource/images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-              </div>
-              <div class="desc">
-                <h3>George Washington</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-              </div>
-            </div> --}}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ftco-animate">
+                    <h2 class="mb-3">{{ $news->title_vi }}</h2>
+                    <p>
+                        <img src="{{ config('image.source') }}/{{ $news->image }}" alt="" class="img-fluid">
+                    </p>
+                    <div class="content">
+                        @markdown($news->content_vi)
+                    </div>
+                   {{--  <div class="tag-widget post-tag-container mb-5 mt-5">
+                        <div class="tagcloud">
+                            <a href="#" class="tag-cloud-link">Life</a>
+                            <a href="#" class="tag-cloud-link">Sport</a>
+                            <a href="#" class="tag-cloud-link">Tech</a>
+                            <a href="#" class="tag-cloud-link">Travel</a>
+                        </div>
+                    </div> --}}
 
-
-            <div class="pt-5 mt-5">
-              <h3 class="mb-5">{{ count($comments) }} Comments</h3>
-              @if(count($comments) > 0)
-              <ul class="comment-list">
-                @foreach($comments as $comment)
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="resource/images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>{{ $comment->user->name }}</h3>
-                    <div class="meta">{{ $comment->created_at }}</div>
-                    <p>{{ $comment->content }}</p>
-                    {{-- s --}}
-                  </div>
-                </li>
-                @endforeach
-              </ul>
-              @endif
-              <!-- END comment-list -->
-              @if(Auth::check())
-              <div class="comment-form-wrap pt-5">
-                <h3 class="mb-5">Leave a comment</h3>
-                <form action="{{ route('comment', $news->id) }}" method="POST" class="p-5 bg-light">
-                  @csrf
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="content" id="message" cols="30" rows="10" class="form-control"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <button class="btn py-3 px-4 btn-primary">Post Comment</button>
-                  </div>
-                  <input type="hidden" name="news_id" value="{{ $news->id }}">
-                </form>
-              </div>
-            </div>
-            @endif
-
-          </div> <!-- .col-md-8 -->
+                    <div style="font-size: 18px; color: #cc6666"><i>@if($news->user_id != null){{ $news->user->name }} @else Admin @endif</i></div>
+                    <div class="pt-5 mt-5">
+                        <h3 class="mb-5">{{ count($comments) }} Comments</h3>
+                        @if(count($comments) > 0)
+                            <ul class="comment-list">
+                                @foreach($comments as $comment)
+                                    <li class="comment">
+                                        <div class="vcard bio">
+                                            <img src="resource/images/person_1.jpg" alt="Image placeholder">
+                                        </div>
+                                        <div class="comment-body">
+                                            <h3>{{ $comment->user->name }}</h3>
+                                            <div class="meta">{{ $comment->created_at }}</div>
+                                            <p>{{ $comment->content }}</p>
+                                        </div>
+                                     </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                      <!-- END comment-list -->
+                        @if(Auth::check())
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5">{{ __('text.Leave_a_comment') }}</h3>
+                            <form action="{{ route('comment', $news->id) }}" method="POST" class="p-5 bg-light">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="message">{{ __('text.Message') }}</label>
+                                    <textarea name="content" id="message" cols="30" rows="10" class="form-control" required="required"></textarea>
+                                    <p class="help is-danger" style="color: red">{{ $errors->first('content') }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn py-3 px-4 btn-primary">{{ __('text.Post_Comment') }}</button>
+                                </div>
+                                <input type="hidden" name="news_id" value="{{ $news->id }}">
+                            </form>
+                        </div>
+                        @endif
+                    </div>
+                </div>
           <div class="col-md-4 sidebar ftco-animate">
             <div class="sidebar-box">
               <form action="#" class="search-form">
@@ -92,7 +80,7 @@
                 </div>
               </form>
             </div>
-            <div class="sidebar-box ftco-animate">
+            {{-- <div class="sidebar-box ftco-animate">
               <div class="categories">
                 <h3>Categories</h3>
                 <li><a href="#">Tour <span>(12)</span></a></li>
@@ -102,24 +90,24 @@
                 <li><a href="#">Foods <span>(14)</span></a></li>
                 <li><a href="#">Travel <span>(140)</span></a></li>
               </div>
-            </div>
+            </div> --}}
 
             <div class="sidebar-box ftco-animate">
-                <h3>Recent Blog</h3>
+                <h3>{{ __('text.Recent_News') }}</h3>
                 @foreach($news_recent as $news)
                 <div class="block-21 mb-4 d-flex">
                     <a class="blog-img mr-4" style="background-image: url({{ config('image.source') }}/{{ $news->image }});"></a>
                     <div class="text">
-                        <h3 class="heading"><a href="#">{{ $news->title_vi }}</a></h3>
+                        <h3 class="heading"><a href="{{ route('news_detail', $news->id) }}">{{ $news->title_vi }}</a></h3>
                         <div class="meta">
-                            <div><a href="#"><span class="icon-calendar"></span>{{ $news->updated_at }}</a></div>
-                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                            <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            <div><a><span class="icon-calendar"></span>{{ $news->updated_at }}</a></div>
+                            <div><a><span class="icon-person"></span> @if($news->user_id != null){{ $news->user->name }} @else Admin @endif</a></div>
+                            <div><a href="{{ route('news_detail', $news->id) }}"><span class="icon-chat"></span> {{ count($news->comments) }}</a></div>
                         </div>
                     </div>
                 </div>
                 @endforeach
-            <div class="sidebar-box ftco-animate">
+           {{--  <div class="sidebar-box ftco-animate">
               <h3>Tag Cloud</h3>
               <div class="tagcloud">
                 <a href="#" class="tag-cloud-link">dish</a>
@@ -131,12 +119,12 @@
                 <a href="#" class="tag-cloud-link">desserts</a>
                 <a href="#" class="tag-cloud-link">drinks</a>
               </div>
-            </div>
+            </div> --}}
 
-            <div class="sidebar-box ftco-animate">
+            {{-- <div class="sidebar-box ftco-animate">
               <h3>Paragraph</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-            </div>
+            </div> --}}
           </div>
 
         </div>
