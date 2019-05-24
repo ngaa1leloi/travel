@@ -34,7 +34,6 @@ class HotelController extends Controller
         	'note_vi' => $request['note_vi'],
         	'note_en' => $request['note_en'],
         	'phone' => $request['phone'],
-        	'scenic_id' => $request['scenic'],
         	'standard' => $request['standard'],
         	'website' => $request['website'],
         	'image' => $file->getClientOriginalName(),
@@ -62,7 +61,6 @@ class HotelController extends Controller
         $hotel->phone = $request->phone;
         $hotel->standard = $request->standard;
         $hotel->website = $request->website;
-        $hotel->scenic_id = $request->scenic;
 
         if ($request->hasFile('image'))
         {

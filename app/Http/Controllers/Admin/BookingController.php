@@ -13,7 +13,7 @@ class BookingController extends Controller
 {
     public function getBookingTours() {
     	$bookings = BookingTour::all();
-    	$tours = Tour::withTrashed()->where('status', 0)->get();
+    	$tours = Tour::where('status', 0)->get();
     	//dd($tours);
 
     	return view('page_admin.booking.booking_tour', compact('bookings', 'tours'));
@@ -28,7 +28,7 @@ class BookingController extends Controller
 
     public function filterBooking(Request $request)
     {
-        $bookings = BookingTour::orderBy('start_date', 'desc');
+        $bookings = BookingTour::orderBy('created_at', 'desc');
 
         if($request['tour']) {
             $bookings = $bookings->where('tour_id', $request['tour']);
@@ -37,21 +37,21 @@ class BookingController extends Controller
         if($request['status']) {
             $bookings = $bookings->where('status',  $request['status']);
         }
-
+/*
         if($request['start_date']) {
             $bookings = $bookings->where('start_date', $request['start_date']);
         }
 
         if($request['end_date']) {
             $bookings = $bookings->where('end_date', $request['end_date']);
-        }
+        }*/
 
         $bookings = $bookings->get();
         $tours = Tour::where('status', 0)->get();
         //dd($tours);
 
 
-        return view('page_admin.booking.booking_custom_tour', compact('tours', 'bookings'));
+        return view('page_admin.booking.booking_tour', compact('tours', 'bookings'));
     }
 
     public function filterBookingCustom(Request $request)

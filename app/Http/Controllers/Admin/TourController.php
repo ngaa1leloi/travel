@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tour;
 use App\Models\Hotel;
+use App\Models\Place;
 use App\Http\Requests\TourRequest;
 use App\Http\Requests\EditTourRequest;
 
@@ -21,8 +22,9 @@ class TourController extends Controller
     public function create() {
     	$categories = Category::all();
         $hotels = Hotel::all();
+        $places = Place::all();
 
-    	return view('page_admin.tour.add', compact('categories', 'hotels'));
+    	return view('page_admin.tour.add', compact('categories', 'hotels', 'places'));
     }
 
     public function store(TourRequest $request) {
@@ -38,8 +40,10 @@ class TourController extends Controller
         	'price' => $request['price'],
         	'quantity_person' => $request['quantity_person'],
         	'time' => $request['time'],
-        	'date' => $request['date'],
+        	'start_date' => $request['start_date'],
+            'end_date' => $request['end_date'],
         	'category_id' => $request['category'],
+            'place_id' => $request['place'],
             'hotel_id' => $request['hotel'],
             'status' => $request['status'],
         	'image' => $file->getClientOriginalName(),
@@ -51,8 +55,10 @@ class TourController extends Controller
     public function edit($id) {
         $tour = Tour::findOrFail($id);
         $categories = Category::all();
+        $hotels = Hotel::all();
+        $places = Place::all();
 
-        return view('page_admin.tour.edit', compact('tour', 'categories'));
+        return view('page_admin.tour.edit', compact('tour', 'categories','hotels', 'places'));
     }
 
     public function update(EditTourRequest $request, $id) {
@@ -67,8 +73,12 @@ class TourController extends Controller
         $tour->price = $request->price;
         $tour->quantity_person = $request->quantity_person;
         $tour->time = $request->time;
-        $tour->date = $request->date;
+        $tour->start_date = $request->start_date;
+        $tour->end_date = $request->end_date;
         $tour->category_id = $request->category;
+        $tour->place_id = $request->place;
+        $tour->hotel_id = $request->hotel;
+        $tour->status = $request->status;
 
         if ($request->hasFile('image'))
         {

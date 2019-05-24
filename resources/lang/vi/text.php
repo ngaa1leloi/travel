@@ -53,5 +53,22 @@ return [
     'title' => 'Tiêu đề',
     'image' => 'Hình ảnh',
     'content' => 'Nội dung',
+    'Date' => 'Ngày đi ',
+    'Date_back' => 'Ngày về',
+    'Seat_Availability' => 'Số chỗ còn nhận',
+    'Find_Tour' => 'Tìm tua',
+    'thankyou' => 'Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi',
+    'confirm' => 'PHIẾU XÁC NHẬN BOOKING',
+    'info_contact' => 'THÔNG TIN LIÊN LẠC',
+    'note_age' => 'Người lớn sinh từ : 29/04/1949 đến 29/04/2007
+                                - 
+                                Trẻ em sinh từ : 30/04/2007 đến 29/04/2014
+                                - 
+                                Trẻ nhỏ sinh từ : 30/04/2014 đến 29/04/2017',
+    'note_price' => 'Giá vé của trẻ em từ 5 đến 12 tuổi bằng 70% giá vé người lớn, trẻ em từ 2 đến 5 tuổi bằng 30% giá vé người lớn, dưới 2 tuổi được đi kèm người lớn',
+    'payment_select' => 'XIN QUÝ KHÁCH VUI LÒNG CHỌN HÌNH THỨC THANH TOÁN',
+    'cash' => 'Tiền mặt',
+    'Transfer' => 'Chuyển khoản',
+    'QRcode' => 'Thanh toán bằng quét QRCode',
 
 ];

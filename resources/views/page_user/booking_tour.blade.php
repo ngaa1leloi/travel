@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Blog</span></p>
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{{ route('home') }}">{{ __('text.Home') }}</a></span> <span>Blog</span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Booking Tour</h1>
           </div>
         </div>
@@ -16,31 +16,34 @@
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
           <div class="col-md-12 mb-5">
-            <h2 class="h4">Tour Information</h2>
+            <h2 class="h4">{{ __('text.Tour_Information') }}</h2>
           </div>
           <div class="w-100"></div>
 
           <div class="col-md-3">
-            <p><span>Ten tua:</span> {{ $tour->name_vi }}</a></p>
+            <p><span>{{ __('text.name_tour') }}:</span> {{ $tour->name_vi }}</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Xuat phat:</span> {{ $tour->departure_vi }}</p>
+            <p><span>{{ __('text.departure') }}:</span> {{ $tour->departure_vi }}</p>
           </div>
           <div class="col-md-3">
-            <p><span>Thoi gian:</span> {{ $tour->date }} {{ $tour->time }}</p>
+            <p><span>{{ __('text.Date') }}:</span> {{ $tour->start_date }} {{ $tour->time }}</p>
           </div>
           <div class="col-md-3">
-            <p><span>So cho con nhan:</span> {{ $tour->quantity_person }}</p>
+            <p><span>{{ __('text.Date_back') }}:</span> {{ $tour->end_date }}</p>
           </div>
           <div class="col-md-3">
-            <p><span>Gia tour:</span> {{ number_format($tour->price) }}đ</p>
+            <p><span>{{ __('text.Seat_Availability') }}:</span> {{ $tour->quantity_person }}</p>
+          </div>
+          <div class="col-md-3">
+            <p><span>{{ __('text.Price') }}:</span> {{ number_format($tour->price) }}đ</p>
           </div>
         </div>
-        <p>Luu y gia ve cua tre em tu 5 den 12 tuoi bang 70% gia ve nguoi lon, tre em tu 2 den 5 tuoi bang 30%, duoi 2 tuoi duoc di kem nguoi lon</p>
+        
         <form action="book-tour" method="POST">
             @csrf
             <input type="hidden" name="tour_id" value="{{ $tour->id }}">
-            <div class="col-xs-12 book-thongtinlienlac">
+            <div class="col-xs-12 book-thongtinlienlac" style="background: #eeeeee;padding: 18px;">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">
@@ -112,26 +115,21 @@
                         <div class="form-group">
                             <label><span style="color: #cd2c24">{{ __('text.note') }}:</span> </label>
                             <div style="line-height: 22px">
-                                <span class="bold">Người lớn sinh từ :</span> 29/04/1949 đến 29/04/2007
-                                - 
-                            <span class="bold">Trẻ em sinh từ :</span> 30/04/2007 đến 29/04/2014
-                                - 
-                            <span class="bold">Trẻ nhỏ sinh từ :</span> 30/04/2014 đến 29/04/2017
-                                - 
-                            <span class="bold">Em bé sinh từ :</span> 30/04/2017 đến 23/04/2019
+                                {{ __('text.note_age') }}
                             </div>
                         </div>
+                        <p>{{ __('text.note_price') }}</p>
                     </div>
                 </div>
             </div>
-            <h3 style="text-align: center;">XIN QUÝ KHÁCH VUI LÒNG CHỌN HÌNH THỨC THANH TOÁN</h3>
+            <h3 style="text-align: center;">{{ __('text.payment_select') }}</h3>
             <div class="col-xs-12 book-hinhthucthanhtoan" style="margin-bottom: 30px">
                 <div style="border:1px solid #ccc;padding: 20px 30px 20px 30px">
                     <div class="radio">
-                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="0" checked="checked"><label class="lb_r"> Tiền mặt</label></label>
+                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="0" checked="checked"><label class="lb_r"> </label>{{ __('text.cash') }}</label>
                     </div>
                     <div class="radio">
-                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="1"><label class="lb_r"> Chuyển khoản</label></label>
+                        <label style="display:;"><input type="radio" class="chkPayment" name="payment" value="1"><label class="lb_r"> {{ __('text.Transfer') }}</label></label>
                     </div>
                     <div class="radio">
                         <label><input type="radio" class="chkPayment" name="payment" value="2"><label class="lb_r"> ATM / Internet Banking</label></label>
@@ -159,7 +157,7 @@
                         </div>
                     </div> --}}
                     <div class="radio">
-                        <label><input type="radio" class="chkPayment" name="payment" value="3"><label class="lb_r"> Thanh toán bằng quét QRCode</label></label>
+                        <label><input type="radio" class="chkPayment" name="payment" value="3"><label class="lb_r"> {{ __('text.QRcode') }}</label></label>
                     </div>
                   {{--   <div class="row " style="padding-bottom:10px;display:none;" id="divVNPay">
                         <div style="margin-top: 5px; margin-left: 35px; font-weight: bold; color: #d57575;">

@@ -13,7 +13,7 @@ class TourController extends Controller
     	$tours = Tour::paginate(6);
         $current = 'tour';
 
-    	return view('page_user.tours', compact('tours', 'tour'));
+    	return view('page_user.tours', compact('tours', 'current'));
     }
 
     public function tourDetail($id) {
@@ -78,9 +78,10 @@ class TourController extends Controller
         $total_person = $request['quantity_child'] + $request['quantity_adult'] + $request['quantity_baby'];
         $tour->quantity_person -= $total_person;
         $tour->save();
+        $current = 'tour';
         //dd($booking_tour);
         
-        return view('page_user.confirm_booking_tour', compact('booking_tour'));
+        return view('page_user.confirm_booking_tour', compact('booking_tour', 'current'));
     }
 
     public function storeBookingCustomTour(Request $request) {
@@ -122,8 +123,9 @@ class TourController extends Controller
             'start_date' => $request['date_from'],
             'end_date' => $request['date_to'],
         ]);
-        
-        return view('page_user.checkout');
+        $current = 'tour';
+
+        return view('page_user.checkout', compact('current'));
     }
 
 

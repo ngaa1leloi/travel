@@ -122,10 +122,12 @@
     <script src="{{ asset('js/jquery-validate.min.js') }}"></script>
     <script src="{{ asset('source_admin/scripts/shards-dashboards.1.1.0.min.js') }}"></script>
     <script src="{{ asset('source_admin/scripts/app/app-blog-overview.1.1.0.js') }}"></script>
+    <script src="{{ asset('js/notify.min.js') }}"></script>
     <script type="text/javascript">
         var simplemde_vi = new SimpleMDE({ element: document.getElementById("content_vi") });
         var simplemde_en = new SimpleMDE({ element: document.getElementById("content_en") });
     </script>
-    
+    @yield('script')
   </body>
 </html>
+

@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{{ route('home') }}">Home</a></span> <span>Blog</span></p>
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{{ route('home') }}">{{ __('text.Home') }}</a></span> </p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"></h1>
           </div>
         </div>
@@ -13,13 +13,13 @@
     </div>
 
     <section class="ftco-section contact-section ftco-degree-bg">
-        <h2>Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi</h2>
+        <h2 style="text-align: center; color: #0033cc">{{ __('text.thankyou') }}</h2>
       <div class="container">
         <form >
             
             <input type="hidden" name="tour_id" value="{{ $booking_tour->id }}">
             <div class="col-md-12 mb-5">
-            <h2 class="h4">PHIẾU XÁC NHẬN BOOKING</h2>
+            <h2 class="h4">{{ __('text.confirm') }}</h2>
             </div>
             <div class="col-xs-12 book-thongtinlienlac" style="background: #eeeeee;padding: 18px;" >
                 <div class="row">
@@ -47,7 +47,13 @@
                         <div class="form-group">
                             <label>{{ __('text.date_from') }}</label>
                             <div>
-                                <input class="form-control input-lg" name="date_from" type="date" value="{{ $booking_tour->tour->date }}">
+                                <input class="form-control input-lg" name="date_from" type="date" value="{{ $booking_tour->tour->start_date }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('text.date_to') }}</label>
+                            <div>
+                                <input class="form-control input-lg" name="date_from" type="date" value="{{ $booking_tour->tour->end_date }}">
                             </div>
                         </div>
                     </div>
@@ -55,7 +61,7 @@
                 </div>
             </div>
             <div class="col-md-12 mb-5" style="margin-top: 20px">
-            <h2 class="h4">THÔNG TIN LIÊN LẠC</h2>
+            <h2 class="h4">{{ __('text.info_contact') }}</h2>
             </div>
             <div class="col-xs-12 book-thongtinlienlac" style="background: #eeeeee;padding: 18px;">
                 <div class="row">
@@ -128,7 +134,7 @@
             Thời hạn thanh toán:  3 ngay (Theo giờ Việt Nam)  (Nếu quá thời hạn trên mà quý khách chưa thanh toán, sẽ hủy booking này)
         
             <div class="form-group" style="margin-top: 10px">
-                <input type="submit" value="{{ __('book_now') }}" class="btn btn-primary py-3 px-5">
+                <a class="btn btn-primary py-3 px-5" href="{{ route('home') }}">{{ __('text.Home') }}</a>
             </div>
          </form>
       </div>

@@ -27,14 +27,33 @@
                     <span></span>
                     <h2>@if (session('lang') == 'vi'){{ $tour->name_vi }} @else {{ $tour->name_en }} @endif</h2>
                     <p class="rate mb-5">
-                        <span class="loc"><a href="{{ route('hotel_detail', '$tour->hotel->id') }}"><i class="icon-map"></i>{{ $tour->hotel->name_vi }}</a></span>
+                        <span class="loc"><a href="{{ route('hotel_detail', $tour->hotel()->withTrashed()->first()->id) }}"><i class="icon-map"></i>{{ $tour->hotel()->withTrashed()->first()->name_vi }}</a></span>
                         <span class="star">
-                            @for($i = 0; $i < $tour->hotel->standard; $i++)
+                            @for($i = 0; $i < $tour->hotel()->withTrashed()->first()->standard; $i++)
                                 <i class="icon-star"></i>
                             @endfor
                         </span>
                     </p>
-                    <p>{{ $tour->process_vi }}</p>
+                    <p></p>
+
+                    <div class="two">
+                        @if ($tour->price != 0)
+                            <span class="price">{{ __('text.Price') }}: {{ number_format($tour->price) }}đ</span>
+                        @else 
+                        <span class="price">{{ __('text.Price') }}: <a href="{{ route('contact') }}">{{ __('text.Contact') }}</a></span>
+                        @endif
+                    </div>
+                    @if($tour->quantity_person != 0)
+                        <p>{{ __('text.Seat_Availability') }}: {{ $tour->quantity_person }}</p>
+                        @endif
+                        @if ($tour->start_date != null)
+                        <p class="days"><span>{{ __('text.Date') }}: {{ $tour->start_date }} @if($tour->time != null) {{ $tour->time }}@endif</span></p>
+                        @if ($tour->end_date != null)
+                        <p class="days"><span>{{ __('text.Date_back') }}: {{ $tour->end_date }}</span></p>@endif
+                        @else
+                        <p class="days"><span>{{ __('text.Date') }}:<a href="{{ route('contact') }}">{{ __('text.Contact') }}</a></span></p>
+                        @endif
+                    <p>@if (session('lang') == 'vi'){{ $tour->process_vi }}@else {{ $tour->process_vi }} @endif</p>
                     <p class="ml-auto"><a style="background: #08c299;color: #fff;-webkit-border-radius: 4px;-moz-border-radius: 4px;-ms-border-radius: 4px;border-radius: 4px;padding: 3px 5px;" href="@if($tour->status == 0){{ route('booking_tour', $tour->id) }} @else {{ route('booking_buffet_tour', $tour->id) }} @endif">{{ __('text.book_now') }}</a></p>
                            
                 </div>
@@ -63,8 +82,8 @@
                                     @if($value->quantity_person != 0)
                                     <p>{{ $value->quantity_person }}</p>
                                     @endif
-                                    @if ($value->date != null)
-                                    <p class="days"><span>{{ $value->date }}</span></p>
+                                    @if ($value->start_date != null)
+                                    <p class="days"><span>{{ $value->start_date }}</span></p>
                                     @else
                                     <p class="days"><span>{{ __('text.Date') }}:<a href="{{ route('tour_detail', $value->id) }}">{{ __('text.Contact') }}</a></span></p>
                                     @endif

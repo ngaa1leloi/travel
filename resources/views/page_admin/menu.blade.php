@@ -26,49 +26,61 @@
       <li class="nav-item">
         <a class="nav-link active" href="index.html">
           <i class="material-icons">edit</i>
-          <span>Admin Dashboard</span>
+          <span>Trang quản trị</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('index_tour') }}">
           <i class="material-icons">vertical_split</i>
-          <span>Tours</span>
+          <span>Tua</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('index_news') }}">
           <i class="material-icons">note_add</i>
-          <span>News &amp; Posts</span>
+          <span>Tin tức và bài viết</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('index_place') }}">
           <i class="material-icons">view_module</i>
-          <span>Places</span>
+          <span>Điểm đến</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('index_scenic') }}">
           <i class="material-icons">table_chart</i>
-          <span>Scenics</span>
+          <span>Địa danh</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('index_hotel') }}">
           <i class="material-icons">table_chart</i>
-          <span>Hotels</span>
+          <span>Khách sạn</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('index_user') }}">
           <i class="material-icons">person</i>
-          <span>User Profile</span>
+          <span>Thành viên</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('index_contact') }}">
           <i class="material-icons">error</i>
-          <span>Contacts</span>
+          <span>Liên hệ</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{{ route('index_booking') }}">
+          <i class="material-icons">table_chart</i>
+          <span>Đặt tua có lịch</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{{ route('index_booking_custom') }}">
+          <i class="material-icons">table_chart</i>
+          <span>Đặt tua tự chọn</span>
         </a>
       </li>
     </ul>

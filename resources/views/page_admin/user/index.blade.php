@@ -4,8 +4,8 @@
     <div class="col">
         <div class="card card-small mb-4">
             <div class="card-header border-bottom">
-                <span class="m-0" style="font-size: 18px;">Scenics</span>
-                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_user') }}">New user</a></span>
+                <span class="m-0" style="font-size: 18px;">Danh sách người dùng</span>
+                
             </div>
             <div class="card-body p-0 pb-3 text-center">
                 <table class="table mb-0">
@@ -44,3 +44,12 @@
       event.preventDefault();
   }
  </script>
+  @section('script')
+
+<script type="text/javascript">
+    @if(session('message'))       
+        $.notify("{{ session('message') }}", "success");
+    @endif
+</script>
+@endsection
+

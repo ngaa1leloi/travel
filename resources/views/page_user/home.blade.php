@@ -315,7 +315,7 @@
                                 </div>
                             </div>
                             <p>{{ $value->quantity_person }}</p>
-                            <p class="days"><span>{{ $value->date }}</span></p>
+                            <p class="days"><span>{{ $value->start_date}}</span></p>
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="icon-map-o"></i> {{ __('text.departure') }}: @if (session('lang') == 'vi'){{ $value->departure_vi }} @else {{ $value->departure_en }} @endif</span> 
@@ -343,7 +343,7 @@
                                 </div>
                             </div>
                             <p>{{ $value->quantity_person }}</p>
-                            <p class="days"><span>{{ $value->date }}</span></p>
+                            <p class="days"><span>{{ $value->start_date}}</span></p>
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="icon-map-o"></i> {{ __('text.departure') }}: @if (session('lang') == 'vi'){{ $value->departure_vi }} @else {{ $value->departure_en }} @endif</span> 
@@ -393,8 +393,8 @@
                                 </div>
                             </div>
                             <p>{{ $value->quantity_person }}</p>
-                            @if ($value->date != null)
-                            <p class="days"><span>{{ $value->date }}</span></p>
+                            @if ($value->start_date!= null)
+                            <p class="days"><span>{{ $value->start_date}}</span></p>
                             @else
                             <p class="days"><span>{{ __('text.Date') }}:<a href="{{ route('tour_detail', $value->id) }}">{{ __('text.Contact') }}</a></span></p>
                             @endif
@@ -436,8 +436,8 @@
                                 </div>
                             </div>
                             <p>{{ $value->quantity_person }}</p>
-                            @if ($value->date != null)
-                            <p class="days"><span>{{ $value->date }}</span></p>
+                            @if ($value->start_date!= null)
+                            <p class="days"><span>{{ $value->start_date}}</span></p>
                             @else
                             <p class="days"><span>{{ __('text.Date') }}:<a href="{{ route('tour_detail', $value->id) }}">{{ __('text.Contact') }}</a></span></p>
                             @endif

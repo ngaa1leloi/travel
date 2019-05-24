@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Models\Comment;
 use App\Http\Requests\NewsRequest;
 use App\Http\Requests\EditNewsRequest;
 
 class NewsController extends Controller
 {
     public function index() {
-    	$news = News::all();
+    	$news = News::orderBy('created_at', 'desc')->paginate(5);
 
     	return view('page_admin.news.index', compact('news'));
     }
@@ -84,7 +85,11 @@ class NewsController extends Controller
     public function delete($id)
     {
         $news = News::findOrFail($id);
-        $news->delete();
+        $comments = Comment::where('news_id', $id)->get();
+        foreach($comments as $comment) {
+            $comment->delete();
+        }
+        $news->delete();   
 
         return redirect('admin/news/index')->with('message', __('message.delete'));
     }

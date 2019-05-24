@@ -3,11 +3,11 @@
         <a class="navbar-brand" href="{{ route('home')}}">Adventure</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
-        </button>
-        @if (session('lang') == 'en')
-        <a href="{{ route('change_language', 'vi') }}"><span style="font-size: 15px; font-weight: 500;">{{ __('text.vi') }}</span></a>
-        @else
+        </button>        
+        @if(session('lang') == 'vi')
         <a href="{{ route('change_language', 'en') }}"><span style="font-size: 15px; font-weight: 500;">{{ __('text.en') }}</span></a>
+        @else
+        <a href="{{ route('change_language', 'vi') }}"><span style="font-size: 15px; font-weight: 500;">{{ __('text.vi') }}</span></a>
         @endif
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">

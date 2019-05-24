@@ -20,7 +20,7 @@
               </div>
               <input type="text" class="form-control" placeholder="Địa chỉ" aria-label="Username" aria-describedby="basic-addon1" name="address_vi" value="{{ $hotel->address_vi }}"> </div>
           </div>
-          <div class="form-row">
+          {{-- <div class="form-row">
             <div class="form-group col-md-12">
               <select id="inputState" name="scenic" class="form-control">
                 @foreach($scenics as $scenic)
@@ -28,7 +28,7 @@
                 @endforeach
               </select>
             </div>
-          </div>
+          </div> --}}
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">

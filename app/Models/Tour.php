@@ -21,10 +21,12 @@ class Tour extends Model
     	'price',
     	'quantity_person',
     	'time',
-    	'date',
+    	'start_date',
     	'category_id',
         'hotel_id',
         'status',
+        'end_date',
+        'place_id'
     ];
 
     public function category()
@@ -34,6 +36,10 @@ class Tour extends Model
 
     public function hotel() {
         return $this->belongsTo(Hotel::class);
+    }
+
+    public function place() {
+        return $this->belongsTo(Place::class);
     }
 
 }

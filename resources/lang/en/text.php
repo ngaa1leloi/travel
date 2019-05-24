@@ -53,4 +53,21 @@ return [
     'title' => 'Title',
     'image' => 'Image',
     'Content' => 'Content',
+    'Date' => 'Date',
+    'Date_back' => 'Day back',
+    'Seat_Availability' => 'Seat Availability',
+    'Find_Tour' => 'Find Tour',
+    'thankyou' => 'Thank you for using our service',
+    'confirm' => 'BOOKING VERIFICATION BOOK',
+    'info_contact' => 'CONTACT INFORMATION',
+    'note_age' => 'Adults born: April 29, 1949 to April 29, 2007
+                                -
+                                Children born from April 30, 2007 to April 29, 2014
+                                -
+                                Babies born from April 30, 2014 to April 29, 2017',
+    'note_price' => 'Fares for children from 5 to 12 years old are equal to 70% of adult fare, children from 2 to 5 years old are 30% of adult fare, under 2 years old accompanied by adults',
+    'payment_select' => 'PLEASE PLEASE CHOOSE THE FORM OF PAYMENT',
+    'cash' => 'Cash',
+    'Transfer' => 'Transfer',
+    'QRcode' => 'Pay by scanning QRCode',
 ];

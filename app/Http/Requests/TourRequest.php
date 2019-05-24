@@ -35,6 +35,7 @@ class TourRequest extends FormRequest
             'category' => 'required',
             'image' => 'required|image',
             'hotel' => 'required',
+            'status' => 'required',
         ];
     }
 
@@ -52,8 +53,9 @@ class TourRequest extends FormRequest
             'category.required' => 'Bạn chưa chọn thể loại.',
             'image.required' => 'Bạn chưa chọn hình ảnh.',
             'image.image' => 'Tệp được chọn phải là tệp hình ảnh.',
-            'hotel.required' => 'Bạn chưa chọn khách sạn.'
-
+            'hotel.required' => 'Bạn chưa chọn khách sạn.',
+            'status.required' => 'Bạn chưa chọn trạng thái tua'
+ 
         ];
     }
 }

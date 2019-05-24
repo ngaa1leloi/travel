@@ -16,7 +16,6 @@
                             <th scope="col" class="border-0">Số điện thoại</th>
                             <th scope="col" class="border-0">Website</th>
                             <th scope="col" class="border-0">Hình ảnh</th>
-                            <th scope="col" class="border-0">Địa danh</th>
                             <th scope="col" class="border-0">Tiêu chuẩn</th>
                             <th scope="col" class="border-0">Ghi chú</th>
                             <th scope="col" class="border-0">Edit</th>
@@ -31,7 +30,6 @@
                             <td>{{ $hotel->phone }}</td>
                             <td>{{ $hotel->website }}</td>
                             <td><img style="width: 200px; height: 150px" src="source_admin/images/{{ $hotel->image }}"></td>
-                            <td>{{ $hotel->scenic->name_vi }}</td>
                             <td>{{ $hotel->standard }}</td>
                             <td>{{ $hotel->note }}</td>
                             <td><span class="text-danger">
@@ -54,3 +52,11 @@
       event.preventDefault();
   }
  </script>
+ @section('script')
+
+<script type="text/javascript">
+    @if(session('message'))       
+        $.notify("{{ session('message') }}", "success");
+    @endif
+</script>
+@endsection

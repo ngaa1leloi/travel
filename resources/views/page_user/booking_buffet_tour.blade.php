@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{{ route('home') }}">Home</a></span> <span>Blog</span></p>
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{{ route('home') }}">{{ __('text.Home') }}</a></span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Booking Tour</h1>
           </div>
         </div>
@@ -137,16 +137,10 @@
                         <div class="form-group">
                             <label><span style="color: #cd2c24">{{ __('text.note') }}:</span> </label>
                             <div style="line-height: 22px">
-                                <span class="bold">Người lớn sinh từ :</span> 29/04/1949 đến 29/04/2007
-                                - 
-                            <span class="bold">Trẻ em sinh từ :</span> 30/04/2007 đến 29/04/2014
-                                - 
-                            <span class="bold">Trẻ nhỏ sinh từ :</span> 30/04/2014 đến 29/04/2017
-                                - 
-                            <span class="bold">Em bé sinh từ :</span> 30/04/2017 đến 23/04/2019
+                                {{ __('text.note_age') }}
                             </div>
                         </div>
-                        <p>Luu y gia ve cua tre em tu 5 den 12 tuoi bang 70% gia ve nguoi lon, tre em tu 2 den 5 tuoi bang 30%, duoi 2 tuoi duoc di kem nguoi lon</p>
+                        <p>{{ __('text.note_price') }}</p>
                     </div>
 
                 </div>
@@ -176,7 +170,7 @@
         
         
             <div class="form-group" style="margin-top: 10px">
-                <input type="submit" value="{{ __('book_now') }}" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="{{ __('text.book_now') }}" class="btn btn-primary py-3 px-5">
             </div>
          </form>
       </div>

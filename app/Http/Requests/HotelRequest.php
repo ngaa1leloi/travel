@@ -29,7 +29,6 @@ class HotelRequest extends FormRequest
             'address_vi' => 'required',
             'address_en' => 'required',
             'phone' => 'required|regex:/(0)[0-9]{9}$/',
-            'scenic' => 'required',
             'standard' => 'required|integer',
             'image' => 'required|image',
         ];
@@ -44,7 +43,6 @@ class HotelRequest extends FormRequest
             'address_en.required' => 'Bạn chưa nhập địa chỉ tua tiếng anh.',
             'phone.required' => 'Bạn chưa nhập số điện thoại.',
             'phone.regex' => 'Số điện thoại bạn nhập không đúng định dạng.',
-            'scenic.required' => 'Bạn chưa chọn điểm đến.',
             'standard.integer' => 'Tiêu chuẩn phải là số nguyên.',
             'standard.required' => 'Bạn chưa nhập tiêu chuẩn.',
             'image.required' => 'Bạn chưa chọn hình ảnh.',

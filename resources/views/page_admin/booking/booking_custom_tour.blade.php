@@ -49,7 +49,7 @@
             
             <div class="col-sm-6 col-md-2">
                 <strong class="text-muted d-block mb-2" style="margin-top: 55px"></strong>
-                <button type="submit" class="mb-2 btn btn-primary mr-2">Search</button>
+                <button type="submit" class="mb-2 btn btn-primary mr-2">Tìm</button>
             </div>
         </div>
     
@@ -59,8 +59,8 @@
     <div class="col">
         <div class="card card-small mb-4">
             <div class="card-header border-bottom">
-                <span class="m-0" style="font-size: 18px;">Custom Bookings</span>
-                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_tour') }}"></a></span>
+                <span class="m-0" style="font-size: 18px;">Đặt tua tự chọn</span>
+               
             </div>
 
             <div class="card-body p-0 pb-3 text-center">
@@ -100,7 +100,7 @@
                             <td>{{ $booking->quantity_adult * $price +  $booking->quantity_child  * $price * 0.7 + $booking->quantity_baby * $price * 0.3 }}</td>
                             <td>{{ $booking->start_date }}</td>
                             <td>{{ $booking->end_date }}</td>
-                            <td> @if($booking->payment == 0)Tiền mặt @elseif($booking->payment == 1) Chuyển khoản @elseif($booking->payment == 2) Quét mã MOMO @endif</td>
+                            <td> @if($booking->payment == '0')Tiền mặt @elseif($booking->payment == 1) Chuyển khoản @elseif($booking->payment == 2) Quét mã MOMO @else Chưa có @endif</td>
                             <td> @if($booking->status == 0)Chưa xếp tua @elseif($booking->status == 1) Đã xếp tua @elseif($booking->status == 2) Chưa thanh toán @elseif($booking->status == 3) Đã thanh toán @elseif($booking->status == 4) Đang tiến hành @elseif($booking->status == 5) Kết thúc @endif</td>
                             <td><span class="text-danger">
                                 <a href="{{ route('edit_tour', $booking->id) }}"><i class="material-icons">more_vert</i></a>

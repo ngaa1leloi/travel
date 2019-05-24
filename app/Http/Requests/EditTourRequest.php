@@ -32,8 +32,6 @@ class EditTourRequest extends FormRequest
             'departure_en' => 'required',
             'price' => 'required|integer',
             'quantity_person' => 'required|integer',
-            'time' => 'required',
-            'date' => 'required',
             'category' => 'required',
             'image' => 'image',
         ];
@@ -52,8 +50,6 @@ class EditTourRequest extends FormRequest
             'price.required' => 'Giá tua phải là số nguyên.',
             'quantity_person.required' => 'Bạn chưa nhập số người.',
             'quantity_person.integer' => 'Số người phải là số nguyên.',
-            'time.required' => 'Bạn chưa nhập thời gian.',
-            'date.required' => 'Bạn chưa nhập ngày xuất phát.',
             'category.required' => 'Bạn chưa chọn thể loại.',
             'image.image' => 'Tệp được chọn phải là tệp hình ảnh.',
 

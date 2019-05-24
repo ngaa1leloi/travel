@@ -17,7 +17,6 @@ class Hotel extends Model
     	'address_en',
     	'note_vi',
     	'note_en',
-    	'scenic_id',
     	'phone',
     	'website',
     	'standard',

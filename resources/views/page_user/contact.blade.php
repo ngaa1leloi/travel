@@ -32,8 +32,8 @@
             <p><span>{{ __('text.Website') }}</span> <a href="">yoursite.com</a></p>
           </div>
         </div>
-        <div class="row block-9">
-          <div class="col-md-12 order-md-last pr-md-5">
+        <div class="row block-9"  style="background: #eeeeee;padding-left: 200px;padding-bottom: 40px; padding-top: 50px">
+          <div class="col-md-10 order-md-last pr-md-5">
             <form action="{{ route('store_contact') }}" method="POST">
             	@csrf
               <div class="form-group">

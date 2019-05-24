@@ -15,6 +15,7 @@
                             <th scope="col" class="border-0">Nội dung</th>
                             <th scope="col" class="border-0">Hình ảnh</th>
                             <th scope="col" class="border-0">Trạng thái</th>
+                            <th scope="col" class="border-0">Người viết</th>
                             <th scope="col" class="border-0">Ngày viết</th>
                             <th scope="col" class="border-0">Edit</th>
                             <th scope="col" class="border-0">Delete</th>
@@ -27,6 +28,7 @@
                             <td>{{ $new->content_vi }}</td>
                             <td><img style="width: 200px; height: 150px" src="source_admin/images/{{ $new->image }}"></td>
                             <td>@if ($new->status == 0) Draft @else Publish @endif</td>
+                            <td>@if($new->user_id != null){{ $new->user->name }} @else Admin @endif</td>
                             <td>{{ $new->created_at }}</td>
                             <td><span class="text-danger">
                                 <a href="{{ route('edit_news', $new->id) }}"><i class="material-icons">more_vert</i></a>
@@ -37,6 +39,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $news->links() }}
             </div>
         </div>
     </div>
@@ -48,3 +51,12 @@
       event.preventDefault();
   }
  </script>
+  @section('script')
+
+<script type="text/javascript">
+    @if(session('message'))       
+        $.notify("{{ session('message') }}", "success");
+    @endif
+</script>
+@endsection
+

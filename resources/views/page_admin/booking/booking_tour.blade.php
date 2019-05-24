@@ -28,7 +28,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-2">
+            {{-- <div class="col-sm-6 col-md-2">
                 <strong class="text-muted d-block mb-2" style="margin-top: 32px"></strong>
                 
                 <div class="form-group">
@@ -44,10 +44,10 @@
                     <input type="date" name="end_date" class="form-control">
                 </div>
             </div>
-            
+             --}}
             <div class="col-sm-6 col-md-2">
                 <strong class="text-muted d-block mb-2" style="margin-top: 55px"></strong>
-                <button type="submit" class="mb-2 btn btn-primary mr-2">Search</button>
+                <button type="submit" class="mb-2 btn btn-primary mr-2">Tìm</button>
             </div>
         </div>
     
@@ -57,8 +57,8 @@
     <div class="col">
         <div class="card card-small mb-4">
             <div class="card-header border-bottom">
-                <span class="m-0" style="font-size: 18px;">Bookings</span>
-                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_tour') }}"></a></span>
+                <span class="m-0" style="font-size: 18px;">Đơn đặt tua</span>
+                
             </div>
             <div class="card-body p-0 pb-3 text-center">
                 <table class="table mb-0">

@@ -42,3 +42,12 @@
       event.preventDefault();
   }
  </script>
+  @section('script')
+
+<script type="text/javascript">
+    @if(session('message'))       
+        $.notify("{{ session('message') }}", "success");
+    @endif
+</script>
+@endsection
+
