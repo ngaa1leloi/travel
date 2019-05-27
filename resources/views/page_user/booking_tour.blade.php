@@ -21,10 +21,10 @@
           <div class="w-100"></div>
 
           <div class="col-md-3">
-            <p><span>{{ __('text.name_tour') }}:</span> {{ $tour->name_vi }}</a></p>
+            <p><span>{{ __('text.name_tour') }}:</span> @if (session('lang') == 'vi'){{ $tour->name_vi }} @else {{ $tour->name_en }} @endif</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>{{ __('text.departure') }}:</span> {{ $tour->departure_vi }}</p>
+            <p><span>{{ __('text.departure') }}:</span>@if (session('lang') == 'vi') {{ $tour->departure_vi }} @else {{ $tour->departure_en }} @endif</p>
           </div>
           <div class="col-md-3">
             <p><span>{{ __('text.Date') }}:</span> {{ $tour->start_date }} {{ $tour->time }}</p>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>{{ __('text.address') }}</label>
+                            <label>{{ __('text.address') }}<span style="color: #cd2c24">*</span></label>
                             <div>
                                 <textarea class="form-control input-lg" cols="20" id="address" name="address" rows="4"></textarea>
                                 <p class="help is-danger" style="color: red">{{ $errors->first('address') }}</p>
@@ -90,18 +90,21 @@
                                         <input class="form-control input-lg" id="quantity_child" name="quantity_child" type="text" value="0" onkeyup="getPrice({{ $tour->price }})">
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-3 mg-bot15">
+                                <div class="col-md-2 col-sm-3 mg-bot15">
                                     <label>{{ __('text.baby') }}</label>
                                     <div>
                                         <input class="form-control input-lg" id="quantity_baby" name="quantity_baby" type="text" value="0" onkeyup="getPrice({{ $tour->price }})">
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-3 mg-bot15">
+                                <div class="col-md-4 col-sm-3 mg-bot15">
                                     <label>{{ __('text.total') }}:</label>
                                     <div>
                                         <input class="form-control input-lg" id="result" name="quantity_baby" type="text" value="{{ number_format($tour->price) }}đ" disabled="disabled">
                                     </div>
                                 </div>
+                                <p class="help is-danger" style="color: red; margin-left: 20px">{{ $errors->first('quantity_adult') }}</p>
+                                <p class="help is-danger" style="color: red; margin-left: 20px">{{ $errors->first('quantity_child') }}</p>
+                                <p class="help is-danger" style="color: red; margin-left: 20px">{{ $errors->first('quantity_baby') }}</p>
                             </div>
                         </div>
                         <div class="form-group">

@@ -32,7 +32,7 @@ class HomeController extends Controller
         $tours = Tour::where('status', 0)->orderBy('start_date', 'desc')->take(4)->get();
         $buffet_tours = Tour::where('status', 1)->take(4)->get();
         $hotels = Hotel::take(5)->get();
-        $news = News::take(3)->get();
+        $news = News::orderBy('updated_at', 'desc')->take(3)->get();
         $places = Place::take(6)->get();
         $current = 'home';
 

@@ -5,36 +5,28 @@
         @csrf
     <div class="row" style="margin-top: 5px">
       <div class="col-sm-12 col-md-6">
-        <strong class="text-muted d-block mb-2" style="font-size: 18px">Danh sách khách sạn</strong>
+        <strong class="text-muted d-block mb-2" style="font-size: 18px">Thêm khách sạn</strong>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Tên khách sạn</span>
+                <span class="input-group-text" id="basic-addon1">Tên khách sạn TV</span>
               </div>
-              <input type="text" class="form-control" placeholder="Tên khách sạn" aria-label="Username" aria-describedby="basic-addon1" name="name_vi"> </div>
+              <input type="text" class="form-control" placeholder="Nhập tên tiếng việt" aria-label="Username" aria-describedby="basic-addon1" name="name_vi"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Địa chỉ</span>
+                <span class="input-group-text" id="basic-addon1">Địa chỉ TV</span>
               </div>
-              <input type="text" class="form-control" placeholder="Địa chỉ" aria-label="Username" aria-describedby="basic-addon1" name="address_vi"> </div>
+              <input type="text" class="form-control" placeholder="Nhập địa chỉ tiếng việt" aria-label="Username" aria-describedby="basic-addon1" name="address_vi"> </div>
           </div>
-          {{-- <div class="form-row">
-            <div class="form-group col-md-12">
-              <select id="inputState" name="scenic" class="form-control">
-                @foreach($scenics as $scenic)
-                    <option value="{{ $scenic->id }}">{{ $scenic->name_vi }}</option>
-                @endforeach
-              </select>
-            </div>
-          </div> --}}
+        
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Số điện thoại</span>
               </div>
-              <input type="text" class="form-control" placeholder="" name="phone"> </div>
+              <input type="text" class="form-control" placeholder="Nhập số điện thoại" name="phone"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
@@ -49,46 +41,39 @@
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Hotel name: </span>
+                <span class="input-group-text" id="basic-addon1">Tên khách sạn TA</span>
               </div>
-              <input type="text" class="form-control" placeholder="Hotel name" aria-label="Username" aria-describedby="basic-addon1" name="name_en"> </div>
+              <input type="text" class="form-control" placeholder="Nhập tên tiếng anh" aria-label="Username" aria-describedby="basic-addon1" name="name_en"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Address: </span>
+                <span class="input-group-text" id="basic-addon1">Địa chỉ TA</span>
               </div>
-              <input type="text" class="form-control" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1" name="address_en"> </div>
+              <input type="text" class="form-control" placeholder="Nhập địa chỉ tiếng anh" aria-label="Username" aria-describedby="basic-addon1" name="address_en"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Standard: </span>
+                <span class="input-group-text" id="basic-addon1">Tiêu chuẩn</span>
               </div>
               <input type="text" class="form-control" name="standard"> </div>
           </div>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Website: </span>
+                <span class="input-group-text" id="basic-addon1">Website</span>
               </div>
               <input type="text" class="form-control" name="website"> </div>
           </div>
-          {{-- <div class="form-group">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Số người</span>
-              </div>
-              <input type="text" class="form-control" placeholder="" name="quantity_person"> </div>
-          </div> --}}
       </div>
     </div>
     <div class="form-group">
-        <label>Ghi chú</label>
+        <label>Ghi chú TV</label>
         <textarea name="note_vi" class="form-control" placeholder="ghi chú"></textarea>
     </div>
     <div class="form-group">
-        <label>Note</label>
+        <label>Ghi chú TA</label>
         <textarea name="note_en" class="form-control" placeholder="note"></textarea>
     </div>
      @if (count($errors) > 0)
@@ -104,6 +89,6 @@
             {{ session('message') }}
         </div>
         @endif
-    <button type="submit" class="mb-2 btn btn-primary mr-2">Add</button>
+    <button type="submit" class="mb-2 btn btn-primary mr-2">Thêm</button>
     </form>
 @endsection

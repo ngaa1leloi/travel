@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item @if ($current == 'home')active @endif"><a href="{{ route('home') }}" class="nav-link">{{ __('text.Home') }}</a></li>
-                <li class="nav-item @if ($current == 'about')active @endif"><a href="about.html" class="nav-link">{{ __('text.About') }}</a></li>
+                {{-- <li class="nav-item @if ($current == 'about')active @endif"><a href="about.html" class="nav-link">{{ __('text.About') }}</a></li> --}}
                 <li class="nav-item @if ($current == 'Tour')active @endif"><a href="{{ route('tours') }}" class="nav-link">{{ __('text.Tours') }}</a></li>
                 <li class="nav-item @if ($current == 'hotel')active @endif"><a href="{{ route('hotels') }}" class="nav-link">{{ __('text.Hotels') }}</a></li>
                 <li class="nav-item @if ($current == 'news')active @endif"><a href="{{ route('news') }}" class="nav-link">{{ __('text.News') }}</a></li>

@@ -12,15 +12,14 @@ use App\Http\Requests\EditHotelRequest;
 class HotelController extends Controller
 {
     public function index() {
-		$hotels = Hotel::all();
+		$hotels = Hotel::paginate(5);
 
 		return view('page_admin.hotel.index', compact('hotels'));
 	}
 	
     public function create() {
-    	$scenics = Scenic::all();
 
-    	return view('page_admin.hotel.add', compact('scenics'));
+    	return view('page_admin.hotel.add');
     }
 
     public function store(HotelRequest $request) {

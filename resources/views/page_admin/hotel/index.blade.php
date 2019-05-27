@@ -4,13 +4,14 @@
     <div class="col">
         <div class="card card-small mb-4">
             <div class="card-header border-bottom">
-                <span class="m-0" style="font-size: 18px;">Hotels</span>
-                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_hotel') }}">New hotel</a></span>
+                <span class="m-0" style="font-size: 18px;">Danh sách khách sạn</span>
+                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_hotel') }}">Thêm khách sạn</a></span>
             </div>
             <div class="card-body p-0 pb-3 text-center">
                 <table class="table mb-0">
                     <thead class="bg-light">
                         <tr>
+                            <th scope="col" class="border-0">STT</th>
                             <th scope="col" class="border-0">Tên khách sạn</th>
                             <th scope="col" class="border-0">Địa chỉ</th>
                             <th scope="col" class="border-0">Số điện thoại</th>
@@ -23,11 +24,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($hotels as $hotel)
+                        <?php $page = $hotels->currentPage();?>
+                        @foreach($hotels as $key => $hotel)
                         <tr>
+                            <th>{{ ($page -1) * 5 + $key + 1 }}</th>
                             <td>{{ $hotel->name_vi }}</td>
                             <td>{{ $hotel->address_vi }}</td>
-                            <td>{{ $hotel->phone }}</td>
+                            <td>0{{ $hotel->phone }}</td>
                             <td>{{ $hotel->website }}</td>
                             <td><img style="width: 200px; height: 150px" src="source_admin/images/{{ $hotel->image }}"></td>
                             <td>{{ $hotel->standard }}</td>
@@ -41,6 +44,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $hotels->links() }}
             </div>
         </div>
     </div>

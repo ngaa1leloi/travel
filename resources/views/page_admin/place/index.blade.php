@@ -4,14 +4,14 @@
     <div class="col">
         <div class="card card-small mb-4">
             <div class="card-header border-bottom">
-                <span class="m-0" style="font-size: 18px;">Place</span>
-                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_place') }}">New place</a></span>
+                <span class="m-0" style="font-size: 18px;">Danh sách điếm đến</span>
+                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_place') }}">Thêm điểm đến</a></span>
             </div>
             <div class="card-body p-0 pb-3 text-center">
                 <table class="table mb-0">
                     <thead class="bg-light">
                         <tr>
-                            <th scope="col" class="border-0">Tên điểm đế́n</th>
+                            <th scope="col" class="border-0">Tên</th>
                             <th scope="col" class="border-0">Mô tả</th>
                             <th scope="col" class="border-0">Edit</th>
                             <th scope="col" class="border-0">Delete</th>

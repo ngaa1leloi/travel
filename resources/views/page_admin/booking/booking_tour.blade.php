@@ -64,6 +64,7 @@
                 <table class="table mb-0">
                     <thead class="bg-light">
                         <tr>
+                            <th scope="col" class="border-0">STT</th>
                             <th scope="col" class="border-0">Tên tua</th>
                             <th scope="col" class="border-0">Tên khách hàng</th>
                             <th scope="col" class="border-0">SĐT</th>
@@ -81,9 +82,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($bookings as $booking)
+                        <?php $page = $bookings->currentPage();?>
+                        @foreach($bookings as $key => $booking)
                         <?php $price = $booking->tour()->withTrashed()->first()->price ?>
                         <tr>
+                            <th>{{ ($page -1) * 10 + $key + 1 }}</th>
                             <td>{{ $booking->tour()->withTrashed()->first()->name_vi }}</td>
                             <td>{{ $booking->name }}</td>
                             <td>{{ $booking->phone }}</td>
@@ -93,7 +96,7 @@
                             <td>{{ $booking->quantity_adult }}</td>
                             <td>{{ $booking->quantity_child }}</td>
                             <td>{{ $booking->quantity_baby }}</td>
-                            <td>{{ $booking->quantity_adult * $price +  $booking->quantity_child  * $price * 0.7 + $booking->quantity_baby * $price * 0.3 }}</td>
+                            <td>{{ number_format($booking->quantity_adult * $price +  $booking->quantity_child  * $price * 0.7 + $booking->quantity_baby * $price * 0.3) }}đ</td>
                             <td> @if($booking->payment == 0)Tiền mặt @elseif($booking->payment == 1) Chuyển khoản @elseif($booking->payment == 2) Quét mã MOMO @endif</td>
                             <td> @if($booking->status == 0)Chưa thanh toán @elseif($booking->status == 1) Đã thanh toán @elseif($booking->status == 2) Đang tiến hành @elseif($booking->status == 3) Kết thúc @endif</td>
                             <td><span class="text-danger">
@@ -105,6 +108,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $bookings->links() }}
             </div>
         </div>
     </div>

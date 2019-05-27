@@ -3,8 +3,8 @@
 <div class="main-content-container container-fluid px-4">
     <div class="page-header row no-gutters py-4">
         <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-            <span class="text-uppercase page-subtitle">Blog Posts</span>
-            <h3 class="page-title">Add New Post</h3>
+            
+            <h3 class="page-title">Sửa bài viết</h3>
         </div>
     </div>
     <form action="admin/news/update/{{ $news->id }}" method="POST" enctype="multipart/form-data">
@@ -13,15 +13,15 @@
             <div class="col-lg-9 col-md-12">
                 <div class="card card-small mb-3">
                     <div class="card-body">
-                        <label>Tiêu đề</label>
+                        <label>Tiêu đề TV</label>
                         <input name="title_vi" value="{{ $news->title_vi }}" class="form-control form-control-lg mb-3" type="text" placeholder="Your Post Title">
-                        <label>Nội dung</label>
+                        <label>Nội dung TV</label>
                         <textarea id="content_vi" name="content_vi">{{ $news->content_vi }}</textarea>
-                        <label>Title</label>
+                        <label>Tiêu đề TA</label>
                         <input name="title_en" value="{{ $news->title_en }}" class="form-control form-control-lg mb-3" type="text" placeholder="Your Post Title">
-                        <label>Content</label>
+                        <label>Nội dung TA</label>
                         <textarea id="content_en" name="content_en">{{ $news->content_en }}</textarea>
-                        <label>Image</label>
+                        <label>Hình ảnh</label>
                         <input class="form-control form-control-lg mb-3" type="file" name="image">
                         <img style="width: 200px; height: 150px" src="source_admin/images/{{ $news->image }}">
                     </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class='card-body p-0'>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item p-3">
+                            {{-- <li class="list-group-item p-3">
                                 <span class="d-flex mb-2">
                                     <i class="material-icons mr-1">flag</i>
                                     <strong class="mr-1">Status:</strong>
@@ -58,7 +58,7 @@
                                     <strong class="mr-1">Readability:</strong>
                                     <strong class="text-warning">Ok</strong>
                                 </span>
-                            </li>
+                            </li> --}}
                             <li class="list-group-item d-flex px-3">
                                 <input type="submit" name="save" value="Save Draft" class="btn btn-sm btn-outline-accent">
                                 <input type="submit" name="publish" value="Publish" class="btn btn-sm btn-accent ml-auto">

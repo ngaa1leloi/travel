@@ -73,6 +73,8 @@
                                     <div class="select-wrap">
                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                   <select name="price" id="" class="form-control">
+                                    <option value="0">{{ __('text.Price') }}</option>
+                                    <option value="1">{{ __('text.under_1') }}</option>
                                     <option value="1">{{ __('text.under_1') }}</option>
                                     <option value="2">{{ __('text.from_1_to_2') }}</option>
                                     <option value="3">{{ __('text.from_2_to_4') }}</option>
@@ -299,7 +301,7 @@
                 @if($key % 2 == 0)
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination">
-                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
+                        <a href="{{ route('tour_detail', $value->id) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-link"></span>
                             </div>
@@ -314,7 +316,7 @@
                                     <span class="price">{{ number_format($value->price) }}đ</span>
                                 </div>
                             </div>
-                            <p>{{ $value->quantity_person }}</p>
+                            <p>{{ __('text.Seat_Availability') }}: {{ $value->quantity_person }}</p>
                             <p class="days"><span>{{ $value->start_date}}</span></p>
                             <hr>
                             <p class="bottom-area d-flex">
@@ -327,7 +329,7 @@
                 @else
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination d-md-flex flex-column-reverse">
-                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
+                        <a href="{{ route('tour_detail', $value->id) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->image }});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-link"></span>
                             </div>
@@ -342,7 +344,7 @@
                                     <span class="price">{{ number_format($value->price) }}đ</span>
                                 </div>
                             </div>
-                            <p>{{ $value->quantity_person }}</p>
+                            <p>{{ __('text.Seat_Availability') }}: {{ $value->quantity_person }}</p>
                             <p class="days"><span>{{ $value->start_date}}</span></p>
                             <hr>
                             <p class="bottom-area d-flex">
@@ -392,7 +394,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <p>{{ $value->quantity_person }}</p>
+                            <p>{{ __('text.Seat_Availability') }}: {{ $value->quantity_person }}</p>
                             @if ($value->start_date!= null)
                             <p class="days"><span>{{ $value->start_date}}</span></p>
                             @else
@@ -435,7 +437,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <p>{{ $value->quantity_person }}</p>
+                            <p>{{ __('text.Seat_Availability') }}: {{ $value->quantity_person }}</p>
                             @if ($value->start_date!= null)
                             <p class="days"><span>{{ $value->start_date}}</span></p>
                             @else
@@ -467,14 +469,16 @@
             <div class="row">
                 {{-- 4 tours --}}
                 @foreach($places as $place => $value)
-                @if($key % 2 == 0)
+                @if($place % 2 == 0)
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="destination">
+                        @if(count($value->scenics()->get()) != 0)
                         <a href="{{ route('scenic', $value->slug) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ config('image.source') }}/{{ $value->scenics()->firstOrFail()->image }});">
                             <div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-link"></span>
                             </div>
                         </a>
+                        @endif
                         <div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
@@ -528,7 +532,7 @@
             </div>
         </div>
     </section>
-
+{{-- 
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(resource/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row justify-content-center">
@@ -571,13 +575,13 @@
         </div>
         </div>
     </section>
-
+ --}}
 
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2 class="mb-4"><strong>Popular</strong> Hotels</h2>
+                    <h2 class="mb-4"><strong>{{ __('text.Popular_Hotels') }}</strong></h2>
                 </div>
             </div>          
         </div>
@@ -607,11 +611,11 @@
                                     <span class="price per-price"><br><small></small></span>
                                 </div>
                             </div>
-                             <p>@if (session('lang') == 'vi'){{ $value->address_vi }} @else {{ $value->address_en }} @endif</p>
+                             <p></p>
                             
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i></span> 
+                                <span><i class="icon-map-o"></i>@if (session('lang') == 'vi'){{ $value->address_vi }} @else {{ $value->address_en }} @endif</span> 
                                 <span class="ml-auto"><a href="{{ route('hotel_detail', $value->id) }}">{{ __('text.detail') }}</a></span>
                             </p>
                         </div>
@@ -640,10 +644,10 @@
                                     <span class="price per-price"><br><small></small></span>
                                 </div>
                             </div>
-                            <p>@if (session('lang') == 'vi'){{ $value->address_vi }} @else {{ $value->address_en }} @endif</p>
+                            <p></p>
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> </span> 
+                                <span><i class="icon-map-o"></i>@if (session('lang') == 'vi'){{ $value->address_vi }} @else {{ $value->address_en }} @endif</span> 
                                 <span class="ml-auto"><a href="{{ route('hotel_detail', $value->id) }}">{{ __('text.detail') }}</a></span>
                             </p>
                         </div>
@@ -654,93 +658,6 @@
             </div>
         </div>
     </section>
-
-   {{--  <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-4">Our satisfied customer says</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(resource/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Marketing Manager</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(resource/images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Interface Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(resource/images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">UI Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(resource/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Web Developer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(resource/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">System Analyst</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> --}}
 
     <section class="ftco-section bg-light">
         <div class="container">
@@ -754,14 +671,14 @@
                 @foreach($news as $new)
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="{{ route('news_detail', $new->slug) }}" class="block-20" style="background-image: url({{ config('image.source') }}/{{ $new->image }});">
+                        <a href="{{ route('news_detail', $new->slug) }}" class="block-20" style="background-image: url({{ config('image.source') }}/{{ $new->image }}); width: 340px">
                         </a>
                         <div class="text">
                             <span class="tag"></span>
-                            <h3 class="heading mt-3"><a href="{{ route('news_detail', $new->slug) }}">@if (session('lang') == 'vi'){{ $new->title_vi }} @else {{ $new->title_en }} @endif</a></h3>
+                            <h3 class="heading mt-3"><a href="{{ route('news_detail', $new->slug) }}">@if (session('lang') == 'vi'){{ $new->title_vi }} @else @if($new->title_en != null){{ $new->title_en }} @else {{ $new->title_vi }}@endif @endif</a></h3>
                             <div class="meta mb-3">
                                 <div><a>{{ $new->updated_at }}</a></div>
-                                <div><a href="#">Admin</a></div>
+                                <div><a>@if($new->user_id != null) {{ $new->user->name }} @else Admin @endif</a></div>
                                 <div><a href="{{ route('news_detail', $new->slug) }}" class="meta-chat"><span class="icon-chat"></span>{{ count($new->comments) }}</a></div>
                             </div>
                         </div>

@@ -25,9 +25,7 @@ class EditNewsRequest extends FormRequest
     {
         return [
             'title_vi' => 'required',
-            'title_en' => 'required',
             'content_vi' => 'required',
-            'content_en' => 'required',
             'image' => 'image',
         ];
     }

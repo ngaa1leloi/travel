@@ -37,6 +37,7 @@
                         <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select name="price" id="" class="form-control" placeholder="Keyword search">
+                            <option value="0">{{ __('text.Price') }}</option>
                             <option value="1">{{ __('text.under_1') }}</option>
                             <option value="2">{{ __('text.from_1_to_2') }}</option>
                             <option value="3">{{ __('text.from_2_to_4') }}</option>
@@ -114,7 +115,7 @@
                                         <span class="price">{{ number_format($tour->price) }}đ</span>
                                     </div>
                                 </div>
-                                <p>Còn trống: {{ $tour->quantity_person }}</p>
+                                <p>{{ __('text.Seat_Availability') }}: {{ $tour->quantity_person }}</p>
                                 <p class="days">
                                     <span>{{ $tour->date }}</span>
                                     <span>{{ $tour->time }}</span>
@@ -130,7 +131,7 @@
                 @endforeach
             </div>
 
-             <div class="row">
+            {{--  <div class="row">
                 @foreach($relate_tours as $tour)
                     <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
@@ -170,7 +171,7 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
+            </div> --}}
         </div>
 
       </div>

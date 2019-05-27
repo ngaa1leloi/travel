@@ -87,9 +87,10 @@
                     <tbody>
                         @foreach($bookings as $key => $booking)
                         {{-- {{ dd($booking->tour()->withTrashed()->first()->price) }} --}}
-                        <?php $price = $booking->tour()->withTrashed()->first()->price ?>
+                        <?php $price = $booking->tour()->withTrashed()->first()->price;
+                            $page = $bookings->currentPage(); ?>
                         <tr>
-                            <th>{{ $key + 1 }}</th>
+                            <th>{{ ($page -1) * 10 + $key + 1 }}</th>
                             <td>{{ $booking->tour()->withTrashed()->first()->name_vi }}</td>
                             <td>{{ $booking->name }}</td>
                             <td>{{ $booking->phone }}</td>
@@ -97,7 +98,7 @@
                             <td>{{ $booking->address }}</td>
                             <td>{{ $booking->note }}</td>
                             <td>{{ $booking->quantity_adult + $booking->quantity_child + $booking->quantity_baby }}</td>
-                            <td>{{ $booking->quantity_adult * $price +  $booking->quantity_child  * $price * 0.7 + $booking->quantity_baby * $price * 0.3 }}</td>
+                            <td>{{ number_format($booking->quantity_adult * $price +  $booking->quantity_child  * $price * 0.7 + $booking->quantity_baby * $price * 0.3) }}</td>
                             <td>{{ $booking->start_date }}</td>
                             <td>{{ $booking->end_date }}</td>
                             <td> @if($booking->payment == '0')Tiền mặt @elseif($booking->payment == 1) Chuyển khoản @elseif($booking->payment == 2) Quét mã MOMO @else Chưa có @endif</td>
@@ -111,6 +112,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $bookings->links() }}
             </div>
         </div>
     </div>

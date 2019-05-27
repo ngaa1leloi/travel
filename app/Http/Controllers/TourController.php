@@ -47,6 +47,9 @@ class TourController extends Controller
                 'phone' => 'required|regex:/(0)[0-9]{9}$/',
                 'email' => 'required|email',
                 'address' => 'required|min:3',
+                'quantity_adult' => 'required|integer|min:1',
+                'quantity_child' => 'integer',
+                'quantity_baby' => 'integer',
 
             ],
             [
@@ -94,6 +97,9 @@ class TourController extends Controller
                 'address' => 'required|min:3',
                 'start_date' => 'required',
                 'end_date' => 'required',
+                'quantity_adult' => 'required|integer|min:1',
+                'quantity_child' => 'integer',
+                'quantity_baby' => 'integer',
             ],
             [
                 'name.required' => __('message.name_required'),
@@ -108,6 +114,7 @@ class TourController extends Controller
                 'end_date.required' => __('message.end_date'),
 
             ]);
+        $total = $request['total'];
 
         $booking_tour = BookingCustomTour::create([
             'tour_id' => $request['tour_id'],
@@ -119,37 +126,36 @@ class TourController extends Controller
             'quantity_child' => $request['quantity_child'],
             'quantity_baby' => $request['quantity_baby'],
             'note' => $request['note'],
-            'payment' => $request['payment'],
-            'start_date' => $request['date_from'],
-            'end_date' => $request['date_to'],
+            'start_date' => $request['start_date'],
+            'end_date' => $request['end_date'],
         ]);
         $current = 'tour';
 
-        return view('page_user.checkout', compact('current'));
+        return view('page_user.checkout', compact('current', 'booking_tour'));
     }
 
 
     public function filter(Request $request)
     {
-        $tours = Tour::orderBy('date', 'desc');
-        $relate_tours = Tour::where('status', '1');
+        $tours = Tour::orderBy('start_date', 'asc');
+       // $relate_tours = Tour::where('status', '1');
 
         if($request['departure']) {
             $tours = $tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
-            $relate_tours = $relate_tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
+            //$relate_tours = $relate_tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
         }
 
         if($request['name']) {
-            $tours = $tours->where('name_vi', 'like', '%' . $request['name'] . '%');
-            $relate_tours = $relate_tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
+            $tours = $tours->where('name_en', 'like', '%' . $request['name'] . '%');
+            //$relate_tours = $relate_tours->where('departure_vi', 'like', '%' . $request['departure'] . '%');
         }
 
         if($request['date-from']) {
-            $tours = $tours->where('date', '>=', $request['date-from']);
+            $tours = $tours->where('start_date', '>=', $request['date-from']);
         }
 
         if($request['date-to']) {
-            $tours = $tours->where('date', '<=', $request['date-to']);
+            $tours = $tours->where('start_date', '<=', $request['date-to']);
         }
 
         if($request['price']) {
@@ -170,11 +176,11 @@ class TourController extends Controller
             }
         }
         $tours = $tours->get();
-        $relate_tours = $relate_tours->get();
+        //$relate_tours = $relate_tours->get();
         //dd($tours);
         $current = 'tour';
 
-        return view('page_user.filter', compact('tours', 'relate_tours', 'current'));
+        return view('page_user.filter', compact('tours', 'current'));
     }
     
 }

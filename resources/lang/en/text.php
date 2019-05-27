@@ -70,4 +70,6 @@ return [
     'cash' => 'Cash',
     'Transfer' => 'Transfer',
     'QRcode' => 'Pay by scanning QRCode',
+    'contact_soon' => 'We will contact you as soon as possible',
+    'Popular_Hotels' => 'Popular Hotels',
 ];

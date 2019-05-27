@@ -12,7 +12,7 @@ use App\Models\Tour;
 class BookingController extends Controller
 {
     public function getBookingTours() {
-    	$bookings = BookingTour::all();
+    	$bookings = BookingTour::paginate(10);
     	$tours = Tour::where('status', 0)->get();
     	//dd($tours);
 
@@ -20,7 +20,7 @@ class BookingController extends Controller
     }
 
     public function getBookingCustomTours() {
-    	$bookings = BookingCustomTour::all();
+    	$bookings = BookingCustomTour::paginate(10);
     	$tours = Tour::withTrashed()->where('status', 1)->get();
 
     	return view('page_admin.booking.booking_custom_tour', compact('bookings', 'tours'));
@@ -46,7 +46,7 @@ class BookingController extends Controller
             $bookings = $bookings->where('end_date', $request['end_date']);
         }*/
 
-        $bookings = $bookings->get();
+        $bookings = $bookings->paginate(10);
         $tours = Tour::where('status', 0)->get();
         //dd($tours);
 
@@ -74,7 +74,7 @@ class BookingController extends Controller
             $bookings = $bookings->where('end_date', $request['end_date']);
         }
 
-        $bookings = $bookings->get();
+        $bookings = $bookings->paginate(10);
         $tours = Tour::where('status', 1)->get();
         //dd($tours);
 

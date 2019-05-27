@@ -97,25 +97,25 @@
                                 <div class="col-md-3 col-sm-2 mg-bot15">
                                     <label>{{ __('text.adult') }}</label>
                                     <div>
-                                        <input class="form-control input-lg" id="quantity_adult" name="quantity_adult" type="text" value="{{ $booking_tour->quantity_adult }}" >
+                                        <input class="form-control input-lg" id="quantity_adult" name="quantity_adult" type="text" value="{{ $booking_tour->quantity_adult }}" disabled="disabled">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-2 mg-bot15">
                                     <label>{{ __('text.child') }}</label>
                                     <div>
-                                        <input class="form-control input-lg" id="quantity_child" name="quantity_child" type="text" value="{{ $booking_tour->quantity_child }}">
+                                        <input class="form-control input-lg" id="quantity_child" name="quantity_child" type="text" value="{{ $booking_tour->quantity_child }}" disabled="disabled">
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-3 mg-bot15">
+                                <div class="col-md-2 col-sm-3 mg-bot15">
                                     <label>{{ __('text.baby') }}</label>
                                     <div>
-                                        <input class="form-control input-lg" id="quantity_baby" name="quantity_baby" type="text" value="{{ $booking_tour->quantity_baby }}">
+                                        <input class="form-control input-lg" id="quantity_baby" name="quantity_baby" type="text" value="{{ $booking_tour->quantity_baby }}" disabled="disabled">
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-3 mg-bot15">
+                                <div class="col-md-4 col-sm-3 mg-bot15">
                                     <label>{{ __('text.total') }}:</label>
-                                    <div>
-                                        <input class="form-control input-lg" id="result" name="quantity_baby" type="text" value="{{ number_format($booking_tour->price) }}đ" disabled="disabled">
+                                    <div><?php $price = $booking_tour->tour()->withTrashed()->first()->price ?>
+                                        <input class="form-control input-lg" id="result" name="quantity_baby" type="text" value="{{ number_format($booking_tour->quantity_adult * $price +  $booking_tour->quantity_child  * $price * 0.7 + $booking_tour->quantity_baby * $price * 0.3) }}đ" disabled="disabled">
                                     </div>
                                 </div>
                             </div>

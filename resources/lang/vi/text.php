@@ -70,5 +70,7 @@ return [
     'cash' => 'Tiền mặt',
     'Transfer' => 'Chuyển khoản',
     'QRcode' => 'Thanh toán bằng quét QRCode',
-
+    'contact_soon' => 'chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất',
+    'Popular_Hotels' => 'Khách sạn phổ biến
+    ',
 ];

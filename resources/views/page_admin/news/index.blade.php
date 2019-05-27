@@ -4,13 +4,14 @@
     <div class="col">
         <div class="card card-small mb-4">
             <div class="card-header border-bottom">
-                <span class="m-0" style="font-size: 18px;">News</span>
-                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_news') }}">New post</a></span>
+                <span class="m-0" style="font-size: 18px;">Tin tức và bài viết</span>
+                <span class="mb-2 btn btn-info mr-2" style="float: right;"><a href="{{ route('create_news') }}">Thêm tin tức</a></span>
             </div>
             <div class="card-body p-0 pb-3 text-center">
                 <table class="table mb-0">
                     <thead class="bg-light">
                         <tr>
+                            <th scope="col" class="border-0">STT</th>
                             <th scope="col" class="border-0">Tiêu đề</th>
                             <th scope="col" class="border-0">Nội dung</th>
                             <th scope="col" class="border-0">Hình ảnh</th>
@@ -22,8 +23,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($news as $new)
+                        <?php $page = $news->currentPage();?>
+                        @foreach($news as $key => $new)
                         <tr>
+                            <th>{{ ($page -1) * 5 + $key + 1 }}</th>
                             <td>{{ $new->title_vi }}</td>
                             <td>{{ $new->content_vi }}</td>
                             <td><img style="width: 200px; height: 150px" src="source_admin/images/{{ $new->image }}"></td>

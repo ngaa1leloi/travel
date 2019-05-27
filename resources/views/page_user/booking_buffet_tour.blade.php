@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label>{{ __('text.Price') }}</label>
                             <div>
-                                <input class="form-control input-lg" id="mobilephone" name="price" type="text" value="{{ $tour->price }}" disabled>
+                                <input class="form-control input-lg" id="mobilephone" name="price" type="text" value="{{ number_format($tour->price) }}đ" disabled>
                             </div>
                         </div>
                     </div>
@@ -46,16 +46,16 @@
                         <div class="form-group">
                             <label>{{ __('text.date_from') }} <span style="color: #cd2c24">*</span></label>
                             <div>
-                                <input class="form-control input-lg" name="date_from" required="required" type="date" value="">
-                                <p class="help is-danger" style="color: red">{{ $errors->first('date_from') }}</p>
+                                <input class="form-control input-lg" name="start_date" required="required" type="date" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('start_date') }}</p>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label>{{ __('text.date_to') }} <span style="color: #cd2c24">*</span></label>
                             <div>
-                                <input class="form-control input-lg" name="date_to" required="required" type="date" value="">
-                                <p class="help is-danger" style="color: red">{{ $errors->first('date_to') }}</p>
+                                <input class="form-control input-lg" name="end_date" required="required" type="date" value="">
+                                <p class="help is-danger" style="color: red">{{ $errors->first('end_date') }}</p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>{{ __('text.address') }}</label>
+                            <label>{{ __('text.address') }}<span style="color: #cd2c24">*</span></label>
                             <div>
                                 <textarea class="form-control input-lg" cols="20" id="address" name="address" rows="4"></textarea>
                                 <p class="help is-danger" style="color: red">{{ $errors->first('address') }}</p>
@@ -121,9 +121,12 @@
                                 <div class="col-md-3 col-sm-3 mg-bot15">
                                     <label>{{ __('text.total') }}:</label>
                                     <div>
-                                        <input class="form-control input-lg" id="result" name="quantity_baby" type="text" value="{{ number_format($tour->price) }}đ" disabled="disabled">
+                                        <input class="form-control input-lg" id="result" name="total" type="text" value="{{ number_format($tour->price) }}đ" disabled="disabled">
                                     </div>
                                 </div>
+                                <p class="help is-danger" style="color: red;">{{ $errors->first('quantity_adult') }}</p>
+                                <p class="help is-danger" style="color: red;">{{ $errors->first('quantity_child') }}</p>
+                                <p class="help is-danger" style="color: red;">{{ $errors->first('quantity_baby') }}</p>
                             </div>
                         </div>
                         <div class="form-group">

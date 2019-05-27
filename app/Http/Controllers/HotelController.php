@@ -16,7 +16,7 @@ class HotelController extends Controller
     }
 
     public function hotelDetail($id) {
-        $hotel = Tour::findOrFail($id);
+        $hotel = Hotel::findOrFail($id);
         $relate_tours = Tour::where('hotel_id', $hotel->id)->take(6)->get();
         //dd($relate_tours);
         $current = 'hotel';
